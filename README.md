@@ -1,12 +1,18 @@
 # Couch-Critics
 
-## Description
+## Executive Summary 
+
+- The Couch Critic Application will manage the process of writing reviews for Movies.
+- All users will be able to create an account, login, and and like/comment on Employee Reviews
+- All employees can login and write a review for whichever Movie is in the IMDB database
+- Managers will be able to approve or deny reviews, add employees, and fire employees. 
+
 
 ## Stories
 
 ### User Stories
 
-- As a User can search for movies: e.g.  on movie name, critic?
+- As a User can search for movies
 - As a User I can create an account
 - As a User I can log in
 - As a User I can view the home page
@@ -35,6 +41,11 @@ https://rapidapi.com/amrelrafie/api/movies-tvshows-data-imdb
 Minimum Viable Product
 
 ### Stretch Goals
+
+- Add trailers that are retrieved from youtube?
+- Have a facebook tag or twitter tag that used to communicate with our user about our updates
+- Customers can delete their account
+- Send email to new customer to verify account 
 
 ## Team Roles
 
