@@ -1,22 +1,33 @@
 Project Status:
+Database established
+Reviewing Spring Concepts
 
 Blockers:
+waiting to finsih Spring training to have a more clear picture of project plan
 
 Focus:
-
-
+Establish link to Robbie's EC2 database
+Finsih tour of heroes by the end of the day
 
 
 Kemo
-
+Tried installing Jenkins, unsuccessful
+Focusing on Angular, halfway through tour of heroes
 
 Steven
-
+Uploaded SQL script for database
+Focusing on Angular, beginning of tour of heroes
 
 Ruben
-
+Looking at Revpro concepts
+Still looking to start tour of heroes
+Working on front end design 
 
 Robbie
-
+Set up EC2 and database for it
+Shared EC2 link
+Still reviewing Angular, watching other resources for Angular
 
 Ray
+Still at beginning of tour of heroes
+Looking to establish link to EC2
