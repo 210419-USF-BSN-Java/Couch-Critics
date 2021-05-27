@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.revature.model.Discussion;
 
-public interface DescussionDao {
+public interface DiscussionDao {
 	
 	public List<Discussion> getDiscussionByUserId(int userID);
 	
