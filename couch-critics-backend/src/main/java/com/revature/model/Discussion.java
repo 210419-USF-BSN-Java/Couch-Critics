@@ -12,6 +12,8 @@ public class Discussion {
 	@Autowired
 	private Reviews review;
 	
+	private String content;
+	
 	public Discussion(int discId, Users user, Reviews review) {
 		super();
 		this.discId = discId;
