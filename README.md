@@ -65,16 +65,18 @@ Minimum Viable Product
 ## Team Roles
 
 **Team Lead:** 
-Raymond Campbell
+Raymond Campbell (front end)
 
 **GitMaster:**
-Ruben
+Ruben (front end)
 
-**SQL Database:** Steven 
+**SQL Database:** Steven (middle)
 
-**AWS EC2:** Robbie 
+**AWS EC2:** Robbie (back end)
 
-**Jenkins Testing:** Kemo Allen
+**Jenkins Testing:** Kemo Allen (back end)
+
+**"While each member was assigned towards a certain stack of the application, each member still operated as a full-stack java engineer and contributed to the other stacks of this application**
 
 ### google sheets link
 
