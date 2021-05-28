@@ -50,6 +50,7 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 - As an Administrator I can view all reviews from a single Critic
 - As an Administrator I can view approve reviews
 - As an Administrator I can fire a Critic
+- As an Administrator I can delete user comments
 - As an Administrator I can ban a user (stretch)
 
 ### API:
