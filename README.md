@@ -22,6 +22,7 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 - As a User I can edit my account
 - As a User I can search for reviews by movie
 - As a User I can search for reviews by critic
+- As a User I can search for all reviews
 - As a User I can view a Critic page
 - As a User I can give a thumbs up or thumbs down on a critic review
 - As a User I can comment on a critic review
