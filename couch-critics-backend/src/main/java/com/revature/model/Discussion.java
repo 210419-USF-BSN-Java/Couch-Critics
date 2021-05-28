@@ -1,22 +1,21 @@
 package com.revature.model;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Discussion {
-	private int discId;
+	private int id;
 	@Autowired
 	private Users user;
 	@Autowired
 	private Reviews review;
-	
+
 	private String content;
-	
-	public Discussion(int discId, Users user, Reviews review) {
+
+	public Discussion(int id, Users user, Reviews review) {
 		super();
-		this.discId = discId;
+		this.id = id;
 		this.user = user;
 		this.review = review;
 	}
@@ -25,7 +24,7 @@ public class Discussion {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + discId;
+		result = prime * result + id;
 		result = prime * result + ((review == null) ? 0 : review.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
@@ -40,7 +39,7 @@ public class Discussion {
 		if (getClass() != obj.getClass())
 			return false;
 		Discussion other = (Discussion) obj;
-		if (discId != other.discId)
+		if (id != other.id)
 			return false;
 		if (review == null) {
 			if (other.review != null)
@@ -55,12 +54,12 @@ public class Discussion {
 		return true;
 	}
 
-	public int getDiscId() {
-		return discId;
+	public int getId() {
+		return id;
 	}
 
-	public void setDiscId(int discId) {
-		this.discId = discId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Users getUser() {
@@ -81,9 +80,7 @@ public class Discussion {
 
 	@Override
 	public String toString() {
-		return "Discussion [discId=" + discId + ", user=" + user + ", review=" + review + "]";
+		return "Discussion [id=" + id + ", user=" + user + ", review=" + review + "]";
 	}
-	
 
-	
 }
