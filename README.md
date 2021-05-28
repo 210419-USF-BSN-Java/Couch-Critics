@@ -9,7 +9,7 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 ## Executive Summary 
 
 - The Couch Critic Application will manage the process of writing reviews for Movies.
-- All users will be able to create an account, login, and and like/comment on Employee Reviews
+- All users will be able to create an account, login, and and like and comment on critic reviews
 - All employees can login and write a review for whichever Movie is in the IMDB database
 - Managers will be able to approve or deny reviews, add employees, and fire employees. 
 
@@ -39,7 +39,7 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 - As a Critic I can view accepted reviews
 - As a Critic I can update a review (stretch)
 
-### Administrator/Manager Stories
+### Administrator Stories
 
 - As an Administrator I can login
 - As an Administrator I can edit my account
@@ -47,7 +47,7 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 - As an Administrator I can view all pending reviews
 - As an Administrator I can view all reviews from a single Critic
 - As an Administrator I can view approve reviews
-- As an Administrator I can fire a critic
+- As an Administrator I can fire a Critic
 - As an Administrator I can ban a user (stretch)
 
 ### API:
