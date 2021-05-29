@@ -2,19 +2,23 @@ package com.revature.repository;
 
 import java.util.List;
 
-import com.revature.model.Reviews;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CriticsDao {
+import com.revature.model.Reviews;
+import com.revature.model.Users;
+
+public interface CriticsDao extends JpaRepository<Users, Integer>{
 	
-	public List<Reviews> getReviewsByCriticId(int criticID);
+	//public List<Reviews> getReviewsById(int criticID);
+	//done by findById
 	
-	public List<Reviews> getPendingReviews();
+	public List<Reviews> getReviewsByReviewStatus(String reviewStatus);
 	
-	public List<Reviews> getApprovedReviews();
+	//public boolean addReview(Reviews r);
+	//done by save()
 	
-	public boolean addReview(Reviews r);
-	
-	public boolean deleteReview(int reviewID);
+	//public boolean deleteReview(int reviewID);
+	//done by delete()
 	
 	
 }
