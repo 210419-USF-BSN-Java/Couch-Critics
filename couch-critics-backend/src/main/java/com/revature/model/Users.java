@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,12 +35,13 @@ public class Users {
 	private String email;
 	@Column(nullable=false)
 	private String salt;
-//	@Column
-//	@Autowired
-//	private Role roleId;
-//	@Column
-//	@Autowired
-//	private AccStatus statusid;
+	@Autowired
+	@ManyToOne
+	private Role role_id;//role_Id
+
+	@Autowired
+	@ManyToOne
+	private AccStatus statusid;
 	
 	public Users() {
 		
@@ -111,7 +115,7 @@ public class Users {
 //	public void setroleId(Role roleId) {
 //		this.roleId = roleId;
 //	}
-//
+
 //	public AccStatus getStatusid() {
 //		return statusid;
 //	}

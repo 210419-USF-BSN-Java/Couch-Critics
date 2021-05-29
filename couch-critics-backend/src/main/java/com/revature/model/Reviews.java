@@ -3,8 +3,10 @@ package com.revature.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@Entity
 @Component
 @Getter
 @Setter
@@ -37,11 +40,11 @@ public class Reviews {
 	private int movieId;
 	@Column
 	private String movieName;
-	@Column
 	@Autowired
+	@ManyToOne
 	private Users authorId;
-	@Column
 	@Autowired
+	@ManyToOne
 	private Users managerId;
 	
 	public Reviews() {

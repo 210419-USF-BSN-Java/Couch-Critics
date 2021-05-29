@@ -2,22 +2,25 @@ package com.revature.model;
 
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+@Entity
 @Component
 public class Discussion {
 	@Id
 	@GeneratedValue
 	private int discId;
-	@Column
+	@ManyToOne
 	@Autowired
 	private Users user;
-	@Column
 	@Autowired
+	@ManyToOne
 	private Reviews review;
 	@Column
 	private String content;
