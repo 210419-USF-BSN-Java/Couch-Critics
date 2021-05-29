@@ -9,7 +9,7 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 ## Executive Summary 
 
 - The Couch Critic Application will manage the process of writing reviews for Movies.
-- All users will be able to create an account, login, and and like/comment on Employee Reviews
+- All users will be able to create an account, login, and and like and comment on critic reviews
 - All employees can login and write a review for whichever Movie is in the IMDB database
 - Managers will be able to approve or deny reviews, add employees, and fire employees. 
 
@@ -17,29 +17,41 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 ## Stories
 
 ### User Stories
-
-- As a User can search for movies
 - As a User I can create an account
-- As a User I can log in
-- As a User I can view the home page
-- As a User I can view personal page
-- As a User I can give a thumbs up or thumbs down on a critic review or movie
+- As a User I can log into my account
+- As a User I can edit my account
+- As a User I can search for reviews by movie
+- As a User I can search for reviews by critic
+- As a User I can search for all reviews
+- As a User I can view all Critic pages
+- As a User I can view Critic pages by username
+- As a User I can give a thumbs up or thumbs down on a critic review
+- As a User I can comment on a critic review
 
-### Critic Stories (were considering these as employees)
+### Critic Stories
 
-- Critic can log into account
+- As a Critic I can log into account
+- As a Critic I can edit my account
+- As a Critic I can search for a movie to review
+- As a Critic I can add images/trailers to my reviews (stretch)
+- As a Critic I can submit a review
+- As a Critic I will have a critic profile page listing all reviews written
 - As a Critic I will have a Critic Score (stretch)
-- As Critic I can submit a review
+- As a Critic I can view pending reviews
+- As a Critic I can view accepted reviews
+- As a Critic I can update a review (stretch)
 
-### Administrator/Manager Stories
+### Administrator Stories
 
 - As an Administrator I can login
-- As an Administrator I can add new movie data
-- As an Administrator I can delete a movie
+- As an Administrator I can edit my account
+- As an Administrator I can delete a review
 - As an Administrator I can view all pending reviews
 - As an Administrator I can view all reviews from a single Critic
 - As an Administrator I can view approve reviews
-- As an Administrator I can delete an inappropriate review.
+- As an Administrator I can fire a Critic
+- As an Administrator I can delete user comments
+- As an Administrator I can ban a user (stretch)
 
 ### API:
 
@@ -48,7 +60,7 @@ Minimum Viable Product
 
 ### Stretch Goals
 
-- Add trailers that are retrieved from youtube?
+- Add trailers that are retrieved from youtube
 - Have a facebook tag or twitter tag that used to communicate with our user about our updates
 - Customers can delete their account
 - Send email to new customer to verify account 
@@ -56,16 +68,18 @@ Minimum Viable Product
 ## Team Roles
 
 **Team Lead:** 
-Raymond Campbell
+Raymond Campbell (front end)
 
 **GitMaster:**
-Ruben
+Ruben (front end)
 
-**SQL Database:** Steven
+**SQL Database:** Steven (middle)
 
-**AWS EC2:**Robbie
+**AWS EC2:** Robbie (back end)
 
-**Jenkins Testing:** Kemo Allen
+**Jenkins Testing:** Kemo Allen (back end)
+
+**"While each member was assigned towards a certain stack of the application, each member still operated as a full-stack java engineer and contributed to the other stacks of this application**
 
 ### google sheets link
 
