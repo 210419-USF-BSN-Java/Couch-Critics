@@ -1,11 +1,22 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class AccStatus {
+	@Id
+	@GeneratedValue
 	private int accStatusId;
+	@Column
 	private String accStatus;
+	
+	public AccStatus() {
+		
+	}
 	
 	public AccStatus(int accStatusId, String accStatus) {
 		super();

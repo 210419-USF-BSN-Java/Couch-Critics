@@ -12,7 +12,7 @@ public interface CriticsDao extends JpaRepository<Users, Integer>{
 	//public List<Reviews> getReviewsById(int criticID);
 	//done by findById
 	
-	public List<Reviews> getReviewsByReviewStatus(String reviewStatus);
+	//public List<Reviews> getReviewsByReviewStatus(String reviewStatus);
 	
 	//public boolean addReview(Reviews r);
 	//done by save()

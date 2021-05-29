@@ -1,66 +1,45 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.springframework.stereotype.Component;
 
+@Entity
 @Component
 public class Role {
-	private int RoleId;
-	private String Role;
+	@Id
+	@GeneratedValue
+	private int roleId;
+	@Column
+	private String role;
 	
-	public Role(int RoleId, String Role) {
-		super();
-		this.RoleId = RoleId;
-		this.Role = Role;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((Role == null) ? 0 : Role.hashCode());
-		result = prime * result + RoleId;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Role other = (Role) obj;
-		if (Role == null) {
-			if (other.Role != null)
-				return false;
-		} else if (!Role.equals(other.Role))
-			return false;
-		if (RoleId != other.RoleId)
-			return false;
-		return true;
+	public Role() {
+		
 	}
 
 	public int getRoleId() {
-		return RoleId;
+		return roleId;
 	}
 
-	public void setRoleId(int RoleId) {
-		this.RoleId = RoleId;
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getRole() {
-		return Role;
+		return role;
 	}
 
-	public void setRole(String Role) {
-		this.Role = Role;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
 	public String toString() {
-		return "Role [RoleId=" + RoleId + ", Role=" + Role + "]";
+		return "Role [roleId=" + roleId + ", role=" + role + "]";
 	}
-
+	
 	
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.revature.model.Users;
 import com.revature.repository.UsersRepository;
 
-//@Service
+@Service
 public class UsersService {
 
 		private UsersRepository ur;
@@ -28,7 +28,7 @@ public class UsersService {
 		*/
 		public Users getUserById(int userId) {
 			try{
-				return ur.getUsersById(userId);
+				return ur.getUsersByUserid(userId);
 			} catch (Exception e){
 				return null;
 			}	
@@ -62,18 +62,15 @@ public class UsersService {
 		}
 		
 		/*
-		   this method will have two return type: 
-		    1) an Users object(JSON format) that contains the registered user's information for confirmation.
-		    2) a Null if the user name is already existed in database and cause the registration failed.
+		   this method will have two return a String that show if the registration is success.
 		*/
-		public Users registUserAccount(Users u) {
+		public String registUserAccount(Users u) {
 			try {
 				ur.save(u);
-				
-				return u;
+				return "registration successed.";
 				
 			} catch(Exception e) {
-				return null;
+				return "registration failed.";
 			}
 
 		}

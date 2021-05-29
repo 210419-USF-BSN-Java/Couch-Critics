@@ -2,6 +2,10 @@ package com.revature.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,18 +20,33 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Reviews {
+	@Id
+	@GeneratedValue
 	private int reviewId;
+	@Column
 	private String review;
+	@Column
 	private String reviewStatus;
+	@Column
 	private Date submit;
+	@Column
 	private String likes;
+	@Column
 	private String dislikes;
+	@Column
 	private int movieId;
+	@Column
 	private String movieName;
+	@Column
 	@Autowired
 	private Users authorId;
+	@Column
 	@Autowired
 	private Users managerId;
+	
+	public Reviews() {
+		
+	}
 	
 	public Reviews(int reviewId, String review, String reviewstatus, Date submit, String likes, String dislikes,
 			int movieId, String movieName, Users authorId, Users managerId) {

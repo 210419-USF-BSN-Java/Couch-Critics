@@ -1,18 +1,30 @@
 package com.revature.model;
 
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Discussion {
+	@Id
+	@GeneratedValue
 	private int discId;
+	@Column
 	@Autowired
 	private Users user;
+	@Column
 	@Autowired
 	private Reviews review;
-	
+	@Column
 	private String content;
+	
+	public Discussion() {
+		
+	}
 	
 	public Discussion(int discId, Users user, Reviews review) {
 		super();

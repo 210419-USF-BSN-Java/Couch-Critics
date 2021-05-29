@@ -1,5 +1,11 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,22 +14,36 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@Entity
 @Component
 public class Users {
-	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int userid;
+	@Column
 	private String fName;
+	@Column
 	private String lName;
+	@Column(unique=true, nullable=false)
 	private String uName;
+	@Column(nullable=false)
 	private String pWord;
+	@Column
 	private String email;
+	@Column(nullable=false)
 	private String salt;
-	@Autowired
-	private Role roleid;
-	@Autowired
-	private AccStatus statusid;
+//	@Column
+//	@Autowired
+//	private Role roleId;
+//	@Column
+//	@Autowired
+//	private AccStatus statusid;
 	
-	public Users(int userid, String fName, String lName, String uName, String pWord, String email, Role roleid,
+	public Users() {
+		
+	}
+	
+	public Users(int userid, String fName, String lName, String uName, String pWord, String email, Role roleId,
 			AccStatus statusid) {
 		super();
 		this.userid = userid;
@@ -32,8 +52,8 @@ public class Users {
 		this.uName = uName;
 		this.pWord = pWord;
 		this.email = email;
-		this.roleid = roleid;
-		this.statusid = statusid;
+//		this.roleId = roleId;
+//		this.statusid = statusid;
 	}
 
 	public int getUserid() {
@@ -84,21 +104,21 @@ public class Users {
 		this.email = email;
 	}
 
-	public Role getRoleid() {
-		return roleid;
-	}
-
-	public void setRoleid(Role roleid) {
-		this.roleid = roleid;
-	}
-
-	public AccStatus getStatusid() {
-		return statusid;
-	}
-
-	public void setStatusid(AccStatus statusid) {
-		this.statusid = statusid;
-	}
+//	public Role getroleId() {
+//		return roleId;
+//	}
+//
+//	public void setroleId(Role roleId) {
+//		this.roleId = roleId;
+//	}
+//
+//	public AccStatus getStatusid() {
+//		return statusid;
+//	}
+//
+//	public void setStatusid(AccStatus statusid) {
+//		this.statusid = statusid;
+//	}
 
 	public String getSalt() {
 		return salt;
@@ -108,11 +128,11 @@ public class Users {
 		this.salt = salt;
 	}
 
-	@Override
-	public String toString() {
-		return "Users [userid=" + userid + ", fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", pWord="
-				+ pWord + ", email=" + email + ", salt=" + salt + ", roleid=" + roleid + ", statusid=" + statusid + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Users [userid=" + userid + ", fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", pWord="
+//				+ pWord + ", email=" + email + ", salt=" + salt + ", roleId=" + roleId + ", statusid=" + statusid + "]";
+//	}
 
 	
 	

@@ -6,16 +6,16 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.Users;
 
-@Repository
+
 public interface UsersRepository extends JpaRepository<Users, Integer>{
 	
 	//retrieve user's information from database base on the user ID.
-	public Users getUsersById(int userId);
+	public Users getUsersByUserid(int userId);
 	
 	//register an user into database with an Users Object.
 	//can be done by save();
 	//public boolean registUserAccount(Users u);
-	public Users findUsersByUname(String uName);
+	public Users findUsersByuName(String uName);
 	
 	//retrieve user's information from database base on the userName.
 	@Query("FROM Users WHERE uName=?1")
