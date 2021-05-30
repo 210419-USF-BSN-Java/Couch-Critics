@@ -16,42 +16,33 @@ public class Discussion {
 	@GeneratedValue
 	private int discId;
 	@ManyToOne
-
-	private int id;
-
 	@Autowired
-	private Users user;
+	private Users userId;
 	@Autowired
 	@ManyToOne
-	private Reviews review;
-
+	private Reviews reviewId;
 	@Column
 	private String content;
 	
 	public Discussion() {
 		
 	}
-	
+
 	public Discussion(int discId, Users user, Reviews review) {
 
-
-	private String content;
-
-	public Discussion(int id, Users user, Reviews review) {
-
 		super();
-		this.id = id;
-		this.user = user;
-		this.review = review;
+		this.discId = discId;
+		this.userId = user;
+		this.reviewId = review;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((review == null) ? 0 : review.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime * result + discId;
+		result = prime * result + ((reviewId == null) ? 0 : reviewId.hashCode());
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
 
@@ -64,48 +55,48 @@ public class Discussion {
 		if (getClass() != obj.getClass())
 			return false;
 		Discussion other = (Discussion) obj;
-		if (id != other.id)
+		if (discId != other.discId)
 			return false;
-		if (review == null) {
-			if (other.review != null)
+		if (reviewId == null) {
+			if (other.reviewId != null)
 				return false;
-		} else if (!review.equals(other.review))
+		} else if (!reviewId.equals(other.reviewId))
 			return false;
-		if (user == null) {
-			if (other.user != null)
+		if (userId == null) {
+			if (other.userId != null)
 				return false;
-		} else if (!user.equals(other.user))
+		} else if (!userId.equals(other.userId))
 			return false;
 		return true;
 	}
 
-	public int getId() {
-		return id;
+	public int getDiscId() {
+		return discId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setDiscId(int id) {
+		this.discId = id;
 	}
 
 	public Users getUser() {
-		return user;
+		return userId;
 	}
 
 	public void setUser(Users user) {
-		this.user = user;
+		this.userId = user;
 	}
 
 	public Reviews getReview() {
-		return review;
+		return reviewId;
 	}
 
 	public void setReview(Reviews review) {
-		this.review = review;
+		this.reviewId = review;
 	}
 
 	@Override
 	public String toString() {
-		return "Discussion [id=" + id + ", user=" + user + ", review=" + review + "]";
+		return "Discussion [id=" + discId + ", user=" + userId + ", review=" + reviewId + "]";
 	}
 
 }
