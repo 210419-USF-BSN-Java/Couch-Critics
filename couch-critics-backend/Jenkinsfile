@@ -1,6 +1,8 @@
 node{
   stage('SCM Checkout'){
-   git 'https://github.com/210419-USF-BSN-Java/Couch-Critics' 
+    dir('couch-critics-backend'){
+      git 'https://github.com/210419-USF-BSN-Java/Couch-Critics' 
+    }
   }
   stage('Compile-Package'){
     sh 'mvn package'
