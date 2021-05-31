@@ -24,7 +24,7 @@ public class DiscussionService {
 		
 	}
 	
-	public List<Discussion> getDiscussionByUserId(int userId){
+	public List<Discussion> getDiscussionsByUserId(int userId){
 		List<Discussion> discList = new LinkedList<>();
 		try {	
 			discList = dRepo.getDiscussionByUserId(userId);
@@ -34,7 +34,7 @@ public class DiscussionService {
 		return discList;
 	}
 	
-	public List<Discussion> getDiscussionByReviewId(int reviewId){
+	public List<Discussion> getDiscussionsByReviewId(int reviewId){
 		List<Discussion> discList = new LinkedList<>();
 		try {	
 			discList = dRepo.getDiscussionByReviewId(reviewId);
