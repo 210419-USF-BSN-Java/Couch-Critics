@@ -8,6 +8,10 @@ import { ButtonComponent } from './components/button/button.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UpdateUserInfoComponent } from './components/update-user-info/update-user-info.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +20,15 @@ import { UpdateUserInfoComponent } from './components/update-user-info/update-us
     ButtonComponent,
     HeaderComponent,
     FooterComponent,
-    UpdateUserInfoComponent
+    UpdateUserInfoComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
