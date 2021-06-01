@@ -70,11 +70,11 @@ https://rapidapi.com/amrelrafie/api/movies-tvshows-data-imdb
 Raymond Campbell (front end)
 
 **GitMaster:**
-Ruben (front end)
+Ruben Garcia (front end)
 
-**SQL Database:** Steven (middle)
+**SQL Database:** Steven Nguyen (middle)
 
-**AWS EC2:** Robbie (back end)
+**AWS EC2:** Robbie Weeks (back end)
 
 **Jenkins Testing:** Kemo Allen (back end)
 
