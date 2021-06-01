@@ -56,7 +56,6 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 ### API:
 
 https://rapidapi.com/amrelrafie/api/movies-tvshows-data-imdb
-Minimum Viable Product
 
 ### Stretch Goals
 
