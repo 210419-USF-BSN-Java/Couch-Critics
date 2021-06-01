@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.Users;
 
-
+@Repository
 public interface UsersRepository extends JpaRepository<Users, Integer>{
 	
 	//retrieve user's information from database base on the user ID.

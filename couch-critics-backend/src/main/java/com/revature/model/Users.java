@@ -33,11 +33,10 @@ public class Users {
 	private String pWord;
 	@Column
 	private String email;
-	@Column(nullable=false)
 	private String salt;
 	@Autowired
 	@ManyToOne
-	private Role role_id;//role_Id
+	private Role roleId;//role_Id
 
 	@Autowired
 	@ManyToOne
@@ -56,8 +55,8 @@ public class Users {
 		this.uName = uName;
 		this.pWord = pWord;
 		this.email = email;
-//		this.roleId = roleId;
-//		this.statusid = statusid;
+		this.roleId = roleId;
+		this.statusid = statusid;
 	}
 
 	public int getUserid() {
@@ -108,21 +107,21 @@ public class Users {
 		this.email = email;
 	}
 
-//	public Role getroleId() {
-//		return roleId;
-//	}
-//
-//	public void setroleId(Role roleId) {
-//		this.roleId = roleId;
-//	}
+	public Role getroleId() {
+		return roleId;
+	}
 
-//	public AccStatus getStatusid() {
-//		return statusid;
-//	}
-//
-//	public void setStatusid(AccStatus statusid) {
-//		this.statusid = statusid;
-//	}
+	public void setroleId(Role roleId) {
+		this.roleId = roleId;
+	}
+
+	public AccStatus getStatusid() {
+		return statusid;
+	}
+
+	public void setStatusid(AccStatus statusid) {
+		this.statusid = statusid;
+	}
 
 	public String getSalt() {
 		return salt;
@@ -132,11 +131,11 @@ public class Users {
 		this.salt = salt;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Users [userid=" + userid + ", fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", pWord="
-//				+ pWord + ", email=" + email + ", salt=" + salt + ", roleId=" + roleId + ", statusid=" + statusid + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Users [userid=" + userid + ", fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", pWord="
+				+ pWord + ", email=" + email + ", salt=" + salt + ", roleId=" + roleId + ", statusid=" + statusid + "]";
+	}
 
 	
 	
