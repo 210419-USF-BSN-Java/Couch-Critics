@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    //This uses the authentication method in our authentication.service
     this.authServ.login(this.username, this.password).subscribe(
       response =>{
         console.log(response);

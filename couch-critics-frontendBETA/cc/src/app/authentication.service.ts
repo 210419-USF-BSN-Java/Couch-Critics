@@ -12,12 +12,17 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
+
   login(username:string, password:string): Observable<User>{
     let loginInfo = {
       username : username,
       password : password
     }
-    return this.http.post(`${env.BACKEND_URL}/auth`, loginInfo).pipe(
+
+
+    //We are currently testing against the H2-CONSOLE URL
+    //Change to BACKEND_URL if you need to access backend
+    return this.http.post(`${env.TEST_H2_URL}/auth`, loginInfo).pipe(
       map(response => response as User)
     );
   }
