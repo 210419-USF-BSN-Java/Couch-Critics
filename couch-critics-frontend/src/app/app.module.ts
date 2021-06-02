@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MovieReviewComponent } from './components/movie-review/movie-review.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FooterComponent,
     UpdateUserInfoComponent,
     DashboardComponent,
+    MovieReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FormsModule,
     HttpClientModule,
     RouterModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -56,7 +56,6 @@ A critic is a type of employee who can make reviews on movies provided by an ext
 ### API:
 
 https://rapidapi.com/amrelrafie/api/movies-tvshows-data-imdb
-Minimum Viable Product
 
 ### Stretch Goals
 
@@ -71,11 +70,11 @@ Minimum Viable Product
 Raymond Campbell (front end)
 
 **GitMaster:**
-Ruben (front end)
+Ruben Garcia (front end)
 
-**SQL Database:** Steven (middle)
+**SQL Database:** Steven Nguyen (middle)
 
-**AWS EC2:** Robbie (back end)
+**AWS EC2:** Robbie Weeks (back end)
 
 **Jenkins Testing:** Kemo Allen (back end)
 
