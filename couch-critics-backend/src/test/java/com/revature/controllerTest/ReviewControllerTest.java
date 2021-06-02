@@ -22,10 +22,10 @@ import com.revature.service.ReviewService;
 public class ReviewControllerTest {
 
 	@Mock
-	private ReviewService rs = Mockito.mock(ReviewService.class);
+	private ReviewService rService = Mockito.mock(ReviewService.class);
 	
 	@InjectMocks
-	ReviewController rc = new ReviewController(rs);
+	ReviewController rController = new ReviewController(rService);
 	
 	List<Reviews> reviews = new ArrayList<>();
 	Reviews r = new Reviews(4, "good", "approved", null, "20", "10", 3, "Avengers 3", null, null);
@@ -37,9 +37,9 @@ public class ReviewControllerTest {
 		int id = 5;
 		reviews.add(r);
 		
-		Mockito.when(rs.getReviewByCriticsId(id)).thenReturn(reviews);
+		Mockito.when(rService.getReviewByCriticsId(id)).thenReturn(reviews);
 		
-		assertEquals(new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK), rc.getReviewByCriticsId(id));
+		assertEquals(new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK), rController.getReviewByCriticsId(id));
 		
 	}//passed
 	
@@ -48,9 +48,9 @@ public class ReviewControllerTest {
 		String movieName = "Avengers 3";
 		reviews.add(r);
 		
-		Mockito.when(rs.getReviewByMovieName(movieName)).thenReturn(reviews);
+		Mockito.when(rService.getReviewByMovieName(movieName)).thenReturn(reviews);
 		
-		assertEquals(new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK), rc.getReviewByMovieName(movieName));
+		assertEquals(new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK), rController.getReviewByMovieName(movieName));
 		
 	}//passed
 	
@@ -59,9 +59,9 @@ public class ReviewControllerTest {
 		String status = "Pending";
 		reviews.add(r);
 		
-		Mockito.when(rs.getReviewByReviewStatus(status)).thenReturn(reviews);
+		Mockito.when(rService.getReviewByReviewStatus(status)).thenReturn(reviews);
 		
-		assertEquals(new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK), rc.viewByReviewStatus(status));
+		assertEquals(new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK), rController.viewByReviewStatus(status));
 		
 	}//passed
 	
@@ -69,9 +69,9 @@ public class ReviewControllerTest {
 	@Test
 	public void addReviewTest() {
 		
-		Mockito.when(rs.addReview(r)).thenReturn("success");
+		Mockito.when(rService.addReview(r)).thenReturn("success");
 		
-		assertEquals(new ResponseEntity<String>("success", HttpStatus.OK), rc.addReview(r));
+		assertEquals(new ResponseEntity<String>("success", HttpStatus.OK), rController.addReview(r));
 		
 	}//passed
 	
@@ -79,9 +79,9 @@ public class ReviewControllerTest {
 	public void deleteReview() {
 		int id = 5;
 		
-		Mockito.when(rs.deleteReview(id)).thenReturn("success");
+		Mockito.when(rService.deleteReview(id)).thenReturn("success");
 		
-		assertEquals(new ResponseEntity<String>("success", HttpStatus.OK), rc.deleteReview(id));
+		assertEquals(new ResponseEntity<String>("success", HttpStatus.OK), rController.deleteReview(id));
 		
 	}//passed
 }

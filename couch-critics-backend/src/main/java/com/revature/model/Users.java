@@ -39,7 +39,7 @@ public class Users {
 		
 	}
 	
-	public Users(int userid, String fName, String lName, String uName, String pWord, String email, Role roleId,
+	public Users(int userid, String fName, String lName, String uName, String pWord, String email, String salt, Role roleId,
 			AccStatus statusid) {
 		super();
 		this.userid = userid;
@@ -122,6 +122,14 @@ public class Users {
 
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public Role getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Role roleId) {
+		this.roleId = roleId;
 	}
 
 	@Override
