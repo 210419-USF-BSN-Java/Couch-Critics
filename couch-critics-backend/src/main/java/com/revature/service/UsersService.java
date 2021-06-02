@@ -49,7 +49,7 @@ public class UsersService {
 			//retrieve the hashed password and associated salt of this user name.
 			u = ur.getPassWordAndSalt(uName);
 		} catch (Exception e){
-			//for front end: if u == null, incorrect user name or password.
+			//for front end: if u == null, incorrect user name.
 			return null;
 		}
 		
@@ -59,7 +59,7 @@ public class UsersService {
 			//return Users object if the input password pass the hash verification.
 			return u;
 		}
-		//for front end: if u == null, incorrect user name or password.
+		//for front end: if u == null, incorrect password.
 		return null;
 		
 	}
@@ -68,6 +68,14 @@ public class UsersService {
 	   this method will have two return a String that show if the registration is success.
 	*/
 	public String registUserAccount(Users u) {
+		
+		//pass in the original password to hash, and return with 1) hashed password, and 2) salt generated with this password.
+		String[] hashedPassAndSalt = salt.saltHashing(u.getpWord());
+		
+		//set the hashed password and salt into the Users Object
+		u.setpWord(hashedPassAndSalt[0]);
+		u.setSalt(hashedPassAndSalt[1]);
+		
 		try {
 			ur.save(u);
 			return "registration successed.";
