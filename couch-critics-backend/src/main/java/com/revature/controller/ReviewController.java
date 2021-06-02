@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.model.Reviews;
 import com.revature.service.ReviewService;
 
+/*
+ * Author: Robbie
+ */
 @RestController
 @RequestMapping(value="/review")
 public class ReviewController {
@@ -46,9 +49,7 @@ public class ReviewController {
 	public ResponseEntity<String> addReview(@RequestBody Reviews r){
 		
 		String success = rs.addReview(r);
-		
-		
-		
+
 		return new ResponseEntity<String>(success, HttpStatus.OK);
 		
 	}

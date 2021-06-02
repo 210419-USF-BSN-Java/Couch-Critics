@@ -66,5 +66,13 @@ public class Reviews {
 		this.managerId = managerId;
 	}
 
+	@Override
+	public String toString() {
+		return "Reviews [reviewId=" + reviewId + ", review=" + review + ", reviewStatus=" + reviewStatus + ", submit="
+				+ submit + ", likes=" + likes + ", dislikes=" + dislikes + ", movieId=" + movieId + ", movieName="
+				+ movieName + ", authorId=" + authorId + ", managerId=" + managerId + "]";
+	}
+
+	
 	
 }

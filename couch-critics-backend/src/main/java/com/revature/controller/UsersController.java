@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.model.Users;
 import com.revature.service.UsersService;
 
+/*
+ * Author: Robbie
+ */
 @RestController
 @RequestMapping(value="/users")
 public class UsersController {
@@ -45,6 +48,7 @@ public class UsersController {
 	@PostMapping(value="/login")
 	public ResponseEntity<Users> loginUser(@RequestParam String uName, @RequestParam String pWord){
 		Users u = us.getUserByUnameAndPword(uName, pWord);
+		System.out.println(uName);
 		System.out.println(u);
 	
 		return new ResponseEntity<Users>(u, HttpStatus.OK);
@@ -52,8 +56,11 @@ public class UsersController {
 	
 	//confirm if we need a update user information method.
 	@PostMapping(value="/update")
-	public ResponseEntity<Users> updateUser(@RequestBody Users u){
-		return new ResponseEntity<Users>(u, HttpStatus.OK);
+	public ResponseEntity<String> updateUser(@RequestBody Users u){
+		
+		String message = us.updateUserAccount(u);
+		
+		return new ResponseEntity<String>(message, HttpStatus.OK);
 	}
 	
 }

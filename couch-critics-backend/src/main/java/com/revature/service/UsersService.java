@@ -69,7 +69,7 @@ public class UsersService {
 	*/
 	public String registUserAccount(Users u) {
 		try {
-			System.out.println(ur.save(u));
+			ur.save(u);
 			return "registration successed.";
 			
 		} catch(Exception e) {
@@ -84,7 +84,7 @@ public class UsersService {
 	*/
 	public String updateUserAccount(Users u) {
 		try {
-			System.out.println(ur.save(u));
+			ur.save(u);
 			return "User account updated.";
 			
 		} catch(Exception e) {

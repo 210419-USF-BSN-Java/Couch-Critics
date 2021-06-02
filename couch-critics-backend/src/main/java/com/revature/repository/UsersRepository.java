@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.Users;
 
+/*
+ * Author: Robbie
+ */
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Integer>{
 	

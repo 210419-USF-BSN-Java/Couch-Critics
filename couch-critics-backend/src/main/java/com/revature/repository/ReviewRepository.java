@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.model.Reviews;
 
+/*
+ * Author: Robbie
+ */
 @Repository
 public interface ReviewRepository extends JpaRepository<Reviews, Integer>{
 	
