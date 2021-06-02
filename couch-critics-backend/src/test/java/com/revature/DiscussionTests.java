@@ -54,14 +54,14 @@ public class DiscussionTests {
 		assertEquals(dServ.getDiscussionByDiscussionId(d.getDiscId()).getDiscId(), d.getDiscId());
 	}
 	
-	@Test
-	public void testGetDiscussionsByUserId() {
-		Users u = new Users(1,"Test", "Testson", "test", "123", "test@rev.com", null, null);
-		Discussion d = new Discussion(4, u, null, "Hello Get By User");
-		
-		dServ.addDiscussion(d);
-		assertFalse(dServ.getDiscussionsByUserId(d.getUserId().getUserid()).isEmpty());
-	}
+//	@Test
+//	public void testGetDiscussionsByUserId() {
+//		Users u = new Users(1,"Test", "Testson", "test", "123", "test@rev.com", null, null);
+//		Discussion d = new Discussion(4, u, null, "Hello Get By User");
+//		
+//		dServ.addDiscussion(d);
+//		assertFalse(dServ.getDiscussionsByUserId(d.getUserId().getUserid()).isEmpty());
+//	}
 	
 	
 	
