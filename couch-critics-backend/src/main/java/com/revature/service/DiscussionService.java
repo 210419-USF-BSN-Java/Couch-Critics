@@ -1,6 +1,5 @@
 package com.revature.service;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,57 +24,48 @@ public class DiscussionService {
 	}
 	
 	public List<Discussion> getDiscussionsByUserId(int userId){
-		List<Discussion> discList = new LinkedList<>();
 		try {	
-			discList = dRepo.getDiscussionByUserId(userId);
+			return dRepo.getDiscussionByUserId(userId);
 		}catch(Exception e) {
-			
+			return null;
 		}
-		return discList;
 	}
 	
 	public List<Discussion> getDiscussionsByReviewId(int reviewId){
-		List<Discussion> discList = new LinkedList<>();
 		try {	
-			discList = dRepo.getDiscussionByReviewId(reviewId);
+			return dRepo.getDiscussionByReviewId(reviewId);
 		}catch(Exception e) {
-			
+			return null;
 		}
-		return discList;
 	}
 	
 	public Discussion getDiscussionByDiscussionId(int id){
-		Discussion disc = null;
 		try {	
-			disc = dRepo.getById(id);
+			return dRepo.getById(id);
+			//disc = dRepo.getDiscussionById(id);
 		}catch(Exception e) {
-			
+			return null;
 		}
-		return disc;
 	}
 	
 	public boolean addDiscussion(Discussion d) {
-		boolean success = false;
-		
 		try {
-			dRepo.save(d);
-			success = true;
+			System.out.println(dRepo.save(d));
+			//dRepo.addDiscussion(d);
+			return true;
 		}catch(Exception e) {
-			
+			return false;
 		}
-		return success;
 	}
 	
 	public boolean deleteDiscussion(int id) {
-		boolean success = false;
-		
 		try {
 			dRepo.deleteById(id);
-			success = true;
+			//dRepo.deleteById(id);
+			return true;
 		}catch(Exception e) {
-			
+			return false;
 		}
-		return success;
 	}
 	
 }
