@@ -1,4 +1,4 @@
-package come.revature.controllerTest;
+package com.revature.controllerTest;
 
 import static org.junit.Assert.assertEquals;
 
