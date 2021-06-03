@@ -10,9 +10,9 @@ import com.revature.model.Discussion;
 @Repository
 public interface DiscussionRepository extends JpaRepository<Discussion, Integer>{
 	
-	public List<Discussion> getDiscussionByUserId(int userId);
+	public List<Discussion> getDiscussionByUserIdUserid(int userId);
 	
-	public List<Discussion> getDiscussionByReviewId(int reviewId);
+	public List<Discussion> getDiscussionByReviewIdReviewId(int reviewId);
 	//.getById from JpaRepository
 	//public Discussion getDiscussionById(int id);
 	
