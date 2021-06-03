@@ -10,7 +10,6 @@ import { DashboardComponent } from '../app/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './administrator/account/account.component';
 import { ManageComponent } from './administrator/manage/manage.component';
-import { ReviewsComponent } from './reviews/reviews.component';
 import { UserAccountInfoComponent } from './user-stories/components/user-account-info/user-account-info.component';
 import { UpdateUserInfoComponent } from './user-stories/components/update-user-info/update-user-info.component';
 import { UserInfoComponent } from './user-stories/pages/user-info/user-info.component';
@@ -19,7 +18,9 @@ import { UserLoggedInHomeComponent } from './user-stories/pages/user-logged-in-h
 import { UserViewReviewsComponent } from './user-stories/components/user-view-reviews/user-view-reviews.component';
 import { UserViewCriticsContainerComponent } from './user-stories/components/user-view-critics-container/user-view-critics-container.component';
 import { UserViewCriticsPageComponent } from './user-stories/pages/user-view-critics-page/user-view-critics-page.component';
-import { ReviewService } from './services/review.service';
+import { CriticsComponent } from './critics-stories/critics/critics.component';
+import { ReviewDetailComponent } from './critics-stories/review-detail/review-detail.component';
+import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,6 @@ import { ReviewService } from './services/review.service';
     DashboardComponent,
     AccountComponent,
     ManageComponent,
-    ReviewsComponent,
     UserAccountInfoComponent,
     UpdateUserInfoComponent,
     UserInfoComponent,
@@ -36,7 +36,10 @@ import { ReviewService } from './services/review.service';
     UserLoggedInHomeComponent,
     UserViewReviewsComponent,
     UserViewCriticsContainerComponent,
-    UserViewCriticsPageComponent
+    UserViewCriticsPageComponent,
+    CriticsComponent,
+    ReviewDetailComponent,
+    MakeReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { ReviewService } from './services/review.service';
     HttpClientModule,
     RouterModule
   ],
-  providers: [ReviewService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
