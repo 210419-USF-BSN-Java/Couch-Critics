@@ -19,12 +19,12 @@ export class AuthenticationService {
 
   login(username:string, password:string): Observable<User>{
     let loginInfo = {
-      username : username,
-      password : password
+      uName : username,
+      pWord : password
     }
 
 
-    return this.http.post(`${this.apiServerUrl}/auth`, loginInfo).pipe(
+    return this.http.post(`${this.apiServerUrl}/users/login`, loginInfo).pipe(
       map(response => response as User)
     );
   }

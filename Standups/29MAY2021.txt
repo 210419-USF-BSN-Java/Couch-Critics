@@ -1,0 +1,33 @@
+Project Status:
+
+Angular orientation is done
+
+Blockers:
+
+
+Focus:
+Still neet to set up Jenkins
+Adapt to Spring environment
+Finish models
+Maintain Angular proficiency
+
+
+Kemo
+Get connected to RDS
+Working on setting up Jenkins 
+Writing description for Project 
+
+Steven
+RDS Connected
+Uploaded Skeleton for Spring
+
+Ruben
+RDS Connected
+Working on Front End design layout
+
+Robbie
+Set up EC2 environment
+
+Ray
+RDS Connected 
+Maintain group proficiency with Angular and Spring for upcoming interviews/QC
