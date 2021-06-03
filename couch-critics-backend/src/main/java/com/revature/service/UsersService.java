@@ -1,5 +1,7 @@
 package com.revature.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -102,4 +104,36 @@ public class UsersService {
 			return "Failed to update user account.";
 		}
 	}
+
+	public String checkUserName(String uName) {
+		try {
+			if(ur.getPassWordAndSalt(uName) == null) {
+			
+				return "Username available.";
+			
+			} 
+			
+		} catch(Exception e) {
+			System.out.println(e);
+			return "Failed to check username.";
+		}
+		return null;
+	}
+
+	public List<Users> getUserByRole(String role) {
+		try {
+			if(role == "employee") {
+				List<Users> u = ur.getUserByRoleId(2);
+				return u;
+			} else if (role == "customer") {
+				List<Users> u = ur.getUserByRoleId(3);
+				return u;
+			}
+		} catch(Exception e) {
+			System.out.println(e);
+
+		}
+		return null;
+	}
+	
 }
