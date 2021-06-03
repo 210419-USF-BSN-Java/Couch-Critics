@@ -1,0 +1,43 @@
+Project Status:
+Backend is almost Finished
+EC2 is set up for Backend
+Jenkins is almost set up on EC2
+Close to connecting Front End with back
+
+Blockers:
+Issues with everyone being able to run Front End main version 
+
+
+
+Focus:
+Finish front end connection to backend 
+Comfortable with movies API
+Finish Jenkins Setup
+
+
+Kemo
+Close to finishing up Jenkins to EC2
+Fixed minor bugs with user 
+Working on log Aspect
+
+
+Steven
+Implemented Critic stories on his own machine, currently having issues with the main project version
+Making good progress
+
+
+Ruben
+Working on implementing User Stories with mock user data using a dummy server
+Seperate from Front end
+
+
+Robbie
+Add a couple more user methods
+Set up EC2 for backend
+Working on adding exceptions
+
+
+Ray
+Primarily working on front end to back end connection
+Impliment Login 
+

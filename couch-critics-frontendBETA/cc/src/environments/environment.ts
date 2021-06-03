@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   BACKEND_URL : 'http://localhost:8080', 
   TEST_H2_URL : 'http://localhost:8080/h2-console'
 };

@@ -1,0 +1,34 @@
+Project Status:
+Behind
+
+
+Blockers:
+None
+
+
+Focus:
+Establish connection from Front End to Back end
+
+
+Kemo
+Finish Testing with JUnit and Mockito
+Endpoints work, models are not
+Add validation AOP
+
+Steven
+Go over overall Front End plan
+
+
+Ruben
+Go over overall Front End plan
+
+
+Robbie
+Needs more time to finish JUnit Mockito
+Test H2 Console
+Tried to connect to DB, working on it
+
+
+Ray
+Ran into issues with initial FrontEnd layout, produced a more concise layout to follow
+Go over overall Front End plan
