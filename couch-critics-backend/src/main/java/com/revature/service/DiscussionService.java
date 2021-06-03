@@ -25,7 +25,7 @@ public class DiscussionService {
 	
 	public List<Discussion> getDiscussionsByUserId(int userId){
 		try {	
-			return dRepo.getDiscussionByUserId(userId);
+			return dRepo.getDiscussionByUserIdUserid(userId);
 		}catch(Exception e) {
 			return null;
 		}
@@ -33,7 +33,7 @@ public class DiscussionService {
 	
 	public List<Discussion> getDiscussionsByReviewId(int reviewId){
 		try {	
-			return dRepo.getDiscussionByReviewId(reviewId);
+			return dRepo.getDiscussionByReviewIdReviewId(reviewId);
 		}catch(Exception e) {
 			return null;
 		}
