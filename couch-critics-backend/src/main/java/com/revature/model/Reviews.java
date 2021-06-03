@@ -11,17 +11,8 @@ import javax.persistence.ManyToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 @Entity
 @Component
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
 public class Reviews {
 	@Id
 	@GeneratedValue
@@ -50,7 +41,7 @@ public class Reviews {
 	public Reviews() {
 		
 	}
-	
+
 	public Reviews(int reviewId, String review, String reviewstatus, Date submit, String likes, String dislikes,
 			int movieId, String movieName, Users authorId, Users managerId) {
 		super();
@@ -63,6 +54,88 @@ public class Reviews {
 		this.movieId = movieId;
 		this.movieName = movieName;
 		this.authorId = authorId;
+		this.managerId = managerId;
+	}
+	
+	
+
+	public int getReviewId() {
+		return reviewId;
+	}
+
+	public void setReviewId(int reviewId) {
+		this.reviewId = reviewId;
+	}
+
+	public String getReview() {
+		return review;
+	}
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+
+	public String getReviewStatus() {
+		return reviewStatus;
+	}
+
+	public void setReviewStatus(String reviewStatus) {
+		this.reviewStatus = reviewStatus;
+	}
+
+	public Date getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(Date submit) {
+		this.submit = submit;
+	}
+
+	public String getLikes() {
+		return likes;
+	}
+
+	public void setLikes(String likes) {
+		this.likes = likes;
+	}
+
+	public String getDislikes() {
+		return dislikes;
+	}
+
+	public void setDislikes(String dislikes) {
+		this.dislikes = dislikes;
+	}
+
+	public int getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
+
+	public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+
+	public Users getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(Users authorId) {
+		this.authorId = authorId;
+	}
+
+	public Users getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(Users managerId) {
 		this.managerId = managerId;
 	}
 

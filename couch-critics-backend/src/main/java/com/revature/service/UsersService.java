@@ -47,7 +47,9 @@ public class UsersService {
 		
 		try{
 			//retrieve the hashed password and associated salt of this user name.
+			System.out.println(uName);
 			u = ur.getPassWordAndSalt(uName);
+			System.out.println(u);
 		} catch (Exception e){
 			//for front end: if u == null, incorrect user name.
 			return null;
