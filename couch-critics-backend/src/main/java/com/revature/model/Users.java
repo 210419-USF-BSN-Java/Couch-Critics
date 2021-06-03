@@ -99,14 +99,6 @@ public class Users {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-//
-//	public Role getroleId() {
-//		return roleId;
-//	}
-//
-//	public void setroleId(Role roleId) {
-//		this.roleId = roleId;
-//	}
 
 	public AccStatus getStatusid() {
 		return statusid;
