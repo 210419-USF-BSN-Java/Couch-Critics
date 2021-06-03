@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { InMemoryDataService } from '../in-memory-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,14 +7,13 @@ import { InMemoryDataService } from '../in-memory-data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private inMemoryDataService: InMemoryDataService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.getReviews;
   }
 
   getReviews(): void {
-    this.inMemoryDataService.createDb().reviews;
   }
 
 }
