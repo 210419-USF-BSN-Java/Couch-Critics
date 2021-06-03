@@ -98,7 +98,8 @@ public class Users {
 
 	public void setEmail(String email) {
 		this.email = email;
-  }
+
+	}
 
 	public AccStatus getStatusid() {
 		return statusid;
