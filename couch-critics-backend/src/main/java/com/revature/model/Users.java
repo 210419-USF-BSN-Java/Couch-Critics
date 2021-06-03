@@ -100,14 +100,6 @@ public class Users {
 		this.email = email;
 	}
 
-	public Role getroleId() {
-		return roleId;
-	}
-
-	public void setroleId(Role roleId) {
-		this.roleId = roleId;
-	}
-
 	public AccStatus getStatusid() {
 		return statusid;
 	}

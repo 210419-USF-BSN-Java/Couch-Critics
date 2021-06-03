@@ -25,7 +25,7 @@ import lombok.ToString;
 public class Reviews {
 	@Id
 	@GeneratedValue
-	private int reviewId;
+	private Integer reviewId;
 	@Column
 	private String review;
 	@Column
@@ -37,7 +37,7 @@ public class Reviews {
 	@Column
 	private String dislikes;
 	@Column
-	private int movieId;
+	private Integer movieId;
 	@Column
 	private String movieName;
 	@Autowired
