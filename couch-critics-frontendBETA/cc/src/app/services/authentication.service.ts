@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { map } from 'rxjs/operators';
@@ -18,14 +18,21 @@ export class AuthenticationService {
 
 
   login(username:string, password:string): Observable<User>{
-    let loginInfo = {
-      uName : username,
-      pWord : password
-    }
+
+    const params = new HttpParams()
+    .set('uName', username)
+    .set('pWord', password);
+
+    // let loginInfo = {
+    //   uName : username,
+    //   pWord : password
+    // }
 
 
-    return this.http.post(`${this.apiServerUrl}/users/login`, loginInfo).pipe(
-      map(response => response as User)
-    );
+    // return this.http.post(`${this.apiServerUrl}/users/login`, loginInfo).pipe(
+    //   map(response => response as User)
+    // );
+
+    return this.http.post(`${this.apiServerUrl}/users/login`, params).pipe(map(response => response as User));
   }
 }
