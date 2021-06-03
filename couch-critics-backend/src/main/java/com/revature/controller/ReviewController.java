@@ -29,7 +29,7 @@ public class ReviewController {
 		this.rs = rs;
 	}
 	
-	@PostMapping(value="/viewByCriticId{id}")
+	@PostMapping(value="/viewByCriticId/{id}")
 	public ResponseEntity<List<Reviews>> getReviewByCriticsId(@PathVariable int id){
 		
 		List<Reviews> reviews = rs.getReviewByCriticsId(id);
@@ -37,7 +37,7 @@ public class ReviewController {
 		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);
 	}
 	
-	@PostMapping(value="/viewByMovieName{name}")
+	@PostMapping(value="/viewByMovieName/{name}")
 	public ResponseEntity<List<Reviews>> getReviewByMovieName(@PathVariable String name){
 		
 		List<Reviews> reviews = rs.getReviewByMovieName(name);
@@ -47,14 +47,14 @@ public class ReviewController {
 	
 	@GetMapping(value="/addReview")
 	public ResponseEntity<String> addReview(@RequestBody Reviews r){
-		
+		System.out.println(r);
 		String success = rs.addReview(r);
 
 		return new ResponseEntity<String>(success, HttpStatus.OK);
 		
 	}
 	
-	@GetMapping(value="/deleteReview{id}")
+	@PostMapping(value="/deleteReview/{id}")
 	public ResponseEntity<String> deleteReview(@PathVariable int id){
 		
 		String success = rs.deleteReview(id);
@@ -62,7 +62,7 @@ public class ReviewController {
 		return new ResponseEntity<String>(success, HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/viewByReviewStatus{status}")
+	@PostMapping(value="/viewByReviewStatus/{status}")
 	public ResponseEntity<List<Reviews>> viewByReviewStatus(@PathVariable String status){
 		
 		List<Reviews> reviews = rs.getReviewByReviewStatus(status);
