@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from '../app/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './administrator/account/account.component';
 import { ManageComponent } from './administrator/manage/manage.component';
@@ -19,6 +19,7 @@ import { UserLoggedInHomeComponent } from './user-stories/pages/user-logged-in-h
 import { UserViewReviewsComponent } from './user-stories/components/user-view-reviews/user-view-reviews.component';
 import { UserViewCriticsContainerComponent } from './user-stories/components/user-view-critics-container/user-view-critics-container.component';
 import { UserViewCriticsPageComponent } from './user-stories/pages/user-view-critics-page/user-view-critics-page.component';
+import { ReviewService } from './services/review.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { UserViewCriticsPageComponent } from './user-stories/pages/user-view-cri
     HttpClientModule,
     RouterModule
   ],
-  providers: [],
+  providers: [ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
