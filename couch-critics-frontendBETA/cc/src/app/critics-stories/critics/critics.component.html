@@ -1,0 +1,37 @@
+<h2>{{title}}</h2>
+
+<nav class="nav">
+    <a routerLink="/critics">Home</a>
+    
+    <a routerLink="/create">Make Review</a>
+</nav>
+
+
+
+<h3>My Reviews</h3>
+<ul class="reviews">
+    <li *ngFor="let review of reviews">
+        <a routerLink="/detail/{{review.movieId}}">
+        <span class = "badge">{{review.movieId}}</span> {{review.movieName}}
+    </a>
+        
+    </li>
+    
+</ul>
+
+
+
+
+<div class="critic-buttons">
+<form action="" method="GET">
+<button type="button">My Reviews</button>
+</form>
+
+<form action="localhost:8080/review/viewByReviewStatus{status}" method="GET">
+    <button type="button" id="pending" >View Pending Review</button>
+</form>
+
+<form action="localhost:8080/review/viewByReviewStatus{status}" method="GET">
+    <button type="button" id="accepted">View Accepted</button>
+</form>
+</div>
