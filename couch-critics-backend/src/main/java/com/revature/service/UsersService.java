@@ -57,7 +57,7 @@ public class UsersService {
 			return null;
 		}
 		
-		boolean verifyResult = salt.verifyHashedPass(pWord, u.getpWord(), u.getSalt());
+		boolean verifyResult = salt.verifyHashedPass(pWord, u.getPassword(), u.getSalt());
 		
 		if(verifyResult) {
 			//return Users object if the input password pass the hash verification.
@@ -74,10 +74,10 @@ public class UsersService {
 	public String registUserAccount(Users u) {
 		
 		//pass in the original password to hash, and return with 1) hashed password, and 2) salt generated with this password.
-		String[] hashedPassAndSalt = salt.saltHashing(u.getpWord());
+		String[] hashedPassAndSalt = salt.saltHashing(u.getPassword());
 		
 		//set the hashed password and salt into the Users Object
-		u.setpWord(hashedPassAndSalt[0]);
+		u.setPassword(hashedPassAndSalt[0]);
 		u.setSalt(hashedPassAndSalt[1]);
 		
 		try {
