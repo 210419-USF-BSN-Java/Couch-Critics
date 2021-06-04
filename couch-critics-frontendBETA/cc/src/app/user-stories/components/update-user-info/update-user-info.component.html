@@ -1,24 +1,33 @@
-<h3>Update User Info</h3>
-<form class="edit-user-info">
-    <div class="form-control">
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName" />
-    </div>
-     <div class="form-control">
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lasttName" id="lastName" />
-    </div>
-     <div class="form-control">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" />
-    </div>
-     <div class="form-control">
-        <label for="password">Password</label>
-        <input type="text" name="password" id="password" />
-    </div>
-     <div class="form-control">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" />
-    </div>
+
+<mat-card>
+    <mat-card-header>
+           <mat-card-title><h3>Update User Info</h3></mat-card-title>
+    </mat-card-header>
+<form class="edit-user-info example-form">
+    <mat-form-field class="form-control">
+            <mat-label for="firstName">First Name</mat-label>
+        <input type="text" name="firstName" id="firstName" matInput />
+    </mat-form-field>
+     <mat-form-field class="form-control">
+        <mat-label for="lastName">Last Name</mat-label>
+        <input type="text" name="lasttName" id="lastName" matInput/>
+     </mat-form-field>
+     <mat-form-field class="form-control">
+        <mat-label for="username">Username</mat-label>
+        <input type="text" name="username" id="username" matInput />
+     </mat-form-field>
+     <mat-form-field class="form-control">
+        <mat-label for="password">Password</mat-label>
+        <input type="text" name="password" id="password" matInput />
+     </mat-form-field>
+     <mat-form-field class="form-control">
+        <mat-label for="email">Email</mat-label>
+        <input matInput type="text" name="email" id="email" />
+     </mat-form-field>
+     <br>
+     <button n mat-raised-button color="warn" >Cancel</button>
+     <button mat-raised-button color="primary" >Save</button>
 
 </form>
+
+</mat-card>

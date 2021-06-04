@@ -23,6 +23,8 @@ import { ReviewDetailComponent } from './critics-stories/review-detail/review-de
 import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -45,13 +47,15 @@ import {MatCardModule} from '@angular/material/card';
 
   ],
   imports: [
+    MatInputModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
