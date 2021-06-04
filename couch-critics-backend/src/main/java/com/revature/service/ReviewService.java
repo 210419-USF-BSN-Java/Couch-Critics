@@ -44,13 +44,13 @@ public class ReviewService {
 	public String addReview(Reviews r) {
 		
 		try{
-			
 			if(rr.save(r) != null) {
 				return "Successfully added a review";
 			}
 			
 		} catch (Exception e){
 			//implements more exceptions: movie name does not exist any reviews.
+			System.out.println(e);
 			return "Failed to add a review";
 		}
 		return null;

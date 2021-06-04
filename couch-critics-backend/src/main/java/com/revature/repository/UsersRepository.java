@@ -18,11 +18,11 @@ public interface UsersRepository extends JpaRepository<Users, Integer>{
 	public Users getUsersByUserid(int userId);
 
 	//public boolean registUserAccount(Users u);
-	public Users findUsersByuName(String uName);
+	public Users findUsersByusername(String username);
 	
 	//retrieve user's information from database base on the userName.
 	@Query("FROM Users WHERE uName=?1")
-	public Users getPassWordAndSalt(String uName);
+	public Users getPassWordAndSalt(String username);
 
 	//public List<Users> getUserByRole(String role);
 

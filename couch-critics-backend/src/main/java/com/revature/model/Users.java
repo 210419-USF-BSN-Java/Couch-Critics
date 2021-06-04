@@ -17,13 +17,13 @@ public class Users {
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int userid;
 	@Column
-	private String fName;
+	private String firstName;
 	@Column
-	private String lName;
+	private String lastName;
 	@Column(unique=true, nullable=false)
-	private String uName;
+	private String username;
 	@Column(nullable=false)
-	private String pWord;
+	private String password;
 	@Column
 	private String email;
 	private String salt;
@@ -39,18 +39,23 @@ public class Users {
 		
 	}
 	
-	public Users(int userid, String fName, String lName, String uName, String pWord, String email, String salt, Role roleId,
-			AccStatus statusid) {
+	
+
+	public Users(int userid, String firstName, String lastName, String username, String password, String email,
+			String salt, Role roleId, AccStatus statusid) {
 		super();
 		this.userid = userid;
-		this.fName = fName;
-		this.lName = lName;
-		this.uName = uName;
-		this.pWord = pWord;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
 		this.email = email;
+		this.salt = salt;
 		this.roleId = roleId;
 		this.statusid = statusid;
 	}
+
+
 
 	public int getUserid() {
 		return userid;
@@ -60,36 +65,36 @@ public class Users {
 		this.userid = userid;
 	}
 
-	public String getfName() {
-		return fName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setfName(String fName) {
-		this.fName = fName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getlName() {
-		return lName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setlName(String lName) {
-		this.lName = lName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getuName() {
-		return uName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setuName(String uName) {
-		this.uName = uName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getpWord() {
-		return pWord;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setpWord(String pWord) {
-		this.pWord = pWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getEmail() {
@@ -98,15 +103,6 @@ public class Users {
 
 	public void setEmail(String email) {
 		this.email = email;
-
-	}
-
-	public AccStatus getStatusid() {
-		return statusid;
-	}
-
-	public void setStatusid(AccStatus statusid) {
-		this.statusid = statusid;
 	}
 
 	public String getSalt() {
@@ -125,12 +121,22 @@ public class Users {
 		this.roleId = roleId;
 	}
 
-	@Override
-	public String toString() {
-		return "Users [userid=" + userid + ", fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", pWord="
-				+ pWord + ", email=" + email + ", salt=" + salt + ", roleId=" + roleId + ", statusid=" + statusid + "]";
+	public AccStatus getStatusid() {
+		return statusid;
 	}
 
+	public void setStatusid(AccStatus statusid) {
+		this.statusid = statusid;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [userid=" + userid + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
+				+ username + ", password=" + password + ", email=" + email + ", salt=" + salt + ", roleId=" + roleId
+				+ ", statusid=" + statusid + "]";
+	}
+
+	
 	
 	
 }

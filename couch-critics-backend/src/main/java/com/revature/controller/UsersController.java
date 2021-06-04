@@ -48,8 +48,8 @@ public class UsersController {
 	 * Then return the verified Users Object(JSON format) back to front end.
 	*/
 	@PostMapping(value="/login")
-	public ResponseEntity<Users> loginUser(@RequestParam String uName, @RequestParam String pWord){
-		Users u = us.getUserByUnameAndPword(uName, pWord);
+	public ResponseEntity<Users> loginUser(@RequestParam String username, @RequestParam String password){
+		Users u = us.getUserByUnameAndPword(username, password);
 	
 		return new ResponseEntity<Users>(u, HttpStatus.OK);
 	}
@@ -69,9 +69,9 @@ public class UsersController {
 	 * Then return a String indicates if the username is already exited in the database.
 	*/
 	@PostMapping(value="/checkUserName")
-	public ResponseEntity<String> checkUserName(@RequestParam String uName){
+	public ResponseEntity<String> checkUserName(@RequestParam String username){
 		
-		String message = us.checkUserName(uName);
+		String message = us.checkUserName(username);
 		
 		return new ResponseEntity<String>(message, HttpStatus.OK);
 	}

@@ -95,6 +95,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>CouchCritics</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

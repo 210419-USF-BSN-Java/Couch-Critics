@@ -32,7 +32,7 @@ public class ReveiwServiceTest {
 	@BeforeClass
 	public static void setUp() {
 		
-		reviews.add(new Reviews(3, "below average", "approved", null, "2", "1", 55,"Avengers 4", null, null));
+		reviews.add(new Reviews(3, "below average", "approved", null, 2, 1, 55,"Avengers 4", null, null));
 		
 	}
 	
