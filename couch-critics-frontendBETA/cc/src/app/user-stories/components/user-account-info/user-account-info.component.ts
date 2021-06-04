@@ -15,7 +15,9 @@ export class UserAccountInfoComponent implements OnInit {
   currentUser!: User[]; //this just pastes the mock data for the user into this component, will refactor to use service instead
  //this just pastes the mock data for the user into this component, will refactor to use service instead
   constructor(private UserServiceService: UserServiceService) { 
-  
+    this.currentUser;
+    //this output an initial error because currentUser is defined
+    //if current user is undefined, then render no user
   }
 
   ngOnInit(): void {
@@ -28,6 +30,13 @@ export class UserAccountInfoComponent implements OnInit {
     this.btnClick.emit(); 
     console.log("edit form show button clicked")
     
+  }
+
+  updateInformation(){
+    this.UserServiceService.getUserById(1).subscribe((user) => {
+      console.log(user)
+      this.currentUser = user
+    })
   }
 
 }

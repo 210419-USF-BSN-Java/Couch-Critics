@@ -1,5 +1,5 @@
 <div class="user-info" >
-    <mat-card class="user-info-card example-card">
+    <mat-card *ngIf="currentUser !== undefined"class="user-info-card example-card">
         <mat-card-header>
             <div mat-card-avatar class="user-header-image example-header-image"></div>
             <mat-card-title><h3>Your Profile</h3></mat-card-title>

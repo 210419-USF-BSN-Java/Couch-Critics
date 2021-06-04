@@ -27,7 +27,7 @@ export class UserServiceService {
     //return aUser; 
     // static mock user file
    const array =this.http.get<User[]>(this.apiUrl)
-    .pipe(map(users => users.filter(user => user.userId === id))); //this filters our returned observable based on id
+    .pipe(map(users => users.filter(user => user.id === id))); //this filters our returned observable based on id
     console.log(array)
     return array
     //this should filter the array if a element matches the passed in paramter for that particular id,
@@ -35,7 +35,7 @@ export class UserServiceService {
     
   }
 
-  updateUserById(id: Number): Observable<User> {
+  updateUserById(id: Number, user: User): Observable<User> {
     const url =  `${this.apiUrl}/${id}`
     return this.http.put<User>(url, user, httpOptions); 
 
