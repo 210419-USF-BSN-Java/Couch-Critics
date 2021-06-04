@@ -45,13 +45,13 @@ public class ServiceAspects {
 	@AfterReturning(pointcut="execution(* com.revature.service.UsersService.regist*(..))", returning="retVal")
 	public void logAddUser(Object retVal) {
 		Users u = (Users)retVal;
-		LOG.info("User " + u.getuName() + " was added.");
+		LOG.info("User " + u.getUsername() + " was added.");
 	}
 	
 	@AfterReturning(pointcut="execution(* com.revature.service.UsersService.update*(..))", returning="retVal")
 	public void logUpdateUser(Object retVal) {
 		Users u = (Users)retVal;
-		LOG.info("User " + u.getuName() + " was updated.");
+		LOG.info("User " + u.getUsername() + " was updated.");
 	}
 	
 	//Reviews
