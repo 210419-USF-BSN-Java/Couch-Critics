@@ -22,6 +22,7 @@ import { CriticsComponent } from './critics-stories/critics/critics.component';
 import { ReviewDetailComponent } from './critics-stories/review-detail/review-detail.component';
 import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CriticsComponent,
     ReviewDetailComponent,
     MakeReviewComponent
+
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import {user} from '../../mock-user' //this is for ui rendering purposes
 import { User} from '../../../models/user'
 import {UserServiceService} from "../../../services/user-service.service"
 
+
 @Component({
   selector: 'app-user-account-info',
   templateUrl: './user-account-info.component.html',

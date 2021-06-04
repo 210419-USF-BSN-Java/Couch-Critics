@@ -1,7 +1,17 @@
-<div class="user-info">
-    <h3>Current User Info</h3>
-    <p>{{currentUser[0].firstName}}</p>
-    <p>{{currentUser[0].lastName}}</p>
-    <p>{{currentUser[0].email}}</p>
-    <p>{{currentUser[0].username}}</p>
+<div class="user-info" >
+    <mat-card class="user-info-card example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="user-header-image example-header-image"></div>
+            <mat-card-title><h3>Your Profile</h3></mat-card-title>
+            <mat-card-subtitle>Username: {{currentUser[0].username}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>First Name: {{currentUser[0].firstName}}</p>
+            <p>Last Name: {{currentUser[0].lastName}}</p>
+            <p>Email: {{currentUser[0].email}}</p>
+        </mat-card-content>
+
+    </mat-card>
+        
+
 </div>
