@@ -17,6 +17,8 @@ import com.revature.model.Users;
 import com.revature.repository.DiscussionRepository;
 import com.revature.service.DiscussionService;
 
+import junit.framework.Assert;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DiscussionTests {

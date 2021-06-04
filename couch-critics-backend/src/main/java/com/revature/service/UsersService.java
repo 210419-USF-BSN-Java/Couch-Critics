@@ -117,7 +117,7 @@ public class UsersService {
 			System.out.println(e);
 			return "Failed to check username.";
 		}
-		return null;
+		return "Username already exit.";
 	}
 
 	public List<Users> getUserByRole(String role) {

@@ -24,9 +24,9 @@ public class Reviews {
 	@Column
 	private Date submit;
 	@Column
-	private String likes;
+	private Integer likes;
 	@Column
-	private String dislikes;
+	private Integer dislikes;
 	@Column
 	private Integer movieId;
 	@Column
@@ -42,7 +42,7 @@ public class Reviews {
 		
 	}
 
-	public Reviews(int reviewId, String review, String reviewstatus, Date submit, String likes, String dislikes,
+	public Reviews(int reviewId, String review, String reviewstatus, Date submit, Integer likes, Integer dislikes,
 			int movieId, String movieName, Users authorId, Users managerId) {
 		super();
 		this.reviewId = reviewId;
@@ -59,7 +59,7 @@ public class Reviews {
 	
 	
 
-	public int getReviewId() {
+	public Integer getReviewId() {
 		return reviewId;
 	}
 
@@ -91,19 +91,19 @@ public class Reviews {
 		this.submit = submit;
 	}
 
-	public String getLikes() {
+	public Integer getLikes() {
 		return likes;
 	}
 
-	public void setLikes(String likes) {
+	public void setLikes(Integer likes) {
 		this.likes = likes;
 	}
 
-	public String getDislikes() {
+	public Integer getDislikes() {
 		return dislikes;
 	}
 
-	public void setDislikes(String dislikes) {
+	public void setDislikes(Integer dislikes) {
 		this.dislikes = dislikes;
 	}
 
