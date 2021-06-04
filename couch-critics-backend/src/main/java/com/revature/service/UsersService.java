@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.revature.model.Users;
 import com.revature.repository.UsersRepository;
 
+import java.time.Clock;
+
 @Service
 public class UsersService {
 
@@ -46,7 +48,7 @@ public class UsersService {
 	*/
 	public Users getUserByUnameAndPword(String uName, String pWord) {
 		Users u;
-		
+		System.out.println(uName);
 		try{
 			//retrieve the hashed password and associated salt of this user name.
 			System.out.println(uName);

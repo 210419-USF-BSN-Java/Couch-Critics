@@ -42,8 +42,13 @@ public class Reviews {
 		
 	}
 
+<<<<<<< HEAD
 	public Reviews(int reviewId, String review, String reviewstatus, Date submit, Integer likes, Integer dislikes,
 			int movieId, String movieName, Users authorId, Users managerId) {
+=======
+	public Reviews(Integer reviewId, String review, String reviewstatus, Date submit, String likes, String dislikes,
+			Integer movieId, String movieName, Users authorId, Users managerId) {
+>>>>>>> 4e8f73ee7048e2edcaf9fe69c2391af804b51898
 		super();
 		this.reviewId = reviewId;
 		this.review = review;
@@ -63,7 +68,7 @@ public class Reviews {
 		return reviewId;
 	}
 
-	public void setReviewId(int reviewId) {
+	public void setReviewId(Integer reviewId) {
 		this.reviewId = reviewId;
 	}
 
@@ -107,11 +112,11 @@ public class Reviews {
 		this.dislikes = dislikes;
 	}
 
-	public int getMovieId() {
+	public Integer getMovieId() {
 		return movieId;
 	}
 
-	public void setMovieId(int movieId) {
+	public void setMovieId(Integer movieId) {
 		this.movieId = movieId;
 	}
 

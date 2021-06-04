@@ -1,0 +1,34 @@
+Project Status:
+Models Finished
+Working on Interface
+Middle/Backend/FrontEnd Skeleton Finished
+Still need to set up Jenkins
+
+Blockers:
+None
+
+Focus:
+Finish front end design
+Assign User Stories 
+
+
+
+Kemo
+Finished Project description on README.md
+Working on Interface design
+
+Steven
+Created Models from database 
+
+Ruben
+Created Front End Skeleton
+Working on Front End Design
+
+Robbie
+Working on Interface design 
+
+Ray
+Created Powerpoint template for presentation
+Started burndown chart
+Edited user Stories to match project goal
+Working on assigning User Stories 

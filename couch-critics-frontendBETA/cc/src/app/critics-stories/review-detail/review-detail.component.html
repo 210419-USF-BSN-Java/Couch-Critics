@@ -1,0 +1,17 @@
+<div *ngIf="r">
+    <h3>{{r.movieName }}</h3>
+<div><span>Review id: </span>{{r.reviewId}}</div>
+<br>
+<div>
+    <label for="review">Movie Review</label>
+    <br>
+    <textarea id="review" name="review" rows="20" cols="100" [(ngModel)] = "r.movieReview" placeholder="Movie Review">
+        create movie review here
+        </textarea>
+</div>
+
+<br>
+    <button (click)="goBack()">go back</button>
+</div>
+
+<br>

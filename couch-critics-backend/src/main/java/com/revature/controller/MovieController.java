@@ -19,7 +19,7 @@ public class MovieController {
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Movie> getMovieById(@PathVariable("id") Integer movieId){
 		RestTemplate rt = new RestTemplate();
-		String apiKey = System.getenv("movie_api_key");
+		String apiKey = System.getenv("apiKey");
 		String url = "https://api.themoviedb.org/3/movie/"+movieId+"?api_key="+apiKey;
 		return rt.getForEntity(url, Movie.class);
 	}
