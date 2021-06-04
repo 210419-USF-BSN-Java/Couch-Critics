@@ -10,7 +10,7 @@
     </mat-form-field>
      <mat-form-field class="form-control">
         <mat-label for="lastName">Last Name</mat-label>
-        <input type="text" name="lasttName" id="lastName" matInput/>
+        <input type="text" name="lastName" id="lastName" matInput/>
      </mat-form-field>
      <mat-form-field class="form-control">
         <mat-label for="username">Username</mat-label>
@@ -25,8 +25,8 @@
         <input matInput type="text" name="email" id="email" />
      </mat-form-field>
      <br>
-     <button n mat-raised-button color="warn" >Cancel</button>
-     <button mat-raised-button color="primary" >Save</button>
+     <button (click)="onCancel()" mat-raised-button color="warn" >Cancel</button>
+     <button (click)="onSave()" mat-raised-button color="primary" >Save</button>
 
 </form>
 
