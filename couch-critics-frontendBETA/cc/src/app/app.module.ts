@@ -21,6 +21,7 @@ import { UserViewCriticsPageComponent } from './user-stories/pages/user-view-cri
 import { CriticsComponent } from './critics-stories/critics/critics.component';
 import { ReviewDetailComponent } from './critics-stories/review-detail/review-detail.component';
 import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MakeReviewComponent } from './critics-stories/make-review/make-review.c
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
