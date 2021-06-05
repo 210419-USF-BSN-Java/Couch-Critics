@@ -9,6 +9,7 @@ import { UserViewAMovieComponent } from './user-stories/pages/user-view-a-movie/
 import { CriticsComponent } from './critics-stories/critics/critics.component';
 import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
 import { ReviewDetailComponent } from './critics-stories/review-detail/review-detail.component';
+import { ManageComponent } from './administrator/manage/manage.component';
 
 const routes: Routes = [
   {path: '', component:DashboardComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'userMovie', component:UserViewAMovieComponent},
   { path: 'critics', component: CriticsComponent },
   { path: 'create', component : MakeReviewComponent},
-  { path: 'detail/:id', component : ReviewDetailComponent}
+  { path: 'detail/:id', component : ReviewDetailComponent},
+  { path: 'admin', component : ManageComponent}
 ];
 
 @NgModule({

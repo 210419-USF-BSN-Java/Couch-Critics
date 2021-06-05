@@ -21,7 +21,7 @@ public interface UsersRepository extends JpaRepository<Users, Integer>{
 	public Users findUsersByusername(String username);
 	
 	//retrieve user's information from database base on the userName.
-	@Query("FROM Users WHERE uName=?1")
+	@Query("FROM Users WHERE username=?1")
 	public Users getPassWordAndSalt(String username);
 
 	//public List<Users> getUserByRole(String role);

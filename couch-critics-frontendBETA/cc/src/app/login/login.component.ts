@@ -21,9 +21,25 @@ export class LoginComponent implements OnInit {
     //This uses the authentication method in our authentication.service
     this.authServ.login(this.username, this.password).subscribe(
       response =>{
-        
-        console.log(response);
-        this.router.navigate(['']);
+        let userType = response.roleId?.roleId;
+
+        switch(userType) {
+          case 1:
+            this.router.navigate(['admin']);
+            break;
+
+          case 2:
+             this.router.navigate(['critics']);
+             break;
+      
+          case 3:
+            this.router.navigate(['userhome']);
+            break;
+          default:
+            alert("Something went wrong!");
+            this.router.navigate(['']);
+        }
+       
       },
       err =>{
         console.log('In error block! err ' + err);
