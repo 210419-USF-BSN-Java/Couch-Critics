@@ -17,5 +17,5 @@ export const user: User[] = [
         password: "password", 
         email: "rubengarcia0515@gmail.com"
     }
-]
+
 ] 
