@@ -22,6 +22,7 @@ export class ReviewDetailService {
 
   getreview(id:number): Observable<review>{
     const review = REVIEWS.find(h=>h.movieId===id)!;
+  
     return of(review);
   }
 

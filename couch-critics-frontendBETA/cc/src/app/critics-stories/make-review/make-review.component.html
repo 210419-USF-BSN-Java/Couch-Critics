@@ -2,15 +2,36 @@
 
 <nav>
     <a routerLink="/critics">Home</a>
-    
     <a routerLink="/create">Make Review</a>
 </nav>
 <br>
 
-<div class="movie-search">
+<h3>My Reviews</h3>
+<ul class="mov">
+    <li *ngFor="let m of movies">
+        <span class = "badge">{{movies[0].id}}</span>
+    </li>
+    
+</ul>
+<span>{{movies[1].original_title}}</span>
+<h3>List of Movies</h3>
+<ul class="movies">
+    <li >
+        <span>{{movie.id}}</span>
+        <span>{{movie.original_title}}</span>
+        <span>{{movie.id}}</span>
+        
+        <br>
+        
+        
+        
+        
+        <br>
+        <span>{{movie.overview}}</span>
 
-</div>
-
+    </li>
+    
+</ul>
 
 
 

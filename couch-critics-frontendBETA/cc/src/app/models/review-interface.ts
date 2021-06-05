@@ -10,8 +10,8 @@ export interface review{
     submitted: string;
     managerId: number;
     reviewStatus: string;
-    likes : number;
-    dislikes: number;
+    likes? : number;
+    dislikes? : number;
     
 
 }
