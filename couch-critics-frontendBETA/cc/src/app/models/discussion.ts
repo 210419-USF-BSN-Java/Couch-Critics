@@ -4,5 +4,4 @@ export interface review{
   userId: number; 
   reviewId: number; 
   content: string; 
-
 }
