@@ -5,6 +5,6 @@ export interface User {
     username : string,
     password : string,
     email : string,
-    roleId? : {roleid:number, role:string},
+    roleId? : number,
     statusId? : number;
 }

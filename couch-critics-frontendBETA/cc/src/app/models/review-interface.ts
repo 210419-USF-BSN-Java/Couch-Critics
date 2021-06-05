@@ -11,7 +11,7 @@ export interface review{
     managerId: number;
     reviewStatus: string;
     likes : number;
-    dislikes: string;
+    dislikes: number;
     
 
 }

@@ -47,6 +47,7 @@ export class ReviewDetailService {
     return this.http.get<review>(url);
   }
 
+  //just testing
   getTest():Observable<Object>{
     return this.http.get('https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898');
   }
