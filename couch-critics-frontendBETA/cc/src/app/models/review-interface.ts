@@ -4,13 +4,14 @@ import { Identifiers } from "@angular/compiler";
 export interface review{
     reviewId: number;
     movieId: number;
-    movieName: String;
+    movieName: string;
     authorId: number;
-    movieReview: String;
-    submitted: String;
+    review: string;
+    submitted: string;
     managerId: number;
-    reviewStatus: String;
+    reviewStatus: string;
     likes : number;
-    dislikes : number;
+    dislikes: string;
+    
 
 }
