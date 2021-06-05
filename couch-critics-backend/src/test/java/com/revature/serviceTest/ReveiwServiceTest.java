@@ -40,7 +40,7 @@ public class ReveiwServiceTest {
 	public void getReviewByCriticsIdTest() {
 		int criticsId = 5;
 		
-		Mockito.when(rRepo.getReviewsByAuthorId(criticsId)).thenReturn(reviews);
+		Mockito.when(rRepo.getReviewsByauthorIdUserid(criticsId)).thenReturn(reviews);
 		
 		assertEquals(reviews, rService.getReviewByCriticsId(criticsId));
 		
