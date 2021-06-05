@@ -13,30 +13,31 @@ export class CriticsComponent implements OnInit {
 
   //making a variable out of the object made from the import of REVIEWS
   reviews : review[] = [];
-  pReview : review[] = [];
-  test : any;  
+  
+
 
 
 
   constructor(private detail : ReviewDetailService) { }
 
   ngOnInit() {
-    this.getDetail();
-    this.getTest();
+    
   }
 
  
+// //practicing
+// getDetail() : void{
+//   this.detail.getReview().subscribe(
+//     reviews=>this.reviews=reviews
+//     );
+// }
 
-getDetail() : void{
-  this.detail.getReview().subscribe(reviews=>this.reviews=reviews);
-}
-
-//testing
-getTest(){
-  this.detail.getTest().subscribe(
-    data => {this.test = (data)}
-  )
-}
+// //testing
+// getTest(){
+//   this.detail.getTest().subscribe(
+//     data => {this.test = (data)}
+//   )
+// }
 
 
 

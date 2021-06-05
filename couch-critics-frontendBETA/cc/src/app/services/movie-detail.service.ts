@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {environment as env} from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
+// THINK OF THIS SERVICE AS YOUR DATABASE TO RETRIEVE A LIST OF MOVIE DATA
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,8 @@ export class MovieDetailService {
   //   return array;    
   // }
 
+
+  // this function will return an array of movie details
   getM() : Movie[] {
     
     for(let x = 0; x < this.movieId.length; x++){
@@ -51,6 +54,7 @@ export class MovieDetailService {
 
   getMovies(y : number) : Observable<Movie>{
       let url = `https://${this.base}${y}${env.key}`
+      console.log(this.http.get<Movie>(url))
       return this.http.get<Movie>(url);
   }
 

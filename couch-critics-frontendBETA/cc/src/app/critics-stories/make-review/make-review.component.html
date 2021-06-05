@@ -12,13 +12,13 @@
         <span class = "badge">{{m.id}}: {{m.original_title}}</span>
         
         <br>
-        <span><img src="https://image.tmdb.org/t/p/w500/{{m.poster_path}}"></span>
+        <span><img src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}"></span>
         <br>
         <span>{{m.overview}}</span>
         <br>
         <span>Popularity rating: {{m.popularity}}</span>
         <br>
-        <button routerLink="/detail/50">Critic It!</button>
+        <button routerLink="/detail/{{m.id}}">Critic It!</button>
         <br>
         <br>
         

@@ -1,3 +1,4 @@
+<!--   FOR REFERENCE
 <div *ngIf="r">
     <h3>{{r.movieName }}</h3>
 <div><span>Review id: </span>{{r.reviewId}}</div>
@@ -13,5 +14,27 @@
 <br>
     <button (click)="goBack()">go back</button>
 </div>
+-->
+<br>
+
+<div *ngIf="m">
+    <h1>{{m.original_title}}</h1>
+    <span><img src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}"></span>
 
 <br>
+
+    <div>
+     <label for="movie">Movie Review</label>
+     <br>
+     <textarea id="movie" name="movie" rows="20" cols="100"  placeholder="Make Review">
+        create movie review here
+        </textarea>
+        <br>
+        <button>submit</button>
+    </div>
+
+<br>
+<br>
+<br>
+    <button (click)="goBack()">go back</button>
+</div>
