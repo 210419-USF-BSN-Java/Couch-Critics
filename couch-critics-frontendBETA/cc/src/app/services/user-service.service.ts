@@ -15,9 +15,15 @@ const httpOptions = {
 })
 export class UserServiceService {
   constructor(private http: HttpClient) { }
-  private apiUrl = "http://localhost:8000/users" 
+  private apiUrl = "http://localhost:8080/users";
+  users : User[] = [];
+
+  getallEmployees(): Observable <User[]>{
+    return this.http.get<User[]>(`${this.apiUrl}/getUsers/employee`);
+  }
+
   getallUsers(): Observable <User[]>{
-    return this.http.get<User[]>(this.apiUrl); //
+    return this.http.get<User[]>(`${this.apiUrl}/getUsers/customer`);
   }
 
   getUserById(id: number): Observable<User[]>{

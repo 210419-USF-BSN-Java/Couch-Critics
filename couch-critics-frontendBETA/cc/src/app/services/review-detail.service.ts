@@ -9,7 +9,8 @@ import { environment as env} from '../../environments/environment';
   providedIn: 'root'
 })
 export class ReviewDetailService {
-
+  rev : review[] = [];
+  reviews: review[] = [];
   private reviewUrl = env.BACKEND_URL;
   private testUrl = "https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898";
 
@@ -32,20 +33,21 @@ export class ReviewDetailService {
 
   //Get all reviews
   getR(id:number):Observable<review[]>{
-    let url = `${this.reviewUrl}/viewByCriticId/${id}`;
+    let url = `${this.reviewUrl}/review/viewByCriticId/${id}`;
     return this.http.get<review[]>(url);
   }
 
   //get all pending
-  getPendingStatus(p:String){
-    let url = `${this.reviewUrl}/viewByReviewStatus/{p}`;
-    return this.http.get<review>(url);
+  getPendingStatus() : Observable<review[]>{
+    let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
+    console.log(this.http.get<review[]>(url).subscribe(reviews => this.reviews = reviews));
+    return this.http.get<review[]>(url);
   }
 
   //get all accepted
-  getAcceptedStatus(a:String){
-    let url = `${this.reviewUrl}/viewByReviewStatus/accepted`;
-    return this.http.get<review>(url);
+  getAcceptedStatus(){
+    let url = `${this.reviewUrl}/review/viewByReviewStatus/accepted`;
+    return this.http.get<review[]>(url);
   }
 
   //just testing
