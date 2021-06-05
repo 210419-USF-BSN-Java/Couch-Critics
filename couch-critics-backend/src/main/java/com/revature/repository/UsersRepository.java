@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.revature.model.Role;
 import com.revature.model.Users;
 
 /*
@@ -28,6 +29,6 @@ public interface UsersRepository extends JpaRepository<Users, Integer>{
 
 	//public List<Users> getUserByRole(String role);
 
-	public List<Users> getUserByRoleId(int i);
+	public List<Users> getUserByRoleId(Role r);
 	
 }

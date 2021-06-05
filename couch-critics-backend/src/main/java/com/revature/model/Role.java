@@ -19,6 +19,11 @@ public class Role {
 	public Role() {
 		
 	}
+	
+	public Role(int roleId) {
+		this.roleId = roleId;
+		//this.role = role;
+	}
 
 	public int getRoleId() {
 		return roleId;
