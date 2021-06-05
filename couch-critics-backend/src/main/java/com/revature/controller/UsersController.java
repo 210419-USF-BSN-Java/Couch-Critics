@@ -81,7 +81,7 @@ public class UsersController {
 	 * 2) pWord that contains the password.
 	 * Then return the verified Users Object(JSON format) back to front end.
 	*/
-	@PostMapping(value="/getUsers/{role}")
+	@RequestMapping(value="/getUsers/{role}")
 	public ResponseEntity<List<Users>> getUsersByRole(@PathVariable String role){
 		List<Users> u = us.getUserByRole(role);
 	
