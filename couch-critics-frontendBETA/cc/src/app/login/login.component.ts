@@ -1,3 +1,4 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
@@ -21,6 +22,13 @@ export class LoginComponent implements OnInit {
     //This uses the authentication method in our authentication.service
     this.authServ.login(this.username, this.password).subscribe(
       response =>{
+        console.log(response)
+        let userId = response.userid; 
+        //this works, sets as json format in sessionstorage
+        //session storage gets deleted automatically when exiting specific tab initially logged in,closing browser
+        window.sessionStorage.setItem('currentUserid', JSON.stringify(userId));
+        window.sessionStorage.setItem('currentUserObject', JSON.stringify(response));
+
         let userType = response.roleId?.roleId;
 
         switch(userType) {

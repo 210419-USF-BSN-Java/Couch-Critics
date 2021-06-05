@@ -1,5 +1,5 @@
 export interface User {
-    id? : number,
+    userid? : number, //switched from id to userid to match response format
     firstName : string,
     lastName : string,
     username : string,
