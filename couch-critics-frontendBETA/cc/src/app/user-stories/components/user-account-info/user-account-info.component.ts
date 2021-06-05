@@ -11,7 +11,7 @@ import {UserServiceService} from "../../../services/user-service.service"
 
 export class UserAccountInfoComponent implements OnInit {
   @Output() btnClick = new EventEmitter(); 
-  currentUser!: User[]; //this just pastes the mock data for the user into this component, will refactor to use service instead
+  currentUser!: User; //this just pastes the mock data for the user into this component, will refactor to use service instead
  //this just pastes the mock data for the user into this component, will refactor to use service instead
   constructor(private UserServiceService: UserServiceService) { 
     this.currentUser;
@@ -20,10 +20,13 @@ export class UserAccountInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.UserServiceService.getUserById(1).subscribe((user) => {
-      console.log(user)
+    let id = this.UserServiceService.getCurrentUserId(); 
+    if(!id){
+      console.log("no user logged in")
+    }
+    this.UserServiceService.getUserById(id).subscribe((user) => {
       this.currentUser = user
-    });  //issue
+    });  
   }
   showEditForm(){
     this.btnClick.emit(); 
