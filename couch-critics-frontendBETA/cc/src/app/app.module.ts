@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -21,6 +21,11 @@ import { UserViewCriticsPageComponent } from './user-stories/pages/user-view-cri
 import { CriticsComponent } from './critics-stories/critics/critics.component';
 import { ReviewDetailComponent } from './critics-stories/review-detail/review-detail.component';
 import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -40,13 +45,20 @@ import { MakeReviewComponent } from './critics-stories/make-review/make-review.c
     CriticsComponent,
     ReviewDetailComponent,
     MakeReviewComponent
+
   ],
   imports: [
+    MatInputModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
