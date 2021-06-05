@@ -20,8 +20,8 @@ export class AuthenticationService {
   login(username:string, password:string): Observable<User>{
 
     const params = new HttpParams()
-    .set('uName', username)
-    .set('pWord', password);
+    .set('username', username)
+    .set('password', password);
 
     // let loginInfo = {
     //   uName : username,

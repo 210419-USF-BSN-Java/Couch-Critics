@@ -1,10 +1,10 @@
 export interface User {
-    userId? : number,
+    id? : number,
     firstName : string,
     lastName : string,
     username : string,
     password : string,
     email : string,
-    roleId? : number,
-    statusId? : number
+    roleId? : { roleId: number, role : string},
+    statusId? : { accStatusId: number, accStatus: string}
 }

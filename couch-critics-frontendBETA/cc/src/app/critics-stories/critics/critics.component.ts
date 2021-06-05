@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {review} from '../../models/review-interface';
 import {ReviewDetailService} from '../../services/review-detail.service';
@@ -12,6 +13,8 @@ export class CriticsComponent implements OnInit {
 
   //making a variable out of the object made from the import of REVIEWS
   reviews : review[] = [];
+  pReview : review[] = [];
+  test : any;  
 
 
 
@@ -19,6 +22,7 @@ export class CriticsComponent implements OnInit {
 
   ngOnInit() {
     this.getDetail();
+    this.getTest();
   }
 
  
@@ -26,4 +30,14 @@ export class CriticsComponent implements OnInit {
 getDetail() : void{
   this.detail.getReview().subscribe(reviews=>this.reviews=reviews);
 }
+
+getTest(){
+  this.detail.getTest().subscribe(
+    data => {this.test = JSON.stringify(data)}
+  )
+}
+
+
+
+
 }
