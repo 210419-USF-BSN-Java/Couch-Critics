@@ -5,31 +5,40 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 import org.jboss.logging.Logger;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 import com.revature.model.Users;
 
+@Component
 @Aspect
+@EnableAspectJAutoProxy
 public class ServiceAspects {
 	private static Logger LOG = Logger.getLogger(ServiceAspects.class);
 	
-	@AfterThrowing(pointcut="within(* com.revature.service.*)", throwing="ex")
-	public void logException(JoinPoint jp,Exception ex) {
+	@AfterThrowing(pointcut="execution(* com.revature.service.*.*(..))", throwing="ex")
+	public void logServiceException(JoinPoint jp,Exception ex) {
 		LOG.error(jp.getSignature() + " threw " + ex.getClass());
-		System.out.println("There was an ex");
+		//System.out.println("There was an ex");
 	}
 	
-	@Before("within(* com.revature.controller.*)")
+	@AfterThrowing(pointcut="execution(* com.revature.controller.*.*(..))", throwing="ex")
+	public void logControllerException(JoinPoint jp,Exception ex) {
+		LOG.error(jp.getSignature() + " threw " + ex.getClass());
+		//System.out.println("There was an ex");
+	}
+	
+	@Before("execution(* com.revature.controller.*.*(..))")
 	public void logBeforeService(JoinPoint jp) {
 		LOG.info(jp.getTarget() + " called " + jp.getSignature());
-		System.out.println("Print before");
+		//System.out.println("Print before");
 	}
 	
 	@AfterReturning(pointcut="execution(* com.revature.service.*.get*(..))", returning="retVal")
 	public void logGetReviews(Object retVal) {
 		LOG.info(retVal.getClass() + " was returned.");
+		//System.out.println("After returning");
 	}
 	
 	//Users
