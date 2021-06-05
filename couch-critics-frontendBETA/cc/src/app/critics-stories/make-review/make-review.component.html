@@ -9,11 +9,24 @@
 <h3>My Reviews</h3>
 <ul class="mov">
     <li *ngFor="let m of movies">
-        <span class = "badge">{{movies[0].id}}</span>
+        <span class = "badge">{{m.id}}: {{m.original_title}}</span>
+        
+        <br>
+        <span><img src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}"></span>
+        <br>
+        <span>{{m.overview}}</span>
+        <br>
+        <span>Popularity rating: {{m.popularity}}</span>
+        <br>
+        <button routerLink="/detail/{{m.id}}">Critic It!</button>
+        <br>
+        <br>
+        
     </li>
     
 </ul>
-<span>{{movies[1].original_title}}</span>
+
+<!--
 <h3>List of Movies</h3>
 <ul class="movies">
     <li >
@@ -24,15 +37,13 @@
         <br>
         
         
-        
-        
         <br>
         <span>{{movie.overview}}</span>
 
     </li>
     
 </ul>
-
+-->
 
 
 <div>
