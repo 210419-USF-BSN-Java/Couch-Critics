@@ -87,4 +87,11 @@ public class UsersController {
 	
 		return new ResponseEntity<List<Users>>(u, HttpStatus.OK);
 	}
+	
+	@PostMapping(value="/getUsersById/{id}")
+	public ResponseEntity<Users> getUsersByRole(@PathVariable int id){
+		Users u = us.getUserById(id);
+	
+		return new ResponseEntity<Users>(u, HttpStatus.OK);
+	}
 }
