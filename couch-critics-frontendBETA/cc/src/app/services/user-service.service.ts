@@ -16,18 +16,17 @@ const httpOptions = {
 })
 export class UserServiceService {
   constructor(private http: HttpClient) { }
-  private apiUrl = "http://localhost:3000/users" //http server mocked
-  //just for mocking purposes, uses json.db file, json http server to mimic pulling from actual server 
+  private apiUrl = "http://localhost:8000/users" 
   getallUsers(): Observable <User[]>{
-    return this.http.get<User[]>(this.apiUrl); 
+    return this.http.get<User[]>(this.apiUrl); //
   }
 
   getUserById(id: number): Observable<User[]>{
     //const aUser = of(user.filter(e => e.userId === id))
     //return aUser; 
     // static mock user file
-   const array =this.http.get<User[]>(this.apiUrl)
-    .pipe(map(users => users.filter(user => user.id === id))); //this filters our returned observable based on id
+    const array =this.http.get<User[]>(this.apiUrl)
+    .pipe(map(users => users.filter(user => user.userid === id))); //this filters our returned observable based on id
     console.log(array)
     return array
     //this should filter the array if a element matches the passed in paramter for that particular id,
@@ -38,6 +37,21 @@ export class UserServiceService {
   updateUserById(id: Number, user: User): Observable<User> {
     const url =  `${this.apiUrl}/${id}`
     return this.http.put<User>(url, user, httpOptions); 
+  }
 
+  //updateUser(user: User): Observable<User> {
+    //const url = `${this.apiUrl}/update`
+  //}
+
+  getCurrentUserId(){
+    let id = window.sessionStorage.getItem('currentUserid'); 
+    console.log(id)
+    return id; 
+  }
+
+  getCurrentUserObject(){
+    let userObject = window.sessionStorage.getItem('currentUserObject'); 
+    console.log(userObject)
+    return userObject;
   }
 }
