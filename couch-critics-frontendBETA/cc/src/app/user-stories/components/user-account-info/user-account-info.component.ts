@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {user} from '../../mock-user' //this is for ui rendering purposes
 import { User} from '../../../models/user'
 import {UserServiceService} from "../../../services/user-service.service"
 

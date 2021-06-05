@@ -31,6 +31,7 @@ getDetail() : void{
   this.detail.getReview().subscribe(reviews=>this.reviews=reviews);
 }
 
+//testing
 getTest(){
   this.detail.getTest().subscribe(
     data => {this.test = JSON.stringify(data)}
