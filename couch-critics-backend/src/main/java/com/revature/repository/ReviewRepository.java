@@ -3,7 +3,10 @@ package com.revature.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.model.Reviews;
 
@@ -13,22 +16,23 @@ import com.revature.model.Reviews;
 @Repository
 public interface ReviewRepository extends JpaRepository<Reviews, Integer>{
 	
-	public List<Reviews> getReviewsByAuthorId(int authorId);
+	public List<Reviews> getReviewsByauthorIdUserid(int authorIdUserid);
 	
 	public List<Reviews> getReviewsByMovieName(String movieName);
 
 	public List<Reviews> getReviewsByReviewStatus(String reviewStatus);
 	
+	public List<Reviews> getReviewsByAuthorIdUseridAndReviewStatus(int authorId, String reviewStatus);
 	
-	//public List<Reviews> getReviewsById(int criticID);
-	//done by findById
+	@Transactional
+	@Modifying
+	@Query("UPDATE Reviews r SET r.likes = r.likes + 1 WHERE r.reviewId=?1")
+	public void addLikeToReview(int reviewId);
 	
-	//public List<Reviews> getReviewsByReviewStatus(String reviewStatus);
+	@Transactional
+	@Modifying
+	@Query("UPDATE Reviews r SET r.dislikes = r.dislikes + 1 WHERE reviewId=:reviewId")
+	public void addDislikeToReview(int reviewId);
 	
-	//public boolean addReview(Reviews r);
-	//done by save()
-	
-	//public boolean deleteReview(int reviewID);
-	//done by delete()
 	
 }

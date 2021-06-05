@@ -24,11 +24,16 @@ public class ReviewController {
 	
 	private ReviewService rs;
 	
+	public ReviewController() {
+
+	}
+	
 	@Autowired
 	public ReviewController(ReviewService rs) {
 		this.rs = rs;
 	}
 	
+	//this method is use to view all Reviews belong to this ID with all types of status in database.
 	@PostMapping(value="/viewByCriticId/{id}")
 	public ResponseEntity<List<Reviews>> getReviewByCriticsId(@PathVariable int id){
 		
@@ -47,7 +52,7 @@ public class ReviewController {
 	
 	@GetMapping(value="/addReview")
 	public ResponseEntity<String> addReview(@RequestBody Reviews r){
-		System.out.println(r);
+		
 		String success = rs.addReview(r);
 
 		return new ResponseEntity<String>(success, HttpStatus.OK);
@@ -62,12 +67,31 @@ public class ReviewController {
 		return new ResponseEntity<String>(success, HttpStatus.OK);
 	}
 	
+	
 	@PostMapping(value="/viewByReviewStatus/{status}")
 	public ResponseEntity<List<Reviews>> viewByReviewStatus(@PathVariable String status){
 		
 		List<Reviews> reviews = rs.getReviewByReviewStatus(status);
 		
 		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);
+	}
+	
+	//this is to view Reviews by critics ID and the status.
+	@PostMapping(value="/viewByIdAndStatus/{id}/{status}")
+	public ResponseEntity<List<Reviews>> viewByIdAndStatus(@PathVariable int id, @PathVariable String status){
+	
+		List<Reviews> reviews = rs.getReviewByIdAndStatus(id, status);
+		
+		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);
+		
+	}
+	
+	@GetMapping(value="/attitute/{reviewId}/{attitute}")
+	public ResponseEntity<String> addAttituteFromUser(@PathVariable int reviewId,@PathVariable String attitute){
+		
+		String addUserAttitute = rs.addAttituteToReview(attitute, reviewId);
+		
+		return new ResponseEntity<String>(addUserAttitute, HttpStatus.OK);
 	}
 
 }

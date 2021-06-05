@@ -13,6 +13,11 @@ public class ReviewService {
 
 	private ReviewRepository rr;
 	
+
+	public ReviewService () {
+		
+	}
+	
 	@Autowired
 	public ReviewService (ReviewRepository rr) {
 		this.rr = rr;
@@ -21,10 +26,10 @@ public class ReviewService {
 	public List<Reviews> getReviewByCriticsId(int criticsId){
 		
 		try{
-			List<Reviews> reviews = rr.getReviewsByAuthorId(criticsId);
+			List<Reviews> reviews = rr.getReviewsByauthorIdUserid(criticsId);
 			return reviews;
 		} catch (Exception e){
-			//implements more exceptions: one for out of index.
+			System.out.println(e);
 			return null;
 		}
 		
@@ -36,7 +41,7 @@ public class ReviewService {
 			List<Reviews> reviews = rr.getReviewsByMovieName(movieName);
 			return reviews;
 		} catch (Exception e){
-			//implements more exceptions: movie name does not exist any reviews.
+			System.out.println(e);
 			return null;
 		}
 	}
@@ -49,7 +54,6 @@ public class ReviewService {
 			}
 			
 		} catch (Exception e){
-			//implements more exceptions: movie name does not exist any reviews.
 			System.out.println(e);
 			return "Failed to add a review";
 		}
@@ -63,7 +67,7 @@ public class ReviewService {
 			return "Successfully deleted a review";
 			
 		} catch (Exception e){
-			//implements more exceptions.
+			System.out.println(e);
 			return "Failed to delete a review";
 		}
 
@@ -75,8 +79,40 @@ public class ReviewService {
 			List<Reviews> reviews = rr.getReviewsByReviewStatus(status);
 			return reviews;
 		} catch (Exception e){
-			//implements more exceptions: movie name does not exist any reviews.
+			System.out.println(e);
 			return null;
 		}
+	}
+
+	public String addAttituteToReview(String attitute, int reviewId) {
+		
+		try{
+			if(attitute.equals("like")) {
+				rr.addLikeToReview(reviewId);
+				
+			} else if (attitute.equals("dislike")) {
+				rr.addDislikeToReview(reviewId);
+			} else {
+				return "Invalid attitute.";
+			}
+
+			return "Successfully added attitute.";
+		} catch (Exception e){
+			System.out.println(e);
+			return "Failed to add attitute to review";
+		}
+
+	}
+
+	public List<Reviews> getReviewByIdAndStatus(int id, String status) {
+		
+		try{
+			List<Reviews> reviews = rr.getReviewsByAuthorIdUseridAndReviewStatus(id, status);
+			return reviews;
+		} catch (Exception e){
+			System.out.println(e);
+			return null;
+		}
+
 	}
 }
