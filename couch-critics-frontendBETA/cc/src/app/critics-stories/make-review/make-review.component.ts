@@ -17,17 +17,12 @@ export class MakeReviewComponent implements OnInit {
   constructor(private ms : MovieDetailService) { }
 
   ngOnInit()  {
-    this.getMovies();
+    
     this.getTest();
   }
 
 
-  getMovies(): void{
-    this.ms.getMovies().subscribe(
-      data => {this.movie = (data)}
-      );
-    console.log(this.movie.original_title)
-  }
+  
 
   getTest(): void{
    this.movies = this.ms.getM()

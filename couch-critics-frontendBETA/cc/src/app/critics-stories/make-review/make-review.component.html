@@ -9,11 +9,18 @@
 <h3>My Reviews</h3>
 <ul class="mov">
     <li *ngFor="let m of movies">
-        <span class = "badge">{{movies[0].id}}</span>
+        <span class = "badge">{{m.id}}</span>
+        <br>
+        <span>{{m.original_title}}</span>
+        <br>
+        <span>{{m.overview}}</span>
+        <br>
+        <span>{{m.popularity}}</span>
+        <span><img src=""></span>
     </li>
     
 </ul>
-<span>{{movies[1].original_title}}</span>
+
 <h3>List of Movies</h3>
 <ul class="movies">
     <li >
@@ -22,8 +29,6 @@
         <span>{{movie.id}}</span>
         
         <br>
-        
-        
         
         
         <br>

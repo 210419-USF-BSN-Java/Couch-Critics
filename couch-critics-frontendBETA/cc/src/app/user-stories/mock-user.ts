@@ -2,7 +2,7 @@ import { User} from '../models/user'
 
 export const user: User[] = [
     {
-        id: 1, 
+        userid: 1, 
         firstName: "ruben", 
         lastName: "garcia", 
         username: "rubles",
@@ -10,7 +10,7 @@ export const user: User[] = [
         email: "rubengarcia0515@gmail.com" 
     },
       {
-        id: 2, 
+        userid: 2, 
         firstName: "ben", 
         lastName: "garcia", 
         username: "benj",
