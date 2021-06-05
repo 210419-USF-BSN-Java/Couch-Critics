@@ -56,7 +56,7 @@ public class DiscussionServiceTest {
 	
 	@Test
 	public void testDeleteDiscussion() {
-		dServ.addDiscussion(d);
+		//dServ.addDiscussion(d);
 		assertTrue(dServ.deleteDiscussion(d.getDiscId()));	
 	}
 	

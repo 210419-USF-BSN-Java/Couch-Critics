@@ -47,7 +47,7 @@ public class UsersServiceTest {
 		
 		Mockito.when(uRepo.getPassWordAndSalt(uName)).thenReturn(u);
 
-		Mockito.when(salt.verifyHashedPass(pWord, u.getpWord(), u.getSalt())).thenReturn(true);
+		Mockito.when(salt.verifyHashedPass(pWord, u.getPassword(), u.getSalt())).thenReturn(true);
 		
 		assertEquals(u, uService.getUserByUnameAndPword(uName, pWord));
 		
@@ -58,7 +58,7 @@ public class UsersServiceTest {
 
 		String[] hashedPassAndSalt = {"a9as7asd7", "as6s78s*&"};
 		
-		Mockito.when(salt.saltHashing(u.getpWord())).thenReturn(hashedPassAndSalt);
+		Mockito.when(salt.saltHashing(u.getPassword())).thenReturn(hashedPassAndSalt);
 
 		Mockito.when(uRepo.save(u)).thenReturn(u);
 		

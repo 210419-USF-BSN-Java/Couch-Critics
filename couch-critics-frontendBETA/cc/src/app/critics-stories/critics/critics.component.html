@@ -19,19 +19,22 @@
     
 </ul>
 
+<p>
+    {{test}}
+</p>
+
 
 
 
 <div class="critic-buttons">
-<form action="" method="GET">
-<button type="button">My Reviews</button>
-</form>
+    <label for="id">Enter id:</label>
+    <input type="text" name = "id">
+    <br>
 
-<form action="localhost:8080/review/viewByReviewStatus{status}" method="GET">
-    <button type="button" id="pending" >View Pending Review</button>
-</form>
+<button > My Reviews</button>
 
-<form action="localhost:8080/review/viewByReviewStatus{status}" method="GET">
-    <button type="button" id="accepted">View Accepted</button>
-</form>
+<button>View Pending Review</button>
+
+<button>View Accepted</button>
+
 </div>

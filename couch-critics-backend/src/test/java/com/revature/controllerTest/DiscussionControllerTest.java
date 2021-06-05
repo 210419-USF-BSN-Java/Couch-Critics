@@ -27,7 +27,7 @@ public class DiscussionControllerTest {
 	DiscussionController dc;
 	
 	private static Users u = new Users(5,"Kemo", "Allen", "kemo", "123", "kem@rev.com", null, null, null);
-	private static Reviews r = new Reviews(5, "okay", null, null, null, null, null, null, null, null);
+	private static Reviews r = new Reviews(5, "okay", null, null, null, null, 6, null, null, null);
 	private static Discussion d = new Discussion(5, u, r, "Great review.");
 	private static List<Discussion> dList = new LinkedList<>();
 	

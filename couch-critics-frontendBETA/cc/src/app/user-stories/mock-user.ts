@@ -7,9 +7,7 @@ export const user: User[] = [
         lastName: "garcia", 
         username: "rubles",
         password: "password", 
-        email: "rubengarcia0515@gmail.com", 
-        roleId: 1, 
-        statusId: 1
+        email: "rubengarcia0515@gmail.com" 
     },
       {
         id: 2, 
@@ -17,8 +15,7 @@ export const user: User[] = [
         lastName: "garcia", 
         username: "benj",
         password: "password", 
-        email: "rubengarcia0515@gmail.com", 
-        roleId: 1, 
-        statusId: 1
+        email: "rubengarcia0515@gmail.com"
     }
 ]
+] 

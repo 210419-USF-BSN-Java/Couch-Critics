@@ -28,7 +28,7 @@ public class ReviewControllerTest {
 	ReviewController rController = new ReviewController(rService);
 	
 	List<Reviews> reviews = new ArrayList<>();
-	Reviews r = new Reviews(4, "good", "approved", null, "20", "10", 3, "Avengers 3", null, null);
+	Reviews r = new Reviews(4, "good", "approved", null, 20, 10, 3, "Avengers 3", null, null);
 	
 	
 	
