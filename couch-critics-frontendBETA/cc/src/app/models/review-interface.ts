@@ -7,7 +7,7 @@ export interface review{
     movieName: string;
     authorId: number;
     review: string;
-    submitted: string;
+    submitted?: string;
     managerId: number;
     reviewStatus: string;
     likes? : number;
