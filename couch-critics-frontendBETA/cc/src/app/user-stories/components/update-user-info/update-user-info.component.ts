@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {UserServiceService} from "../../../services/user-service.service"
 import {User} from "../../../models/user"
-import { user } from '../../mock-user';
 import {Subscription} from'rxjs'
 import {FormBuilder, FormGroup, Validators} from "@angular/forms"
 import { first } from 'rxjs/operators';
