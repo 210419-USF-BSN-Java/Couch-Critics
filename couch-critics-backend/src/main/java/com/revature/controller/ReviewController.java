@@ -68,7 +68,7 @@ public class ReviewController {
 	}
 	
 	
-	@PostMapping(value="/viewByReviewStatus/{status}")
+	@RequestMapping(value="/viewByReviewStatus/{status}")
 	public ResponseEntity<List<Reviews>> viewByReviewStatus(@PathVariable String status){
 		
 		List<Reviews> reviews = rs.getReviewByReviewStatus(status);
@@ -77,7 +77,7 @@ public class ReviewController {
 	}
 	
 	//this is to view Reviews by critics ID and the status.
-	@PostMapping(value="/viewByIdAndStatus/{id}/{status}")
+	@RequestMapping(value="/viewByIdAndStatus/{id}/{status}")
 	public ResponseEntity<List<Reviews>> viewByIdAndStatus(@PathVariable int id, @PathVariable String status){
 	
 		List<Reviews> reviews = rs.getReviewByIdAndStatus(id, status);
