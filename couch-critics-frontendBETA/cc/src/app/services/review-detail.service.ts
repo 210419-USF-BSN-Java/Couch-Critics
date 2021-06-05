@@ -20,6 +20,7 @@ export class ReviewDetailService {
     return reviews;
   }
 
+  // how to return the observable of....
   getreview(id:number): Observable<review>{
     const review = REVIEWS.find(h=>h.movieId===id)!;
   

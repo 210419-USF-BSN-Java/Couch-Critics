@@ -34,7 +34,7 @@ getDetail() : void{
 //testing
 getTest(){
   this.detail.getTest().subscribe(
-    data => {this.test = JSON.stringify(data)}
+    data => {this.test = (data)}
   )
 }
 

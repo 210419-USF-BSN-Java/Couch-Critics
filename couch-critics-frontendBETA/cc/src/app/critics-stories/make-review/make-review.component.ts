@@ -18,13 +18,10 @@ export class MakeReviewComponent implements OnInit {
 
   ngOnInit()  {
     
-    this.getTest();
+    this.getMovies();
   }
 
-
-  
-
-  getTest(): void{
+  getMovies(): void{
    this.movies = this.ms.getM()
   }
  
