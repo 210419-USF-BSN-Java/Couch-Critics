@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.model.Role;
 import com.revature.model.Users;
 import com.revature.repository.UsersRepository;
 
@@ -124,11 +125,13 @@ public class UsersService {
 
 	public List<Users> getUserByRole(String role) {
 		try {
-			if(role == "employee") {
-				List<Users> u = ur.getUserByRoleId(2);
+			if(role.equals("employee")) {
+				Role r = new Role(2);
+				List<Users> u = ur.getUserByRoleId(r);
 				return u;
-			} else if (role == "customer") {
-				List<Users> u = ur.getUserByRoleId(3);
+			} else if (role.equals("customer")) {
+				Role r = new Role(3);
+				List<Users> u = ur.getUserByRoleId(r);
 				return u;
 			}
 		} catch(Exception e) {
