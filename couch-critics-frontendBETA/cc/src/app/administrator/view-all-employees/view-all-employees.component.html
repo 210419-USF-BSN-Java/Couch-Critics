@@ -1,1 +1,11 @@
-<p>view-all-employees works!</p>
+<h2>Couch Critic Employees</h2>
+
+<ul class="users">
+    <li *ngFor="let user of users">
+     {{user.username}}
+     <br>
+     {{user.firstName}}
+    </li>
+</ul>
+
+<button (click)="goBack()">Go Back</button>

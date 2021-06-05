@@ -99,6 +99,13 @@ public class UsersService {
 	*/
 	public String updateUserAccount(Users u) {
 		try {
+			//pass in the original password to hash, and return with 1) hashed password, and 2) salt generated with this password.
+			String[] hashedPassAndSalt = salt.saltHashing(u.getPassword());
+			
+			//set the hashed password and salt into the Users Object
+			u.setPassword(hashedPassAndSalt[0]);
+			u.setSalt(hashedPassAndSalt[1]);
+			
 			ur.save(u);
 			return "User account updated.";
 			

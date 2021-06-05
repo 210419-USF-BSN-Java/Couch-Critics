@@ -1,1 +1,9 @@
-<p>view-approved-reviews works!</p>
+<h2>Active Reviews</h2>
+
+<ul class="reviews">
+    <li *ngFor="let review of reviews">
+        <span class="badge">{{review.reviewId}}</span> {{review.review}}
+    </li>
+</ul>
+
+<button (click)="goBack()">Go Back</button>

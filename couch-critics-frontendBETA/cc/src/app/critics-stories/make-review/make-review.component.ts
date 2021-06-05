@@ -3,6 +3,7 @@ import { MovieDetailService} from '../../services/movie-detail.service';
 import { Movie } from '../../models/movie';
 
 
+
 @Component({
   selector: 'app-make-review',
   templateUrl: './make-review.component.html',
@@ -11,30 +12,25 @@ import { Movie } from '../../models/movie';
 
 export class MakeReviewComponent implements OnInit {
   title = "Create Movie Review";
-  movie : Movie = {};
   movies : Movie[] = [];
+  movieId : Movie[] =[];
 
-  constructor(private ms : MovieDetailService) { }
+  constructor(private ms : MovieDetailService,) { }
 
   ngOnInit()  {
     this.getMovies();
-    this.getTest();
   }
 
-
+  //getting movie data from our movie services
   getMovies(): void{
-    this.ms.getMovies().subscribe(
-      data => {this.movie = (data)}
-      );
-    console.log(this.movie.original_title)
-  }
-
-  getTest(): void{
    this.movies = this.ms.getM()
   }
- 
-  
 
+  // movingMovieId() : void{
+  //  this.rs.getMovies().subscribe(
+  //   movies => (this.movieId=movies)
+  //  );
+  // }
   
 
 }

@@ -58,9 +58,12 @@ export class LoginComponent implements OnInit {
         }
        
       },
+      // If this pops up on the console, that means some kind of Http Communication error happend
       err =>{
         console.log('In error block! err ' + err);
       },
+
+      // If this pops up on the console, that means the Http Communication between Angular and Spring was successful
       () => {
         console.log(('Observable is complete'));
       }
