@@ -10,6 +10,12 @@
     </li>   
 </ul>
 
+<ul class="reviews">
+    <li *ngFor="let r of reviews">
+        {{r.movieId}} {{r.movieName}} ({{r.reviewStatus}})
+    </li>
+</ul>
+
 <!--Manually hard coding our returned array so we have something to present-->
 <p>{{reviews[0].movieName}}: "{{reviews[0].review}}"</p>
 <p>{{reviews[1].movieName}}: "{{reviews[1].review}}"</p>
