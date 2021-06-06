@@ -14,9 +14,16 @@ export class ViewAllUsersComponent implements OnInit {
   constructor(private userService : UserServiceService, private location : Location) { }
 
   viewAllUsers() : void {
-    this.userService.getallUsers()
-    .subscribe(users => this.users = users);
+    this.userService.getUsers().subscribe(
+      (response : User[]) => {
+        this.users = response;
+        console.log(this.users);
+        console.log(response[0].userid);
+      }
+    )
   }
+
+  banUser() : void {}
 
   ngOnInit(): void {
     this.viewAllUsers();

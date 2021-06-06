@@ -57,18 +57,27 @@ export class ReviewDetailService {
   //get all pending
   getPendingStatus() : Observable<review[]>{
     let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
-    console.log(this.http.get<review[]>(url).subscribe(reviews => this.reviews = reviews));
     return this.http.get<review[]>(url);
   }
 
   //get all accepted
   getAcceptedStatus(){
-    let url = `${this.reviewUrl}/review/viewByReviewStatus/accepted`;
+    let url = `${this.reviewUrl}/review/viewByReviewStatus/Approved`;
     return this.http.get<review[]>(url);
   }
 
   //just testing
   getTest():Observable<Object>{
     return this.http.get('https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898');
+  }
+
+  //deletes review
+  rejectReview(reviewId : number) : Observable<void> {
+    return this.http.delete<void>(`${this.reviewUrl}/review/deleteReview/${reviewId}`);
+  }
+
+  //acceptReview (update from pending to accepted)
+  approveReview(reviewId : number) : Observable<void> {
+    return this.http.get<void>(`${this.reviewUrl}/review/approveReview/${reviewId}`);
   }
 }

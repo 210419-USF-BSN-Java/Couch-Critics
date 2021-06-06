@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
         if((response.userid !== null)) {
         console.log("successful login, user is activated and credentials matched")
         let userId = response.userid;
-        if(response.statusId?.accStatusId === 1){
+        if(response.statusId?.accStatusId === 2){
              //this works, sets as json format in sessionstorage
         //session storage gets deleted automatically when exiting specific tab initially logged in,closing browser
         this.accountActivated = false; 
