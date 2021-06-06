@@ -27,6 +27,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatTableModule} from '@angular/material/table';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {MatTableModule} from '@angular/material/table';
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

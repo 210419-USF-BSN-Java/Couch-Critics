@@ -7,14 +7,15 @@ import { environment as env} from '../../environments/environment';
 import { Movie } from '../models/movie';
 import { MovieDetailService } from '../services/movie-detail.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewDetailService {
   rev : review[] = [];
-  reviews: review[] = [];
+  reviews: review = {};
   private reviewUrl = env.BACKEND_URL;
-  private testUrl = "https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898";
+  
 
   constructor(private http: HttpClient,
               private ms : MovieDetailService,
@@ -54,10 +55,10 @@ export class ReviewDetailService {
     return this.http.get<review[]>(url);
   }
 
-  //get all pending
+
+
   getPendingStatus() : Observable<review[]>{
     let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
-    console.log(this.http.get<review[]>(url).subscribe(reviews => this.reviews = reviews));
     return this.http.get<review[]>(url);
   }
 
@@ -67,8 +68,5 @@ export class ReviewDetailService {
     return this.http.get<review[]>(url);
   }
 
-  //just testing
-  getTest():Observable<Object>{
-    return this.http.get('https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898');
-  }
+  
 }

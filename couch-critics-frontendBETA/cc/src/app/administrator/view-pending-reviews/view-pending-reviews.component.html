@@ -1,11 +1,14 @@
 <h2>Pending Reviews</h2>
 
+<p>{{reviews[0].movieName}}</p>
+<p>{{reviews[1].movieName}}</p>
+<p>{{reviews[2].movieName}}</p>
+<p>{{reviews[3].movieName}}</p>
+<p>{{reviews[4].movieName}}</p>
 
-<ul class="reviews">
-    <li *ngFor="let review of reviews">
-        <span class = "badge">{{review.reviewId}}</span> {{review.movieName}}
+<ul class="pending">
+    <li *ngFor="let r of reviews">
+
     </li>
-    
 </ul>
-
 <button (click)="goBack()">Go Back</button>
