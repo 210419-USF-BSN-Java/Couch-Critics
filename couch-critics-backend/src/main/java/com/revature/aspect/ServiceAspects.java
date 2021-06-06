@@ -50,12 +50,12 @@ public class ServiceAspects {
 		//System.out.println("After returning");
 	}
 	
-	@AfterReturning(pointcut="execution(* com.revature.service.*.get*(..))", returning="retVal")
-	public void logGetServices(Object retVal) {
-		String message = new String(retVal.getClass() + " was returned.");
-		LOG.log(aopInfo, message);
-		//System.out.println("After returning");
-	}
+//	@AfterReturning(pointcut="execution(* com.revature.service.*.get*(..))", returning="retVal")
+//	public void logGetServices(Object retVal) {
+//		String message = new String(retVal.getClass() + " was returned.");
+//		LOG.log(aopInfo, message);
+//		//System.out.println("After returning");
+//	}//need to talk with Kemo
 	
 	//Users
 

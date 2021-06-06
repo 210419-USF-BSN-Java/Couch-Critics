@@ -98,4 +98,16 @@ public class UsersController {
 	
 		return new ResponseEntity<Users>(u, HttpStatus.OK);
 	}
+	
+	/* This method expecting a get request with two path variable: 
+	 * 1) The user ID.
+	 * 2) The status.
+	 * Then return an String indicates if the status has been set in the database.
+	*/
+	@GetMapping(value="/setUserAccountStatus/{id}/{status}")
+	public ResponseEntity<String> setUserAccountStatus(@PathVariable int id, @PathVariable String status){
+		String result = us.setUserAccountStatus(id, status);
+	
+		return new ResponseEntity<String>(result, HttpStatus.OK);
+	}
 }

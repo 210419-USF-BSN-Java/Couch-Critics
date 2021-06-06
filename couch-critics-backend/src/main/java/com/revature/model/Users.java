@@ -27,6 +27,8 @@ public class Users {
 	@Column
 	private String email;
 	private String salt;
+	private Integer attemps = 0;
+	
 	@Autowired
 	@ManyToOne
 	private Role roleId;//role_Id
@@ -134,6 +136,18 @@ public class Users {
 		return "Users [userid=" + userid + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
 				+ username + ", password=" + password + ", email=" + email + ", salt=" + salt + ", roleId=" + roleId
 				+ ", statusid=" + statusid + "]";
+	}
+
+
+
+	public Integer getAttemps() {
+		return attemps;
+	}
+
+
+
+	public void setAttemps(Integer attemps) {
+		this.attemps = attemps;
 	}
 
 	
