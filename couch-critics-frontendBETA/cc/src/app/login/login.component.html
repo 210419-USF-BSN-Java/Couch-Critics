@@ -1,14 +1,30 @@
-<form>
-    <label>Username</label>
-    <br>
-    <input type="text" [(ngModel)]="username" name="username" />
-    <br>
-    <label>Password</label>
-    <br>
-    <input type="password" [(ngModel)]="password" name="password"/>
-    <br>
-    <br>
+<div class="login-container">
+        <div class="form-container">
+            <form>
+                <label>Username</label>
+                <br>
+                <input type="text" [(ngModel)]="username" name="username" />
+                <br>
+                <label>Password</label>
+                <br>
+                <input type="password" [(ngModel)]="password" name="password"/>
+                <br>
+                <br>
 
-    <!-- This event leads to our login method in the login.component.ts page -->
-    <button type="button" (click)="login()">Login</button>
-</form>
+                <!-- This event leads to our login method in the login.component.ts page -->
+                <button type="button" (click)="login()">Login</button>
+            </form>
+        </div>
+        <div class="sign-in-feedback"> 
+            <div *ngif="accountActivated === true && accountLoginSuccessful === true">
+                <p> Login Successful</p>
+            </div>
+             <div *ngif="accountInActivated ">
+                <p> Sorry, your account has been deactivated, please contact admin via email at admin@couchcritic.com</p>
+            </div>
+             <div *ngif="accountLoginUnSuccessful">
+                <p> Sorry, wrong credentials or user doesn't exisit, please try again</p>
+            </div>
+        </div>
+</div>
+
