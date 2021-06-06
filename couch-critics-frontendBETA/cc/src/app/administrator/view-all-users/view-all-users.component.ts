@@ -13,6 +13,7 @@ export class ViewAllUsersComponent implements OnInit {
 
   constructor(private userService : UserServiceService, private location : Location) { }
 
+
   viewAllUsers() : void {
     this.userService.getUsers().subscribe(
       (response : User[]) => {

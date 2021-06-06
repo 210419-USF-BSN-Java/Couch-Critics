@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-view-pending-reviews',
   templateUrl: './view-pending-reviews.component.html',
@@ -14,7 +15,7 @@ export class ViewPendingReviewsComponent implements OnInit {
 
   reviews: review[] = [];
 
-  constructor(private reviewService : ReviewDetailService, private location : Location) { }
+  constructor(private reviewService : ReviewDetailService, private location : Location) {}
 
   viewAllPendingReviews() : void {
     this.reviewService.getPendingStatus().subscribe(

@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
 
   username: string = '';
   password: string = '';
-  accountActivated: Boolean | undefined; 
 
   constructor(private authServ : AuthenticationService, private router: Router) { }
 
@@ -35,7 +34,7 @@ export class LoginComponent implements OnInit {
             case 2:
               this.router.navigate(['critics']);
               break;
-        
+
             case 3:
               this.router.navigate(['userhome']);
               break;

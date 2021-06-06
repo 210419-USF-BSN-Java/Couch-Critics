@@ -2,11 +2,15 @@ package com.revature.serviceTest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import com.revature.model.Role;
 import com.revature.model.Users;
 import com.revature.repository.UsersRepository;
 import com.revature.service.Salt;
@@ -69,9 +73,39 @@ public class UsersServiceTest {
 	@Test
 	public void updateUserAccountTest() {
 		
+		String[] hashedPassAndSalt = {"a9as7asd7", "as6s78s*&"};
+		
+		Mockito.when(salt.saltHashing(u.getPassword())).thenReturn(hashedPassAndSalt);
 		Mockito.when(uRepo.save(u)).thenReturn(u);
 		
 		assertEquals("User account updated.", uService.updateUserAccount(u));
+		
+	}//passed
+	
+	@Test
+	public void checkUserNameTest() {
+		String uName = "rob";
+		
+		Mockito.when(uRepo.getPassWordAndSalt(uName)).thenReturn(null);
+		
+		assertEquals("Username available.", uService.checkUserName(uName));
+		
+		Mockito.when(uRepo.getPassWordAndSalt(uName)).thenReturn(u);
+		
+		assertEquals("Username already exit.", uService.checkUserName(uName));
+		
+	}//passed
+	
+	@Test
+	public void getUserByRoleTest() {
+		String role = "employee";
+		Role r = new Role(2);
+		List<Users> u = new ArrayList<>();
+		
+		Mockito.when(uRepo.getUserByRoleId(r)).thenReturn(u);
+		
+		assertEquals(u, uService.getUserByRole(role));
+
 		
 	}//passed
 }

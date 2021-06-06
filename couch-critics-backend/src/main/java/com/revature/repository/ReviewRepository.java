@@ -34,5 +34,10 @@ public interface ReviewRepository extends JpaRepository<Reviews, Integer>{
 	@Query("UPDATE Reviews r SET r.dislikes = r.dislikes + 1 WHERE reviewId=:reviewId")
 	public void addDislikeToReview(int reviewId);
 	
+	@Transactional
+	@Modifying
+	@Query("UPDATE Reviews r SET r.reviewStatus =:decision WHERE reviewId=:reviewId")
+	public void decisionOnPendingReview(int reviewId, String decision);
+	
 	
 }

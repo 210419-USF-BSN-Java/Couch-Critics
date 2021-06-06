@@ -60,9 +60,9 @@ export class UserServiceService {
   }
 
   getCurrentUserObject(){
-    let userObject = window.sessionStorage.getItem('currentUserObject'); 
+    let userObject = JSON.parse(window.sessionStorage.getItem('currentUserObject')!);
     console.log("current userObject from session storage is " + userObject)
-    return userObject;
+    return userObject
   }
 
   //bans/deletes user

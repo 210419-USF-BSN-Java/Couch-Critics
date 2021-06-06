@@ -2,6 +2,9 @@ package com.revature.controllerTest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -53,6 +56,34 @@ public class UserControllerTest {
 		
 	}//passed
 	
+	@Test
+	public void checkUserNameTest() {
+		String username = "rob";
+		Mockito.when(uService.checkUserName(username)).thenReturn("success!");
+		
+		assertEquals(new ResponseEntity<String>("success!", HttpStatus.OK), uController.checkUserName(username));
+		
+	}//passed
 	
+	@Test
+	public void getUsersByIdTest() {
+		int id = 50;
+		Users u = new Users();
+		Mockito.when(uService.getUserById(id)).thenReturn(u);
+		
+		assertEquals(new ResponseEntity<Users>(u, HttpStatus.OK), uController.getUsersById(id));
+		
+	}//passed
+	
+	@Test
+	public void getUsersByRoleTest() {
+		String role = "employee";
+		List<Users> u = new ArrayList<>();
+		u.add(new Users());
+		Mockito.when(uService.getUserByRole(role)).thenReturn(u);
+		
+		assertEquals(new ResponseEntity<List<Users>>(u, HttpStatus.OK), uController.getUsersByRole(role));
+		
+	}//passed
 	
 }

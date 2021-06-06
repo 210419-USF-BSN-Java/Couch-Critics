@@ -13,7 +13,7 @@ export class ViewAllEmployeesComponent implements OnInit {
 
 
   constructor(private userService : UserServiceService, private location : Location) { }
-
+  
   viewAllEmployees() {
     this.userService.getEmployees().subscribe(
       (response : User[]) => {
