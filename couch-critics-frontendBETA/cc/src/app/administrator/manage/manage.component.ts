@@ -26,7 +26,7 @@ export class ManageComponent implements OnInit {
   }
 
   logOff() {
-    this.logoff.logout
+    this.router.navigate(['']);
   }
 
   goBack(): void {
