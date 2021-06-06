@@ -54,7 +54,6 @@ export class MovieDetailService {
 
   getMovies(y : number) : Observable<Movie>{
       let url = `https://${this.base}${y}${env.key}`
-      console.log(this.http.get<Movie>(url))
       return this.http.get<Movie>(url);
   }
 

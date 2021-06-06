@@ -3,6 +3,7 @@ import { review } from 'src/app/models/review-interface';
 import { ReviewDetailService } from 'src/app/services/review-detail.service';
 import { Location } from '@angular/common';
 
+
 @Component({
   selector: 'app-view-pending-reviews',
   templateUrl: './view-pending-reviews.component.html',
@@ -12,11 +13,16 @@ export class ViewPendingReviewsComponent implements OnInit {
 
   reviews: review[] = [];
 
-  constructor(private reviewService : ReviewDetailService, private location : Location) { }
+  constructor(private reviewService : ReviewDetailService, private location : Location) {}
 
   viewAllPendingReviews() : void {
-    this.reviewService.getPendingStatus()
-    .subscribe(reviews => this.reviews = reviews);
+    this.reviewService.getPendingStatus().subscribe(
+      (response: review[]) => {
+        this.reviews = response;
+        console.log(this.reviews)
+        console.log(this.reviews[0].movieName)
+      }
+    );
   }
 
   ngOnInit(): void {
