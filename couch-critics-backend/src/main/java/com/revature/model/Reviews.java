@@ -31,6 +31,7 @@ public class Reviews {
 	private Integer movieId;
 	@Column
 	private String movieName;
+	
 	@Autowired
 	@ManyToOne
 	private Users authorId;
@@ -148,6 +149,4 @@ public class Reviews {
 				+ movieName + ", authorId=" + authorId + ", managerId=" + managerId + "]";
 	}
 
-	
-	
 }
