@@ -13,6 +13,7 @@ import { first } from 'rxjs/operators';
 export class UpdateUserInfoComponent implements OnInit {
   user!: User;
   editForm!: FormGroup;
+  currentUserLoggedIn!: User; 
 
   @Output() btnClick: EventEmitter<User> = new EventEmitter(); 
   @Output() updateClicked = new EventEmitter<Event>(); 
@@ -24,13 +25,18 @@ export class UpdateUserInfoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.currentUserLoggedIn = this.UserServiceService.getCurrentUserObject(); 
+
       this.editForm = this.FormBuilder.group({
       userid: this.UserServiceService.getCurrentUserId(), 
       firstName: [''],
       lastName: [''],
       username: [''],
       password: [''],
-      email: ['']
+      email: [''], 
+      statusid: this.currentUserLoggedIn.statusid,
+      roleId: this.currentUserLoggedIn.roleId,
+
     })
   }
 
