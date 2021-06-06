@@ -44,7 +44,7 @@ public class DiscussionController {
 
 	// Receives a Discussion object id
 	// Returns a list of Discussion objects
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/get/{id}")
 	public ResponseEntity<Discussion> getDiscussionById(@PathVariable("id") Integer id) {
 		Discussion d = ds.getDiscussionByDiscussionId(id);
 
