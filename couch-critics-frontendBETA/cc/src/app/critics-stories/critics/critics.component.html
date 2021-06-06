@@ -8,7 +8,7 @@
 
 
 
-<h3>My Reviews</h3>
+
 <!--
 <ul class="reviews">
     <li *ngFor="let review of reviews">
@@ -22,16 +22,32 @@
 -->
 
 
-
 <div class="critic-buttons">
+    <!--
     <label for="id">Enter id:</label>
     <input type="text" name = "id">
     <br>
+    -->
 
-<button > My Reviews</button>
+<button (click)="getMyReview()"> My Reviews</button>
+<ul class="reviews">
+    <li *ngFor="let r of reviews">
+        {{r.movieId}} {{r.movieName}} ({{r.reviewStatus}})
+    </li>
+</ul>
 
-<button>View Pending Review</button>
+<button (click)="getMyPending()">View Pending Review</button>
+<ul class="pending">
+    <li *ngFor="let r of pendings">
+        {{r.reviewId}} {{r.review}} ({{r.reviewStatus}})
+    </li>
+</ul>
 
-<button>View Accepted</button>
+<button (click)="getMyAccepted()">View Accepted</button>
 
+<ul class="accepted">
+    <li *ngFor="let r of accepted">
+        {{r.reviewId}} {{r.review}} ({{r.reviewStatus}})
+    </li>
+</ul>
 </div>
