@@ -96,14 +96,14 @@ public class ReviewControllerTest {
 		
 	}//passed
 	
-	public void addAttituteFromUserTest() {
+	public void addAttitudeFromUserTest() {
 		int reviewId = 4;
-		String attitute = "like";
+		String attitude = "like";
 		reviews.add(r);
 		
-		Mockito.when(rService.addAttituteToReview(attitute, reviewId)).thenReturn("Successfully added attitute.");
+		Mockito.when(rService.addAttitudeToReview(attitude, reviewId)).thenReturn("Successfully added attitude.");
 		
-		assertEquals(new ResponseEntity<String>("Successfully added attitute.", HttpStatus.OK), rController.addAttituteFromUser(reviewId, attitute));
+		assertEquals(new ResponseEntity<String>("Successfully added attitute.", HttpStatus.OK), rController.addAttitudeFromUser(reviewId, attitude));
 		
 	}//passed
 }

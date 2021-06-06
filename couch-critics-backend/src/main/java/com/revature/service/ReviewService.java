@@ -84,22 +84,22 @@ public class ReviewService {
 		}
 	}
 
-	public String addAttituteToReview(String attitute, int reviewId) {
+	public String addAttitudeToReview(String attitude, int reviewId) {
 		
 		try{
-			if(attitute.equals("like")) {
+			if(attitude.equals("like")) {
 				rr.addLikeToReview(reviewId);
 				
-			} else if (attitute.equals("dislike")) {
+			} else if (attitude.equals("dislike")) {
 				rr.addDislikeToReview(reviewId);
 			} else {
-				return "Invalid attitute.";
+				return "Invalid attitude.";
 			}
 
-			return "Successfully added attitute.";
+			return "Successfully added attitude.";
 		} catch (Exception e){
 			System.out.println(e);
-			return "Failed to add attitute to review";
+			return "Failed to add attitude to review";
 		}
 
 	}
@@ -112,6 +112,17 @@ public class ReviewService {
 		} catch (Exception e){
 			System.out.println(e);
 			return null;
+		}
+
+	}
+
+	public String decisionOnPendingReview(int reviewId, String decision) {
+		try{
+			rr.decisionOnPendingReview(reviewId, decision);
+			return "Review status has been changed to:" + decision;
+		} catch (Exception e){
+			System.out.println(e);
+			return "Failed to update review status.";
 		}
 
 	}

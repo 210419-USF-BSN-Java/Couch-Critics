@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,7 +60,7 @@ public class ReviewController {
 		
 	}
 	
-	@PostMapping(value="/deleteReview/{id}")
+	@DeleteMapping(value="/deleteReview/{id}")
 	public ResponseEntity<String> deleteReview(@PathVariable int id){
 		
 		String success = rs.deleteReview(id);
@@ -86,12 +87,20 @@ public class ReviewController {
 		
 	}
 	
-	@GetMapping(value="/attitute/{reviewId}/{attitute}")
-	public ResponseEntity<String> addAttituteFromUser(@PathVariable int reviewId,@PathVariable String attitute){
+	@GetMapping(value="/attitude/{reviewId}/{attitude}")
+	public ResponseEntity<String> addAttitudeFromUser(@PathVariable int reviewId,@PathVariable String attitude){
 		
-		String addUserAttitute = rs.addAttituteToReview(attitute, reviewId);
+		String addUserAttitude = rs.addAttitudeToReview(attitude, reviewId);
 		
-		return new ResponseEntity<String>(addUserAttitute, HttpStatus.OK);
+		return new ResponseEntity<String>(addUserAttitude, HttpStatus.OK);
+	}
+	
+	@GetMapping(value="/decision/{reviewId}/{decision}")
+	public ResponseEntity<String> decisionOnPendingReview(@PathVariable int reviewId,@PathVariable String decision){
+		
+		String decisionResult = rs.decisionOnPendingReview(reviewId, decision);
+		
+		return new ResponseEntity<String>(decisionResult, HttpStatus.OK);
 	}
 
 }
