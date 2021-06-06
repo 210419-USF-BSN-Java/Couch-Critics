@@ -12,7 +12,10 @@ export class ViewAllUsersComponent implements OnInit {
   users : User[] = [];
 
   constructor(private userService : UserServiceService, private location : Location) { }
-
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+/*
   viewAllUsers() : void {
     this.userService.getallUsers()
     .subscribe(users => this.users = users);
@@ -25,5 +28,5 @@ export class ViewAllUsersComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
+*/
 }
