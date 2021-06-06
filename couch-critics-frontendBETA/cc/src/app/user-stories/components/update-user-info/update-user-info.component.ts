@@ -25,6 +25,7 @@ export class UpdateUserInfoComponent implements OnInit {
 
   ngOnInit(): void {
       this.editForm = this.FormBuilder.group({
+      userid: this.UserServiceService.getCurrentUserId(), 
       firstName: [''],
       lastName: [''],
       username: [''],
@@ -36,12 +37,13 @@ export class UpdateUserInfoComponent implements OnInit {
   onSave(){
     this.btnClick.emit(); 
     console.log("on save called")
-      console.log("user updated")
-      console.log(this.editForm.value)
-     this.UserServiceService.updateUserById(1, this.editForm.value).pipe(first())
-     .subscribe()
-     this.UserServiceService.getUserById(1)
-     location.reload();
+    console.log("user updated")
+    console.log(this.editForm.value)
+    this.UserServiceService.updateUser( this.editForm.value).pipe(first())
+    .subscribe()
+    let userid = this.UserServiceService.getCurrentUserId(); 
+    this.UserServiceService.getUserById(userid)
+    location.reload();
   }
 
   updateSiblingC(event: Event){

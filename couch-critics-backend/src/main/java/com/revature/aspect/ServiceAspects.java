@@ -68,18 +68,18 @@ public class ServiceAspects {
 //	}
 	
 	@AfterReturning(pointcut="execution(* com.revature.service.UsersService.regist*(..))", returning="retVal")
-	public void logAddUser(Object retVal) {
-		Users u = (Users)retVal;
+	public void logAddUser(Users retVal) {
+		Users u = retVal;
 		String message = new String("User " + u.getUsername() + " was added.");
 		LOG.log(aopInfo, message);
 	}
 	
 	@AfterReturning(pointcut="execution(* com.revature.service.UsersService.update*(..))", returning="retVal")
-	public void logUpdateUser(Object retVal) {
-		Users u = (Users)retVal;
+	public void logUpdateUser(Users retVal) {
+		Users u = retVal;
 		String message = new String("User " + u.getUsername() + " was updated.");
 		LOG.log(aopInfo, message);
-	}
+  }
 	
 	//Reviews
 	

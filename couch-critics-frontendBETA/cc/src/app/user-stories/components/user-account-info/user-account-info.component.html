@@ -3,12 +3,12 @@
         <mat-card-header>
             <div mat-card-avatar class="user-header-image example-header-image"></div>
             <mat-card-title><h3>Your Profile</h3></mat-card-title>
-            <mat-card-subtitle>Username: {{currentUser[0].username}}</mat-card-subtitle>
+            <mat-card-subtitle>Username: {{currentUser.username}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <p>First Name: {{currentUser[0].firstName}}</p>
-            <p>Last Name: {{currentUser[0].lastName}}</p>
-            <p>Email: {{currentUser[0].email}}</p>
+            <p>First Name: {{currentUser.firstName}}</p>
+            <p>Last Name: {{currentUser.lastName}}</p>
+            <p>Email: {{currentUser.email}}</p>
         </mat-card-content>
         <div> <button (click)="showEditForm()" class="edit-profile" mat-raised-button>Edit Profile</button></div>
     </mat-card>

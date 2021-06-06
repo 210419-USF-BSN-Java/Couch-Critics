@@ -10,6 +10,10 @@ import { CriticsComponent } from './critics-stories/critics/critics.component';
 import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
 import { ReviewDetailComponent } from './critics-stories/review-detail/review-detail.component';
 import { ManageComponent } from './administrator/manage/manage.component';
+import { ViewAllEmployeesComponent } from './administrator/view-all-employees/view-all-employees.component';
+import { ViewAllUsersComponent } from './administrator/view-all-users/view-all-users.component';
+import { ViewApprovedReviewsComponent } from './administrator/view-approved-reviews/view-approved-reviews.component';
+import { ViewPendingReviewsComponent } from './administrator/view-pending-reviews/view-pending-reviews.component';
 
 const routes: Routes = [
   {path: '', component:DashboardComponent},
@@ -21,7 +25,11 @@ const routes: Routes = [
   { path: 'critics', component: CriticsComponent },
   { path: 'create', component : MakeReviewComponent},
   { path: 'detail/:id', component : ReviewDetailComponent},
-  { path: 'admin', component : ManageComponent}
+  { path: 'admin', component : ManageComponent},
+  { path: 'view-employees', component : ViewAllEmployeesComponent},
+  { path: 'view-users', component : ViewAllUsersComponent},
+  { path: 'view-approved-reviews', component : ViewApprovedReviewsComponent},
+  { path: 'view-pending-reviews', component : ViewPendingReviewsComponent}
 ];
 
 @NgModule({

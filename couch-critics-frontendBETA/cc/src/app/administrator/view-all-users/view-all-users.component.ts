@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { UserServiceService} from 'src/app/services/user-service.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view-all-users',
@@ -6,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-all-users.component.css']
 })
 export class ViewAllUsersComponent implements OnInit {
+  users : User[] = [];
 
-  constructor() { }
+  constructor(private userService : UserServiceService, private location : Location) { }
+
+  viewAllUsers() : void {
+    this.userService.getallUsers()
+    .subscribe(users => this.users = users);
+  }
 
   ngOnInit(): void {
+    this.viewAllUsers();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

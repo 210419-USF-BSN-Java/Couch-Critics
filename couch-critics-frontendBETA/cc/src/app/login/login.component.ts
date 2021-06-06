@@ -23,35 +23,38 @@ export class LoginComponent implements OnInit {
     this.authServ.login(this.username, this.password).subscribe(
       response =>{
         console.log(response)
-        let userId = response.userid; 
-        //this works, sets as json format in sessionstorage
+        console.log("successful login, user is activated and credentials matched")
+        let userId = response.userid;
+             //this works, sets as json format in sessionstorage
         //session storage gets deleted automatically when exiting specific tab initially logged in,closing browser
         window.sessionStorage.setItem('currentUserid', JSON.stringify(userId));
         window.sessionStorage.setItem('currentUserObject', JSON.stringify(response));
-
         let userType = response.roleId?.roleId;
+          switch(userType) {
+            case 1:
+              this.router.navigate(['admin']);
+              break;
 
-        switch(userType) {
-          case 1:
-            this.router.navigate(['admin']);
-            break;
+            case 2:
+              this.router.navigate(['critics']);
+              break;
 
-          case 2:
-             this.router.navigate(['critics']);
-             break;
-      
-          case 3:
-            this.router.navigate(['userhome']);
-            break;
-          default:
-            alert("Something went wrong!");
-            this.router.navigate(['']);
-        }
+            case 3:
+              this.router.navigate(['userhome']);
+              break;
+            default:
+              alert("Something went wrong!");
+              this.router.navigate(['']);
+        } 
+        
        
       },
+      // If this pops up on the console, that means some kind of Http Communication error happend
       err =>{
         console.log('In error block! err ' + err);
       },
+
+      // If this pops up on the console, that means the Http Communication between Angular and Spring was successful
       () => {
         console.log(('Observable is complete'));
       }

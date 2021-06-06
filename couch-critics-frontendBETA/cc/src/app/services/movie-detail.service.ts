@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import {environment as env} from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
+// THINK OF THIS SERVICE AS YOUR DATABASE TO RETRIEVE A LIST OF MOVIE DATA
 
 @Injectable({
   providedIn: 'root'
@@ -37,35 +38,26 @@ export class MovieDetailService {
   //   return array;    
   // }
 
+
+  // this function will return an array of movie details
   getM() : Movie[] {
     
     for(let x = 0; x < this.movieId.length; x++){
-      this.getMoviesTest(this.movieId[x]).subscribe(
-        response =>{this.o = response}
+      this.getMovies(this.movieId[x]).subscribe(
+        response =>{this.arr.push(response)}
       );
-      console.log(this.o.poster_path)
-      console.log(this.t.original_title)
-      this.arr.push(this.o)
-      console.log(this.arr)
-      console.log(this.arr[5])
-    }  
+    } 
+    console.log(this.arr)
     return this.arr;    
   }
 
-  getMoviesTest(y : number) : Observable<Movie>{
-    let url = `https://${this.base}${y}${env.key}`
-    return this.http.get(url).pipe(map(response=>response as Movie));
-}
 
-  getMovies() : Observable<Movie>{
-      let url = `https://${this.base}${this.movieId}${env.key}`
-      this.http.get<Movie>(url).subscribe(
-        response =>{this.t = response}
-      );
-      // console.log(this.t.id)
+  getMovies(y : number) : Observable<Movie>{
+      let url = `https://${this.base}${y}${env.key}`
+      console.log(this.http.get<Movie>(url))
       return this.http.get<Movie>(url);
   }
-  
+
 
 }
 
