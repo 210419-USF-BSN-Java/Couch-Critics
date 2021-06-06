@@ -85,8 +85,7 @@ public class ServiceAspects {
 		String message = new String("User " + u.getUsername() + " was updated.");
 		LOG.log(aopInfo, message);
   }
-	
-	//Reviews
+
 	
 //	@AfterReturning(pointcut="execution(* com.revature.service.ReviewService.get*(..))", returning="retVal")
 //	public void logGetReviews(Object retVal) {
