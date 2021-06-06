@@ -23,14 +23,7 @@ export class LoginComponent implements OnInit {
     //This uses the authentication method in our authentication.service
     this.authServ.login(this.username, this.password).subscribe(
       response =>{
-        console.log(response)
-        if((response.userid !== null)) {
-        console.log("successful login, user is activated and credentials matched")
         let userId = response.userid;
-        if(response.statusId?.accStatusId === 2){
-             //this works, sets as json format in sessionstorage
-        //session storage gets deleted automatically when exiting specific tab initially logged in,closing browser
-        this.accountActivated = false; 
         window.sessionStorage.setItem('currentUserid', JSON.stringify(userId));
         window.sessionStorage.setItem('currentUserObject', JSON.stringify(response));
         let userType = response.roleId?.roleId;
@@ -49,14 +42,7 @@ export class LoginComponent implements OnInit {
             default:
               alert("Something went wrong!");
               this.router.navigate(['']);
-        } 
-          }else if(response.statusId?.accStatusId === 2){
-            this.accountActivated= false
-          }
-        }else if(response.userid === null){
-
-        }
-       
+        }     
       },
       // If this pops up on the console, that means some kind of Http Communication error happend
       err =>{
