@@ -77,10 +77,9 @@ public class UsersController {
 		return new ResponseEntity<String>(message, HttpStatus.OK);
 	}
 	
-	/* This method expecting a Post Request with two variables from the request: 
-	 * 1) uName that contains the username, 
-	 * 2) pWord that contains the password.
-	 * Then return the verified Users Object(JSON format) back to front end.
+	/* This method expecting a request with one path variable: 
+	 * 1) User role, 
+	 * Then return a list of Users that has the same role.
 	*/
 	@RequestMapping(value="/getUsers/{role}")
 	public ResponseEntity<List<Users>> getUsersByRole(@PathVariable String role){
@@ -89,6 +88,10 @@ public class UsersController {
 		return new ResponseEntity<List<Users>>(u, HttpStatus.OK);
 	}
 	
+	/* This method expecting a request with one path variable: 
+	 * 1) userid, 
+	 * Then return an Users object that has this userid.
+	*/
 	@GetMapping(value="/getUsersById/{id}")
 	public ResponseEntity<Users> getUsersById(@PathVariable int id){
 		Users u = us.getUserById(id);

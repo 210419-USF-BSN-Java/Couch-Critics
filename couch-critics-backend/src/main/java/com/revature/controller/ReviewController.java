@@ -34,7 +34,11 @@ public class ReviewController {
 		this.rs = rs;
 	}
 	
-	//this method is use to view all Reviews belong to this ID with all types of status in database.
+	
+	/* This end point expecting a Post request with one path variable: 
+	 * 1) The userid, 
+	 * Then return a list of Reviews object that contains this userid.
+	*/
 	@PostMapping(value="/viewByCriticId/{id}")
 	public ResponseEntity<List<Reviews>> getReviewByCriticsId(@PathVariable int id){
 		
@@ -43,6 +47,10 @@ public class ReviewController {
 		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);
 	}
 	
+	/* This end point expecting a get request with one path variable: 
+	 * 1) The movie name, 
+	 * Then return a list of Reviews object that contains this movie name.
+	*/
 	@GetMapping(value="/viewByMovieName/{name}")
 	public ResponseEntity<List<Reviews>> getReviewByMovieName(@PathVariable String name){
 		System.out.println(name);
@@ -51,6 +59,10 @@ public class ReviewController {
 		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);
 	}
 	
+	/* This end point expecting a get request with a Review object: 
+	 * 1) Reviews object that contains the review, status, movieId, movieName, and authorId, 
+	 * Then return a String that indicate if the review has been added to database.
+	*/
 	@GetMapping(value="/addReview")
 	public ResponseEntity<String> addReview(@RequestBody Reviews r){
 		
@@ -60,6 +72,10 @@ public class ReviewController {
 		
 	}
 	
+	/* This end point expecting a delete request with a path variable: 
+	 * 1) The review ID to indicate which to delete.
+	 * Then return a String that indicate if the review has been deleted from database.
+	*/
 	@DeleteMapping(value="/deleteReview/{id}")
 	public ResponseEntity<String> deleteReview(@PathVariable int id){
 		
@@ -68,7 +84,10 @@ public class ReviewController {
 		return new ResponseEntity<String>(success, HttpStatus.OK);
 	}
 	
-	
+	/* This end point expecting a request with a path variable: 
+	 * 1) The status of the reviews.
+	 * Then return a list of reviews that have this kind of status.
+	*/
 	@RequestMapping(value="/viewByReviewStatus/{status}")
 	public ResponseEntity<List<Reviews>> viewByReviewStatus(@PathVariable String status){
 		
@@ -77,7 +96,11 @@ public class ReviewController {
 		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);
 	}
 	
-	//this is to view Reviews by critics ID and the status.
+	/* This end point expecting a request with two path variable: 
+	 * 1) The authorId.
+	 * 2) The reviewStatus.
+	 * Then return a list of reviews that contains the authorId and reviewStatus.
+	*/
 	@RequestMapping(value="/viewByIdAndStatus/{id}/{status}")
 	public ResponseEntity<List<Reviews>> viewByIdAndStatus(@PathVariable int id, @PathVariable String status){
 	
@@ -87,6 +110,11 @@ public class ReviewController {
 		
 	}
 	
+	/* This end point expecting a Get request with two path variable: 
+	 * 1) The reviewId.
+	 * 2) The attitude that indicates like or dislike.
+	 * Then return a String that indicate if the attitude has been added to database.
+	*/
 	@GetMapping(value="/attitude/{reviewId}/{attitude}")
 	public ResponseEntity<String> addAttitudeFromUser(@PathVariable int reviewId,@PathVariable String attitude){
 		
@@ -95,6 +123,11 @@ public class ReviewController {
 		return new ResponseEntity<String>(addUserAttitude, HttpStatus.OK);
 	}
 	
+	/* This end point expecting a request with two path variable: 
+	 * 1) The reviewId to make decision on.
+	 * 2) The decision between Approved or denied.
+	 * Then return a String that indicate if the decision has been updated.
+	*/
 	@GetMapping(value="/decision/{reviewId}/{decision}")
 	public ResponseEntity<String> decisionOnPendingReview(@PathVariable int reviewId,@PathVariable String decision){
 		
