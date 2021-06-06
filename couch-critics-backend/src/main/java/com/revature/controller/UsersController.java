@@ -90,7 +90,7 @@ public class UsersController {
 	}
 	
 	@GetMapping(value="/getUsersById/{id}")
-	public ResponseEntity<Users> getUsersByRole(@PathVariable int id){
+	public ResponseEntity<Users> getUsersById(@PathVariable int id){
 		Users u = us.getUserById(id);
 	
 		return new ResponseEntity<Users>(u, HttpStatus.OK);

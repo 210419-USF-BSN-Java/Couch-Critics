@@ -42,9 +42,9 @@ public class ReviewController {
 		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);
 	}
 	
-	@PostMapping(value="/viewByMovieName/{name}")
+	@GetMapping(value="/viewByMovieName/{name}")
 	public ResponseEntity<List<Reviews>> getReviewByMovieName(@PathVariable String name){
-		
+		System.out.println(name);
 		List<Reviews> reviews = rs.getReviewByMovieName(name);
 		
 		return new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK);

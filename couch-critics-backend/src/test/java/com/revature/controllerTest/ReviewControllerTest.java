@@ -84,4 +84,26 @@ public class ReviewControllerTest {
 		assertEquals(new ResponseEntity<String>("success", HttpStatus.OK), rController.deleteReview(id));
 		
 	}//passed
+	
+	public void viewByIdAndStatusTest() {
+		int id = 5;
+		String status = "Pending";
+		reviews.add(r);
+		
+		Mockito.when(rService.getReviewByIdAndStatus(id,status)).thenReturn(reviews);
+		
+		assertEquals(new ResponseEntity<List<Reviews>>(reviews, HttpStatus.OK), rController.viewByReviewStatus(status));
+		
+	}//passed
+	
+	public void addAttituteFromUserTest() {
+		int reviewId = 4;
+		String attitute = "like";
+		reviews.add(r);
+		
+		Mockito.when(rService.addAttituteToReview(attitute, reviewId)).thenReturn("Successfully added attitute.");
+		
+		assertEquals(new ResponseEntity<String>("Successfully added attitute.", HttpStatus.OK), rController.addAttituteFromUser(reviewId, attitute));
+		
+	}//passed
 }
