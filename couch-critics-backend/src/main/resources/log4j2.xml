@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-  <Appenders>
-    <Console name="Console" target="SYSTEM_OUT">
-	<PatternLayout
-		pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-    </Console>
-    <File name="File" fileName="target/info.log">
-    	<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-    </File>
-  </Appenders>
-  <Loggers>
-    <Root level="all">
-      <AppenderRef ref="Console" level="all"/>
-      <AppenderRef ref="File" level="all"/>
-    </Root>
-  </Loggers>
+	<CustomLevels>
+		<CustomLevel name="AOPINFO" intLevel="450" />
+		<CustomLevel name="AOPERROR" intLevel="350" />
+	</CustomLevels>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<File name="File"
+			fileName="../Couch-Critics/couch-critics-backend/target/info.log">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</File>
+	</Appenders>
+	<Loggers>
+		<Root level="all">
+			<AppenderRef ref="Console" level="all" />
+			<AppenderRef ref="File" level="aopinfo" />
+			<AppenderRef ref="File" level="aoperror" />
+		</Root>
+	</Loggers>
 </Configuration>

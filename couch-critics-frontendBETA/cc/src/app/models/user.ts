@@ -6,7 +6,7 @@ export interface User {
     password : string,
     email : string,
     roleId? : { roleId: number, role : string},
-    statusId? : { accStatusId: number, accStatus: string}
+    statusid? : { accStatusId: number, accStatus: string}
 }
 
 //if accStatusId = 1, then activated, if accStatusId = 2 , then account is deactivated
