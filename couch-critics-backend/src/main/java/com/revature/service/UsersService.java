@@ -64,11 +64,6 @@ public class UsersService {
 			return null;
 		}
 		
-		//check if the account status is 3(Deactivated)
-		if (u.getStatusid().getAccStatusId() == 3) {
-			return null;
-		}
-		
 		boolean verifyResult = salt.verifyHashedPass(pWord, u.getPassword(), u.getSalt());
 		if(verifyResult) {
 			//credential matched, clear previous attempts count and return Users object.
@@ -92,9 +87,9 @@ public class UsersService {
 		
 		try {
 			AccStatus activate = null;
-			if(status.equals("activate")) {
+			if(status.equals("Activate")) {
 				activate = new AccStatus(2, "Activated");
-			} else if(status.equals("deactivate")) {
+			} else if(status.equals("Deactivate")) {
 				activate = new AccStatus(3, "Deactivated");
 			} else {
 				return "Invalid status input.";
