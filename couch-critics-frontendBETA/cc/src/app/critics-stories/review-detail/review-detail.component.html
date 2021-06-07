@@ -21,33 +21,26 @@
 
 <div *ngIf="m">
     <h1>{{m.original_title}}</h1>
-    <span><img src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}"></span>
 
-<br>
+    <div class="desk">
+        <span><img src="https://image.tmdb.org/t/p/w300/{{m.poster_path}}"></span>
+    </div>
+    <br>
+    <br>
 
-    
-     <label for="movie">Create Review for {{m.original_title}}</label>
-     <br>
-     <textarea id="movie" name="movie" rows="20" cols="100"  placeholder="Make Review">
+    <div class="desk">
+        <label for="movie">Create Review for {{m.original_title}}</label>
+        <br>
+
+        <textarea id="movie" name="movie" rows="20" cols="100" placeholder="Make Review">
         create movie review here
         </textarea>
+
         <br>
-        <button  (click)="make()">submit</button>
+        <button (click)="make()">submit</button>
 
-
-
-<form>
-    <div class="form-group">
-        <label for="movieId">Movie Id:</label>
-    <input ngModel name="movieId" id ="movieId" type = "number" class="form-control">
     </div>
-    <div class="form-group">
-        <label for="review">Create Review for {{m.original_title}} </label>
-        <textarea  id="comment" cols="30" rows="10"></textarea>
-    </div>
-    <button class="btn btn-primary">Submit</button>
-</form>
-
+    <br>
+    <br>
+    <button (click)="goBack()">go back</button>
 </div>
-
-<button (click)="goBack()">go back</button>

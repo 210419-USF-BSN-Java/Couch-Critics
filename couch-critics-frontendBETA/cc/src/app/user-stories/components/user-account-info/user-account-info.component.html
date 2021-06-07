@@ -1,8 +1,10 @@
-<div class="user-info" >
-    <mat-card *ngIf="currentUser !== undefined"class="user-info-card example-card">
+<div class="user-info">
+    <mat-card *ngIf="currentUser !== undefined" class="user-info-card example-card">
         <mat-card-header>
             <div mat-card-avatar class="user-header-image example-header-image"></div>
-            <mat-card-title><h3>Your Profile</h3></mat-card-title>
+            <mat-card-title>
+                <h3>Your Profile</h3>
+            </mat-card-title>
             <mat-card-subtitle>Username: {{currentUser.username}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>

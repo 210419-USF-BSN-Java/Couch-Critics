@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-info',
@@ -6,9 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
-  constructor() { }
+  constructor(private location : Location) { }
 
   ngOnInit(): void {
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }
