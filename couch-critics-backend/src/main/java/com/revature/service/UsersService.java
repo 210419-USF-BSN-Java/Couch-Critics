@@ -79,7 +79,6 @@ public class UsersService {
 			ur.addFailedLoginAttemp(u.getUserid());
 			
 			int attempsTotal = ur.getAttempsByuserid(u.getUserid());
-			
 			//when login attempts failed reaches 10, deactivate this user account.
 			if (attempsTotal >= 10) {
 				AccStatus deactivate = new AccStatus(3, "Deactivated");
@@ -89,6 +88,27 @@ public class UsersService {
 		return null;
 	}
 	
+	public String setUserAccountStatus(int userid, String status) {
+		
+		try {
+			AccStatus activate = null;
+			if(status.equals("activate")) {
+				activate = new AccStatus(2, "Activated");
+			} else if(status.equals("deactivate")) {
+				activate = new AccStatus(3, "Deactivated");
+			} else {
+				return "Invalid status input.";
+			}
+			
+			ur.changeAccountStatus(userid, activate);
+			return "Successfully set user account status to: " + status;
+			
+		} catch(Exception e) {
+			System.out.println(e);
+			return "Failed to set user account status to: " + status;
+		}
+
+	}
 	/*
 	   this method will have two return a String that show if the registration is success.
 	*/
@@ -165,27 +185,6 @@ public class UsersService {
 		}
 		return null;
 	}
-	
-	public String setUserAccountStatus(int userid, String status) {
-		
-		try {
-			AccStatus activate = null;
-			if(status.equals("activate")) {
-				activate = new AccStatus(2, "Activated");
-			} else if(status.equals("deactivate")) {
-				activate = new AccStatus(3, "Deactivated");
-			} else {
-				return "Invalid status input.";
-			}
-			
-			ur.changeAccountStatus(userid, activate);
-			return "Successfully set user account status to: " + status;
-			
-		} catch(Exception e) {
-			System.out.println(e);
-			return "Failed to set user account status to: " + status;
-		}
 
-	}
 	
 }
