@@ -29,7 +29,7 @@ export class UpdateUserInfoComponent implements OnInit {
 
       this.editForm = this.FormBuilder.group({
       userid: this.UserServiceService.getCurrentUserId(), 
-      firstName: [''],
+      firstName:[''],
       lastName: [''],
       username: [''],
       password: [''],

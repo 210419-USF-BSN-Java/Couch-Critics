@@ -1,0 +1,23 @@
+.movie-card {
+    max-width:150px;
+    min-height: 200px;
+    flex: auto;
+    margin:0;
+    width: 150px;
+}
+
+.movie-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+    align-content: space-between;
+    list-style: none;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.home-container {
+box-sizing: border-box;
+
+}

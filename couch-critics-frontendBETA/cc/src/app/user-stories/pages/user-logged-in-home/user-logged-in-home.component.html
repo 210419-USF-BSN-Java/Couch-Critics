@@ -1,25 +1,30 @@
-<div class ="home container"> 
+<div class ="home-container"> 
     <div class="movies-container">
         <div class="movie-entry">
 
                 <h3>Movies with Certifed Reviews</h3>
-                <ul class="mov">
+                <ul class="movie-list-container">
                     <li *ngFor="let m of movies">
-                        <span class = "badge">{{m.id}}: {{m.original_title}}</span>                
-                        <br>
-                        <span><img src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}"></span>
-                        <br>
-                        <span>{{m.overview}}</span>
-                        <br>
-                        <span>Popularity rating: {{m.popularity}}</span>
-                        <br>
-                        <button routerLink="/CriticMovieReview/{{m.id}}">View Review!</button>
-                        <br>
-                        <br>
+                        <mat-card class="movie-card">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <h3>Movie: {{m.original_title}}</h3>
+                                </mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}" max-width="80px" max-heigth="100px" alt="post of movie">
+                            <mat-card-content>
+                                <h4>Overview</h4>
+                                <p>
+                                    {{m.overview}}
+                                </p>
+                                <span>Popularity rating: {{m.popularity}}</span>
+                                <br>
+                                <button routerLink="/CriticMovieReview/{{m.id}}">View Review!</button>
+                                <br>
+                            </mat-card-content>
+                        </mat-card>
                     </li>
                 </ul>
-
-
     </div>
 </div>
 <!--this page should show the cards of movies with 
