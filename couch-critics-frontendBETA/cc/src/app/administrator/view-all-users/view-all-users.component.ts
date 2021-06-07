@@ -37,6 +37,18 @@ export class ViewAllUsersComponent implements OnInit {
     ); 
   }
 
+  activateUser(reviewId : number) : void {
+    this.userService.activateUser(reviewId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.viewAllUsers();
+      },
+      (error : HttpErrorResponse) => {
+        console.log(error.message);
+      }
+    ); 
+  }
+
   ngOnInit(): void {
     this.viewAllUsers();
   }

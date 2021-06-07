@@ -69,6 +69,10 @@ export class UserServiceService {
     return this.http.get<void>(`${this.apiServerUrl}/users/setUserAccountStatus/${userId}/Deactivate`)
   }
 
+  activateUser(userId: number) : Observable<void> {
+    return this.http.get<void>(`${this.apiServerUrl}/users/setUserAccountStatus/${userId}/Activate`)
+  }
+
   //bans/deletes user
   // banUser(userid : number) : Observable<void> {
     // return this.delete<void>(`${this.apiServerUrl}/`)
