@@ -87,9 +87,29 @@ export class ReviewDetailService {
   //MovieName passed in needs to be movie name from our database
 
   getReviewByMovieName(MovieName: any){
-    let url = `${this.reviewUrl}/review/viewByMovieName/${MovieName}`
+
+    try{
+      let url = `${this.reviewUrl}/review/viewByMovieName/${MovieName}`
     //only getting first result from return array 
     return this.http.get<any>(url); 
+
+    }catch(error){
+     console.log(error)
+     return null!
+    }
+  }
+
+  setReviewId(id: number){
+    let a = {reviewId: id}
+    a.reviewId = id; 
+    window.sessionStorage.setItem("currentreviewid", JSON.stringify(a)); 
+  }
+
+  getCurrentReviewId(){
+    let id = JSON.parse(window.sessionStorage.getItem('currentreviewid')!); 
+    console.log("currentuserid is " + id)
+    
+    return id; 
   }
 
 }
