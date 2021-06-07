@@ -50,13 +50,8 @@ import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critic
     CriticsComponent,
     ReviewDetailComponent,
     MakeReviewComponent,
-<<<<<<< HEAD
-    CriticsNavBarComponent,
- 
-=======
     CriticsNavBarComponent
 
->>>>>>> f5e97018dca6b3b7988a930077e355cd5140c298
 
   ],
   imports: [
