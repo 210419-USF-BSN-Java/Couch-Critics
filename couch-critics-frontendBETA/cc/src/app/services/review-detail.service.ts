@@ -116,13 +116,13 @@ export class ReviewDetailService {
     return this.http.get('https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898');
   }
 
-  //deletes review
+  //denies review
   rejectReview(reviewId : number) : Observable<void> {
-    return this.http.delete<void>(`${this.reviewUrl}/review/deleteReview/${reviewId}`);
+    return this.http.get<void>(`${this.reviewUrl}/review/decision/${reviewId}/Denied`)
   }
 
   //acceptReview (update from pending to accepted)
   approveReview(reviewId : number) : Observable<void> {
-    return this.http.get<void>(`${this.reviewUrl}/review/approveReview/${reviewId}`);
+    return this.http.get<void>(`${this.reviewUrl}/review/decision/${reviewId}/Approved`);
   }
 }
