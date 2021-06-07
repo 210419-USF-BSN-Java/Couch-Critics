@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { review } from 'src/app/models/review-interface';
 import { ReviewDetailService } from 'src/app/services/review-detail.service';
 import { Location } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-approved-reviews',
@@ -19,8 +20,16 @@ export class ViewApprovedReviewsComponent implements OnInit {
   }
 
   viewAllApprovedReviews() : void {
-    this.reviewService.getAcceptedStatus()
-    .subscribe(reviews => this.reviews = reviews);
+    this.reviewService.getAcceptedStatus().subscribe(
+      (response: review[]) => {
+        this.reviews = response;
+        console.log(this.reviews);
+        console.log(response[0].reviewId);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   goBack(): void {
