@@ -29,8 +29,23 @@ export class UserServiceService {
     
     return this.http.get<User>
     (`${this.apiServerUrl}/users/getUsersById/${id}`).pipe(map(users => users))  
-    
   }
+
+  getEmployees() : Observable<User[]>{
+    let url = `${this.apiServerUrl}/users/getUsers/employee`;
+    return this.http.get<User[]>(url);
+  }
+
+  getUsers() : Observable<User[]>{
+    let url = `${this.apiServerUrl}/users/getUsers/customer`;
+    return this.http.get<User[]>(url);
+  }
+
+  //   //get all pending
+  // getPendingStatus() : Observable<review[]>{
+  //   let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
+  //   return this.http.get<review[]>(url);
+  // }
 
   updateUser(user: User): Observable<User>{
     const url = `${this.apiServerUrl}/users/update`
@@ -49,4 +64,9 @@ export class UserServiceService {
     console.log("current userObject from session storage is " + userObject)
     return userObject
   }
+
+  //bans/deletes user
+  // banUser(userid : number) : Observable<void> {
+    // return this.delete<void>(`${this.apiServerUrl}/`)
+  //}
 }

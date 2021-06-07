@@ -24,11 +24,11 @@ export class ReviewDetailService {
               
  /// functions below are attempting to retrieve observables from our server
 
-  //Get all reviews
-  getR(id:number):Observable<review[]>{
-    let url = `${this.reviewUrl}/review/viewByCriticId/${id}`;
-    return this.http.get<review[]>(url);
-  }
+  // //Get all reviews
+  // getR(id:number):Observable<review[]>{
+  //   let url = `${this.reviewUrl}/review/viewByCriticId/${id}`;
+  //   return this.http.get<review[]>(url);
+  // }
 
   //get Movie Id
   getMovieId(id:number): Observable<Movie>{
@@ -36,17 +36,17 @@ export class ReviewDetailService {
     return of(movieId); 
   }
 
-  //get Pending Status
-  getPendingStatus() : Observable<review[]>{
-    let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
-    return this.http.get<review[]>(url);
-  }
+  // //get Pending Status
+  // getPendingStatus() : Observable<review[]>{
+  //   let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
+  //   return this.http.get<review[]>(url);
+  // }
 
-  //get all accepted
-  getAcceptedStatus(){
-    let url = `${this.reviewUrl}/review/viewByReviewStatus/accepted`;
-    return this.http.get<review[]>(url);
-  }
+  // //get all accepted
+  // getAcceptedStatus(){
+  //   let url = `${this.reviewUrl}/review/viewByReviewStatus/accepted`;
+  //   return this.http.get<review[]>(url);
+  // }
 
   //get all reviews by critics Id
   getMyReviews(id:number) : Observable<review[]>{
@@ -92,4 +92,37 @@ export class ReviewDetailService {
 
   
   /// Error returning is skipped for now
+
+  //Get all reviews
+  getR(id:number):Observable<review[]>{
+    let url = `${this.reviewUrl}/review/viewByCriticId/${id}`;
+    return this.http.get<review[]>(url);
+  }
+
+  //get all pending
+  getPendingStatus() : Observable<review[]>{
+    let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
+    return this.http.get<review[]>(url);
+  }
+
+  //get all accepted
+  getAcceptedStatus(){
+    let url = `${this.reviewUrl}/review/viewByReviewStatus/Approved`;
+    return this.http.get<review[]>(url);
+  }
+
+  //just testing
+  getTest():Observable<Object>{
+    return this.http.get('https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898');
+  }
+
+  //denies review
+  rejectReview(reviewId : number) : Observable<void> {
+    return this.http.get<void>(`${this.reviewUrl}/review/decision/${reviewId}/Denied`)
+  }
+
+  //acceptReview (update from pending to accepted)
+  approveReview(reviewId : number) : Observable<void> {
+    return this.http.get<void>(`${this.reviewUrl}/review/decision/${reviewId}/Approved`);
+  }
 }

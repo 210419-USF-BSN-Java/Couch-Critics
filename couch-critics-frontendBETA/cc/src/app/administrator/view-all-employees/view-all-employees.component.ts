@@ -13,14 +13,18 @@ export class ViewAllEmployeesComponent implements OnInit {
 
 
   constructor(private userService : UserServiceService, private location : Location) { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-/*
+  
   viewAllEmployees() {
-    this.userService.getallEmployees()
-    .subscribe(users => this.users = users); 
+    this.userService.getEmployees().subscribe(
+      (response : User[]) => {
+        this.users = response;
+        console.log(this.users);
+        console.log(response[0].userid);
+      }
+    )
   }
+
+  fire() : void {}
 
   ngOnInit(): void {
     this.viewAllEmployees();
@@ -29,5 +33,5 @@ export class ViewAllEmployeesComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-*/
+
 }
