@@ -15,6 +15,8 @@
     <button (click)="goBack()">go back</button>
 </div>
 -->
+<app-critics-nav-bar></app-critics-nav-bar>
+
 <br>
 
 <div *ngIf="m">
@@ -23,18 +25,29 @@
 
 <br>
 
-    <div>
-     <label for="movie">Movie Review</label>
+    
+     <label for="movie">Create Review for {{m.original_title}}</label>
      <br>
      <textarea id="movie" name="movie" rows="20" cols="100"  placeholder="Make Review">
         create movie review here
         </textarea>
         <br>
-        <button>submit</button>
-    </div>
+        <button  (click)="make()">submit</button>
 
-<br>
-<br>
-<br>
-    <button (click)="goBack()">go back</button>
+
+
+<form>
+    <div class="form-group">
+        <label for="movieId">Movie Id:</label>
+    <input ngModel name="movieId" id ="movieId" type = "number" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="review">Create Review for {{m.original_title}} </label>
+        <textarea  id="comment" cols="30" rows="10"></textarea>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
 </div>
+
+<button (click)="goBack()">go back</button>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.model.AccStatus;
 import com.revature.model.Role;
 import com.revature.model.Users;
 import com.revature.repository.UsersRepository;
@@ -49,28 +50,60 @@ public class UsersService {
 	*/
 	public Users getUserByUnameAndPword(String uName, String pWord) {
 		Users u;
-		System.out.println(uName);
 		try{
 			//retrieve the hashed password and associated salt of this user name.
-			System.out.println(uName);
 			u = ur.getPassWordAndSalt(uName);
-			System.out.println(u);
+			
+			if(u == null) {
+				//incorrect username, return null.
+				return null;
+			}
+			
 		} catch (Exception e){
-			//for front end: if u == null, incorrect user name.
+			System.out.println(e);
 			return null;
 		}
 		
 		boolean verifyResult = salt.verifyHashedPass(pWord, u.getPassword(), u.getSalt());
-		
 		if(verifyResult) {
-			//return Users object if the input password pass the hash verification.
+			//credential matched, clear previous attempts count and return Users object.
+			ur.clearAttemptsById(u.getUserid());
 			return u;
+		} else {
+			//username exist but incorrect password, failed login attempts +1.
+			ur.addFailedLoginAttemp(u.getUserid());
+			
+			int attempsTotal = ur.getAttempsByuserid(u.getUserid());
+			//when login attempts failed reaches 10, deactivate this user account.
+			if (attempsTotal >= 10) {
+				AccStatus deactivate = new AccStatus(3, "Deactivated");
+				ur.changeAccountStatus(u.getUserid(), deactivate);
+			}
 		}
-		//for front end: if u == null, incorrect password.
 		return null;
-		
 	}
 	
+	public String setUserAccountStatus(int userid, String status) {
+		
+		try {
+			AccStatus activate = null;
+			if(status.equals("Activate")) {
+				activate = new AccStatus(2, "Activated");
+			} else if(status.equals("Deactivate")) {
+				activate = new AccStatus(3, "Deactivated");
+			} else {
+				return "Invalid status input.";
+			}
+			
+			ur.changeAccountStatus(userid, activate);
+			return "Successfully set user account status to: " + status;
+			
+		} catch(Exception e) {
+			System.out.println(e);
+			return "Failed to set user account status to: " + status;
+		}
+
+	}
 	/*
 	   this method will have two return a String that show if the registration is success.
 	*/
@@ -147,5 +180,6 @@ public class UsersService {
 		}
 		return null;
 	}
+
 	
 }

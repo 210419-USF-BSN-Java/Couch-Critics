@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserServiceService} from 'src/app/services/user-service.service';
 import { Location } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-all-employees',
@@ -13,13 +14,27 @@ export class ViewAllEmployeesComponent implements OnInit {
 
 
   constructor(private userService : UserServiceService, private location : Location) { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-/*
+  
   viewAllEmployees() {
-    this.userService.getallEmployees()
-    .subscribe(users => this.users = users); 
+    this.userService.getEmployees().subscribe(
+      (response : User[]) => {
+        this.users = response;
+        console.log(this.users);
+        console.log(response[0].userid);
+      }
+    )
+  }
+
+  fire(reviewId : number) : void {
+    this.userService.banUser(reviewId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.viewAllEmployees;
+      },
+      (error : HttpErrorResponse) => {
+        console.log(error.message);
+      }
+    ); 
   }
 
   ngOnInit(): void {
@@ -29,5 +44,5 @@ export class ViewAllEmployeesComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-*/
+
 }

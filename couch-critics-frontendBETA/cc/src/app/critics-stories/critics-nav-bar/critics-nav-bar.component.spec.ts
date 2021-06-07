@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateUserInfoComponent } from './update-user-info.component';
+import { CriticsNavBarComponent } from './critics-nav-bar.component';
 
-describe('UpdateUserInfoComponent', () => {
-  let component: UpdateUserInfoComponent;
-  let fixture: ComponentFixture<UpdateUserInfoComponent>;
+describe('CriticsNavBarComponent', () => {
+  let component: CriticsNavBarComponent;
+  let fixture: ComponentFixture<CriticsNavBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateUserInfoComponent ]
+      declarations: [ CriticsNavBarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateUserInfoComponent);
+    fixture = TestBed.createComponent(CriticsNavBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

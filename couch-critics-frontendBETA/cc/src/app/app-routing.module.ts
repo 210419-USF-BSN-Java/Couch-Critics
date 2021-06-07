@@ -30,7 +30,10 @@ const routes: Routes = [
   { path: 'view-employees', component : ViewAllEmployeesComponent},
   { path: 'view-users', component : ViewAllUsersComponent},
   { path: 'view-approved-reviews', component : ViewApprovedReviewsComponent},
-  { path: 'view-pending-reviews', component : ViewPendingReviewsComponent}
+  { path: 'view-pending-reviews', component : ViewPendingReviewsComponent},
+  { path: '**', component: LoginComponent  }
+
+
 ];
 
 @NgModule({

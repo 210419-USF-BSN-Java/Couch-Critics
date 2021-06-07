@@ -14,7 +14,7 @@ export class MovieDetailService {
 
   
   private base = "api.themoviedb.org/3/movie/";
-  private movieId : number[] = [8363, 11635, 9718, 13, 27205, 72105, 635302, 299534, 2109, 324857];
+  private movieId : number[] = [8363, 11635, 9718, 13, 27205, 72105, 458156, 299534, 2109, 324857];
   arr : Movie[] = [];
   o : Movie = {};
   t : Movie = {};

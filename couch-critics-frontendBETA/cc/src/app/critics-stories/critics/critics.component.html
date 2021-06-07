@@ -1,14 +1,9 @@
-<h2>{{title}}</h2>
 
-<nav class="nav">
-    <a routerLink="/critics">Home</a>
-    
-    <a routerLink="/create">Make Review</a>
-</nav>
+
+<app-critics-nav-bar></app-critics-nav-bar>
 
 
 
-<h3>My Reviews</h3>
 <!--
 <ul class="reviews">
     <li *ngFor="let review of reviews">
@@ -22,16 +17,33 @@
 -->
 
 
-
 <div class="critic-buttons">
+    <!--
     <label for="id">Enter id:</label>
     <input type="text" name = "id">
     <br>
+    -->
+<mat-card>
+    
+<button (click)="getMyReview()"> My Reviews</button><button (click)="getMyPending()">View Pending Review</button><button (click)="getMyAccepted()">View Accepted</button>
+<ul class="reviews">
+    <li *ngFor="let r of reviews">
+        {{r.movieId}} {{r.movieName}} ({{r.reviewStatus}})
+    </li>
+</ul>
+</mat-card>
 
-<button > My Reviews</button>
+<ul class="pending">
+    <li *ngFor="let r of pendings">
+        {{r.reviewId}} {{r.review}} ({{r.reviewStatus}})
+    </li>
+</ul>
 
-<button>View Pending Review</button>
 
-<button>View Accepted</button>
 
+<ul class="accepted">
+    <li *ngFor="let r of accepted">
+        {{r.reviewId}} {{r.review}} ({{r.reviewStatus}})
+    </li>
+</ul>
 </div>

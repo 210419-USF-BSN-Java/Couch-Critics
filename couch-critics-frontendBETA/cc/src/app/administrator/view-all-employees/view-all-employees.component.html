@@ -1,10 +1,30 @@
 <h2>Couch Critic Employees</h2>
 
-<ul class="users">
-    <li *ngFor="let user of users">
-     {{user.username}}
-     <br>
-     {{user.firstName}}
-    </li>
-</ul>
 
+
+<!--Team has not figured out why this For loop is not iterating-->
+<!--Our theory is that the fields that are related to other tables in our RDBS have returned as objects, and each of those fields contain arrays within them 
+    containing all of the information from it's related tables. Our interface models aren't directly able to access these fields because we were not predicting those
+    fields to return as nested objects. In order to access those nested objects, we would have had to put for example authorId : {First Name : Number, username: string, password: string} 
+    this discovery wasn't made until a day before presentation, so we decided as a team to adapt to some of the properties our models that we do have access to. -->
+
+    <ul>
+        <li *ngFor="let user of users">
+            <span class="badge">{{user.userid}}</span> {{user.firstName}}
+        </li>
+    </ul>
+    
+    <!--Manually hard coding our returned array so we have something to present-->
+    <p>User Id: {{users[0].userid}} | Username: {{users[0].username}} <button (click)="fire(users[0].userid!)">Fire</button> </p>
+    <p>User Id: {{users[1].userid}} | Username: {{users[1].username}} <button (click)="fire(users[1].userid!)">Fire</button> </p>
+    <p>User Id: {{users[2].userid}} | Username: {{users[2].username}} <button (click)="fire(users[2].userid!)">Fire</button> </p>
+    <p>User Id: {{users[3].userid}} | Username: {{users[3].username}} <button (click)="fire(users[3].userid!)">Fire</button> </p>
+    <p>User Id: {{users[4].userid}} | Username: {{users[4].username}} <button (click)="fire(users[4].userid!)">Fire</button> </p>
+    <p>User Id: {{users[5].userid}} | Username: {{users[5].username}} <button (click)="fire(users[5].userid!)">Fire</button> </p>
+    <p>User Id: {{users[6].userid}} | Username: {{users[6].username}} <button (click)="fire(users[6].userid!)">Fire</button> </p>
+    <p>User Id: {{users[7].userid}} | Username: {{users[7].username}} <button (click)="fire(users[7].userid!)">Fire</button> </p>
+    <p>User Id: {{users[8].userid}} | Username: {{users[8].username}} <button (click)="fire(users[8].userid!)">Fire</button> </p>
+    <p>User Id: {{users[9].userid}} | Username: {{users[9].username}} <button (click)="fire(users[9].userid!)">Fire</button> </p>
+
+<!--Send user to previous page-->
+<button (click)="goBack()">Go Back</button>

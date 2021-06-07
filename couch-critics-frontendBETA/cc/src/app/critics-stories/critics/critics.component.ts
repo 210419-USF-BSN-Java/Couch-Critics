@@ -1,7 +1,7 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {review} from '../../models/review-interface';
-import {ReviewDetailService} from '../../services/review-detail.service';
+import { review } from '../../models/review-interface';
+import { ReviewDetailService } from '../../services/review-detail.service';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-critics',
@@ -12,32 +12,57 @@ export class CriticsComponent implements OnInit {
   title = "Critics Homepage";
 
   //making a variable out of the object made from the import of REVIEWS
-  reviews : review[] = [];
-  
+  reviews: review[] = [];
+  pendings: review[] = [];
+  accepted: review[] = [];
+  id: number = 50;
+  pending: string = "Pending";
+  approved: string = "Approved";
 
 
 
 
-  constructor(private detail : ReviewDetailService) { }
+
+  constructor(private detail: ReviewDetailService) { }
 
   ngOnInit() {
-    
+  
   }
 
- 
-// //practicing
-// getDetail() : void{
-//   this.detail.getReview().subscribe(
-//     reviews=>this.reviews=reviews
-//     );
-// }
+  //getting all critics review by id to be used on HTML
+  getMyReview(): void {
+    this.detail.getMyReviews(this.id).subscribe(
+      response => this.reviews = (response)
+    );
+  }
 
-// //testing
-// getTest(){
-//   this.detail.getTest().subscribe(
-//     data => {this.test = (data)}
-//   )
-// }
+  //getting all critics pending review by id and status to be used on HTML
+  getMyPending(): void {
+    this.detail.getByIdAndStatus(this.id, this.pending).subscribe(
+      response => this.pendings = (response)
+    )
+  }
+
+  getMyAccepted(): void {
+    this.detail.getByIdAndStatus(this.id, this.approved).subscribe(
+      response => this.accepted = (response)
+    )
+  }
+
+
+  // //practicing
+  // getDetail() : void{
+  //   this.detail.getReview().subscribe(
+  //     reviews=>this.reviews=reviews
+  //     );
+  // }
+
+  // //testing
+  // getTest(){
+  //   this.detail.getTest().subscribe(
+  //     data => {this.test = (data)}
+  //   )
+  // }
 
 
 

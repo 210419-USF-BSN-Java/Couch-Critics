@@ -1,9 +1,32 @@
-<h2>Active Reviews</h2>
+<h2>Accepted Reviews</h2>
+
+<!--Team has not figured out why this For loop is not iterating-->
+<!--Our theory is that the fields that are related to other tables in our RDBS have returned as objects, and each of those fields contain arrays within them 
+    containing all of the information from it's related tables. Our interface models aren't directly able to access these fields because we were not predicting those
+    fields to return as nested objects. In order to access those nested objects, we would have had to put for example authorId : {First Name : Number, username: string, password: string} 
+    this discovery wasn't made until a day before presentation, so we decided as a team to adapt to some of the properties our models that we do have access to. -->
+<ul class="reviews">
+    <li *ngFor="let review of reviews">{{review.reviewId}}
+    </li>   
+</ul>
 
 <ul class="reviews">
-    <li *ngFor="let review of reviews">
-        <span class="badge">{{review.reviewId}}</span> {{review.review}}
+    <li *ngFor="let r of reviews">
+        {{r.movieId}} {{r.movieName}} ({{r.reviewStatus}})
     </li>
 </ul>
 
+<!--Manually hard coding our returned array so we have something to present-->
+<p>{{reviews[0].movieName}}: "{{reviews[0].review}}"</p>
+<p>{{reviews[1].movieName}}: "{{reviews[1].review}}"</p>
+<p>{{reviews[2].movieName}}: "{{reviews[2].review}}"</p>
+<p>{{reviews[3].movieName}}: "{{reviews[3].review}}"</p>
+<p>{{reviews[4].movieName}}: "{{reviews[4].review}}"</p>
+<p>{{reviews[5].movieName}}: "{{reviews[5].review}}"</p>
+<p>{{reviews[6].movieName}}: "{{reviews[6].review}}"</p>
+<p>{{reviews[7].movieName}}: "{{reviews[7].review}}"</p>
+<p>{{reviews[8].movieName}}: "{{reviews[8].review}}"</p>
+<p>{{reviews[9].movieName}}: "{{reviews[9].review}}"</p>
+
+<!--Sends user to previous page-->
 <button (click)="goBack()">Go Back</button>

@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
+
 import { AppComponent } from './app.component';
 import { DashboardComponent } from '../app/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +28,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatTableModule} from '@angular/material/table';
+import { CommonModule } from '@angular/common';
+import { MatSlider, MatSliderModule } from '@angular/material/slider';
+import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critics-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,9 @@ import {MatTableModule} from '@angular/material/table';
     UserViewCriticsPageComponent,
     CriticsComponent,
     ReviewDetailComponent,
-    MakeReviewComponent
+    MakeReviewComponent,
+    CriticsNavBarComponent,
+ 
 
   ],
   imports: [
@@ -60,7 +66,9 @@ import {MatTableModule} from '@angular/material/table';
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CommonModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -77,10 +77,9 @@ public class UsersController {
 		return new ResponseEntity<String>(message, HttpStatus.OK);
 	}
 	
-	/* This method expecting a Post Request with two variables from the request: 
-	 * 1) uName that contains the username, 
-	 * 2) pWord that contains the password.
-	 * Then return the verified Users Object(JSON format) back to front end.
+	/* This method expecting a request with one path variable: 
+	 * 1) User role, 
+	 * Then return a list of Users that has the same role.
 	*/
 	@RequestMapping(value="/getUsers/{role}")
 	public ResponseEntity<List<Users>> getUsersByRole(@PathVariable String role){
@@ -89,10 +88,26 @@ public class UsersController {
 		return new ResponseEntity<List<Users>>(u, HttpStatus.OK);
 	}
 	
+	/* This method expecting a request with one path variable: 
+	 * 1) userid, 
+	 * Then return an Users object that has this userid.
+	*/
 	@GetMapping(value="/getUsersById/{id}")
-	public ResponseEntity<Users> getUsersByRole(@PathVariable int id){
+	public ResponseEntity<Users> getUsersById(@PathVariable int id){
 		Users u = us.getUserById(id);
 	
 		return new ResponseEntity<Users>(u, HttpStatus.OK);
+	}
+	
+	/* This method expecting a get request with two path variable: 
+	 * 1) The user ID.
+	 * 2) The status.
+	 * Then return an String indicates if the status has been set in the database.
+	*/
+	@GetMapping(value="/setUserAccountStatus/{id}/{status}")
+	public ResponseEntity<String> setUserAccountStatus(@PathVariable int id, @PathVariable String status){
+		String result = us.setUserAccountStatus(id, status);
+	
+		return new ResponseEntity<String>(result, HttpStatus.OK);
 	}
 }
