@@ -16,7 +16,7 @@ import { ViewApprovedReviewsComponent } from './administrator/view-approved-revi
 import { ViewPendingReviewsComponent } from './administrator/view-pending-reviews/view-pending-reviews.component';
 
 const routes: Routes = [
-  {path: '', component:DashboardComponent},
+  {path: '', component:LoginComponent},
   {path: 'login', component:LoginComponent}, 
   {path: 'usersetting', component:UserInfoComponent},
   {path: 'userhome', component: UserLoggedInHomeComponent}, 

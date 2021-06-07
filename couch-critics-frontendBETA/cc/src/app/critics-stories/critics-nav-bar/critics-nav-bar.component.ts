@@ -21,10 +21,10 @@ export class CriticsNavBarComponent implements OnInit {
   }
 
   home(){
-    this.router.navigate(['/critics'])
+    this.router.navigate(['/create'])
   }
 
   makeReview(){
-    this.router.navigate(['/create'])
+    this.router.navigate(['/critics'])
   }
 }
