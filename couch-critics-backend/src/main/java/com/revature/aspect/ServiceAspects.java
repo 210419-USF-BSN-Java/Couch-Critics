@@ -1,5 +1,7 @@
 package com.revature.aspect;
 
+import java.util.List;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +13,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
+import com.revature.model.Role;
 import com.revature.model.Users;
 
 @Component
@@ -52,12 +55,14 @@ public class ServiceAspects {
 	
 	@AfterReturning(pointcut="execution(* com.revature.service.*.get*(..))", returning="retVal")
 	public void logGetServices(Object retVal) {
-		String message = new String(retVal.getClass() + " was returned.");
-		LOG.log(aopInfo, message);
-		//System.out.println("After returning");
+		try {
+			String message = new String(retVal.getClass() + " was returned.");
+			LOG.log(aopInfo, message);
+		} catch(Exception e) {
+		}
+		
 	}
-	
-	//Users
+
 
 //	@AfterReturning(pointcut="execution(* com.revature.service.UsersService.get*(..))", returning="retVal")
 //	public void logGetUser(Object retVal) {
@@ -80,8 +85,7 @@ public class ServiceAspects {
 		String message = new String("User " + u.getUsername() + " was updated.");
 		LOG.log(aopInfo, message);
   }
-	
-	//Reviews
+
 	
 //	@AfterReturning(pointcut="execution(* com.revature.service.ReviewService.get*(..))", returning="retVal")
 //	public void logGetReviews(Object retVal) {
