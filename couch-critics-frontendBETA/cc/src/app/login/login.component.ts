@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
               break;
 
             case 2:
-              this.router.navigate(['critics']);
+              this.router.navigate(['create']);
               break;
 
             case 3:

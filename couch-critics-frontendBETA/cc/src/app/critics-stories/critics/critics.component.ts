@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { review } from '../../models/review-interface';
 import { ReviewDetailService } from '../../services/review-detail.service';
 import { MatSliderModule } from '@angular/material/slider';
+import { User } from 'src/app/models/user';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-critics',
@@ -9,24 +11,23 @@ import { MatSliderModule } from '@angular/material/slider';
   styleUrls: ['./critics.component.css']
 })
 export class CriticsComponent implements OnInit {
-  title = "Critics Homepage";
-
-  //making a variable out of the object made from the import of REVIEWS
+  panelOpenState = false;
+ 
   reviews: review[] = [];
   pendings: review[] = [];
   accepted: review[] = [];
-  id: number = 50;
+  id: number | undefined = 0;
   pending: string = "Pending";
   approved: string = "Approved";
+  userInfo!: User;
+  triggerR: boolean = false; triggerA: boolean = false;triggerP: boolean = false;
 
 
+  constructor(private detail: ReviewDetailService, private us: UserServiceService) { }
 
-
-
-  constructor(private detail: ReviewDetailService) { }
-
-  ngOnInit() {
-  
+  ngOnInit(): void {
+    this.userInfo = this.us.getCurrentUserObject();
+    this.id = this.userInfo.userid
   }
 
   //getting all critics review by id to be used on HTML
@@ -34,35 +35,26 @@ export class CriticsComponent implements OnInit {
     this.detail.getMyReviews(this.id).subscribe(
       response => this.reviews = (response)
     );
+    this.triggerR = true;
   }
 
   //getting all critics pending review by id and status to be used on HTML
   getMyPending(): void {
     this.detail.getByIdAndStatus(this.id, this.pending).subscribe(
       response => this.pendings = (response)
-    )
+    );
+    this.triggerP = true;
+
   }
 
   getMyAccepted(): void {
     this.detail.getByIdAndStatus(this.id, this.approved).subscribe(
       response => this.accepted = (response)
-    )
+    );
+    this.triggerA = true;
   }
 
 
-  // //practicing
-  // getDetail() : void{
-  //   this.detail.getReview().subscribe(
-  //     reviews=>this.reviews=reviews
-  //     );
-  // }
-
-  // //testing
-  // getTest(){
-  //   this.detail.getTest().subscribe(
-  //     data => {this.test = (data)}
-  //   )
-  // }
 
 
 

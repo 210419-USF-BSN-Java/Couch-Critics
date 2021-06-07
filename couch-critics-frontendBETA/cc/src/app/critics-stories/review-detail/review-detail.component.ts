@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { review } from '../../models/review-interface';
 import { ReviewDetailService } from '../../services/review-detail.service';
 import { Movie } from 'src/app/models/movie';
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -14,25 +16,28 @@ import { Movie } from 'src/app/models/movie';
 })
 export class ReviewDetailComponent implements OnInit {
   r: review | undefined;
+  x: number | undefined;
+  id : number | undefined;
   m: Movie = {};
   newReview : review ={};
-  x: number | undefined;
+  userInfo! : User;
+  
+
   
 
   constructor(
     private route: ActivatedRoute,
     private detail: ReviewDetailService,
     private location: Location,
-   
-
+    private us : UserServiceService
   ) { }
 
 
   ngOnInit(): void {
-    // this.getDetail()
     this.getParamMovieId()
     this.test()
-    
+    this.userInfo = this.us.getCurrentUserObject();
+    this.id  = this.userInfo.userid
   }
   // /// practice -------------
   //   getDetail(): void{
@@ -68,7 +73,7 @@ export class ReviewDetailComponent implements OnInit {
   }
 
   test(){
-    let r : review = {movieId: 13, movieName: "wtf LOL", review:"just testing"}
+    let r : object = {movieId: 13, movieName: "wtf LOL", review:"just testing"}
     this.detail.addReview(r);
     console.log(r)
   }
