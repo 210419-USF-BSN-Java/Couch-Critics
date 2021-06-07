@@ -12,16 +12,16 @@
 </ul>
 
 <!--Manually hard coding our returned array so we have something to present-->
-<p>User Id: {{users[0].userid}} | Username: {{users[0].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[1].userid}} | Username: {{users[1].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[2].userid}} | Username: {{users[2].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[3].userid}} | Username: {{users[3].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[4].userid}} | Username: {{users[4].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[5].userid}} | Username: {{users[5].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[6].userid}} | Username: {{users[6].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[7].userid}} | Username: {{users[7].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[8].userid}} | Username: {{users[8].username}} <button (click)="banUser()">Ban User</button> </p>
-<p>User Id: {{users[9].userid}} | Username: {{users[9].username}} <button (click)="banUser()">Ban User</button> </p>
+<p>User Id: {{users[0].userid}} | Username: {{users[0].username}} <button (click)="banUser(users[0].userid!)">Ban User</button> {{users[0]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[1].userid}} | Username: {{users[1].username}} <button (click)="banUser(users[1].userid!)">Ban User</button> {{users[1]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[2].userid}} | Username: {{users[2].username}} <button (click)="banUser(users[2].userid!)">Ban User</button> {{users[2]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[3].userid}} | Username: {{users[3].username}} <button (click)="banUser(users[3].userid!)">Ban User</button> {{users[3]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[4].userid}} | Username: {{users[4].username}} <button (click)="banUser(users[4].userid!)">Ban User</button> {{users[4]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[5].userid}} | Username: {{users[5].username}} <button (click)="banUser(users[5].userid!)">Ban User</button> {{users[5]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[6].userid}} | Username: {{users[6].username}} <button (click)="banUser(users[6].userid!)">Ban User</button> {{users[6]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[7].userid}} | Username: {{users[7].username}} <button (click)="banUser(users[7].userid!)">Ban User</button> {{users[7]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[8].userid}} | Username: {{users[8].username}} <button (click)="banUser(users[8].userid!)">Ban User</button> {{users[8]?.statusid?.accStatus}}</p>
+<p>User Id: {{users[9].userid}} | Username: {{users[9].username}} <button (click)="banUser(users[9].userid!)">Ban User</button> {{users[9]?.statusid?.accStatus}}</p>
 
 <!--Send user to previous page-->
 <button (click)="goBack()">Go Back</button>

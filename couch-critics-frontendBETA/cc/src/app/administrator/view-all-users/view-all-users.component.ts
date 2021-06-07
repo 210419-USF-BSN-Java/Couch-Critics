@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserServiceService} from 'src/app/services/user-service.service';
 import { Location } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-all-users',
@@ -24,7 +25,17 @@ export class ViewAllUsersComponent implements OnInit {
     )
   }
 
-  banUser() : void {}
+  banUser(reviewId : number) : void {
+    this.userService.banUser(reviewId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.viewAllUsers();
+      },
+      (error : HttpErrorResponse) => {
+        console.log(error.message);
+      }
+    ); 
+  }
 
   ngOnInit(): void {
     this.viewAllUsers();
