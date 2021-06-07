@@ -29,6 +29,7 @@ import {MatInputModule} from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { MatSlider, MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    CommonModule
+    CommonModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,11 +15,7 @@
     <button (click)="goBack()">go back</button>
 </div>
 -->
-<nav class="nav">
-    <a routerLink="/critics">Home</a>
-    
-    <a routerLink="/create">Make Review</a>
-</nav>
+<app-critics-nav-bar></app-critics-nav-bar>
 
 <br>
 
@@ -36,7 +32,7 @@
         create movie review here
         </textarea>
         <br>
-        <button >submit</button>
+        <button  (click)="make()">submit</button>
 
 
 

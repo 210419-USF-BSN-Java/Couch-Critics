@@ -1,12 +1,9 @@
-<h2>{{title}}</h2>
 
-<nav>
-    <a routerLink="/critics">Home</a>
-    <a routerLink="/create">Make Review</a>
-</nav>
+
+<app-critics-nav-bar></app-critics-nav-bar>
 <br>
 
-<h3>My Reviews</h3>
+
 <ul class="mov">
     <li *ngFor="let m of movies">
         <span class = "badge">{{m.id}}: {{m.original_title}}</span>

@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import com.revature.model.AccStatus;
 import com.revature.model.Role;
 import com.revature.model.Users;
 import com.revature.repository.UsersRepository;
@@ -30,7 +31,7 @@ public class UsersServiceTest {
 	@InjectMocks
 	private UsersService uService = new UsersService(uRepo, salt);
 	
-	Users u = new Users(10,"Robbie", "Weeks", "rob", "wee", "xlstc110@gmail.com", null, null, null);
+	Users u = new Users(10,"Robbie", "Weeks", "rob", "wee", "xlstc110@gmail.com", null, null, new AccStatus(2, "Activated"));
 	
 	@Test
 	public void getUserByIdTest() {
