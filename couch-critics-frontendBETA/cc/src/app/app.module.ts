@@ -30,6 +30,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critics-nav-bar.component';
+import { UserStoriesNavComponent } from './user-stories/components/user-stories-nav/user-stories-nav.component'
 
 @NgModule({
   declarations: [
@@ -49,8 +50,9 @@ import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critic
     CriticsComponent,
     ReviewDetailComponent,
     MakeReviewComponent,
-    CriticsNavBarComponent
-
+    CriticsNavBarComponent,
+    UserStoriesNavComponent
+ 
 
   ],
   imports: [

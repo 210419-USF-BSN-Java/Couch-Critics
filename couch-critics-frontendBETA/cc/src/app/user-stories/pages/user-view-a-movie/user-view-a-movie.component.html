@@ -1,40 +1,44 @@
 <div class="movie-review-container">
     <div class="movie-card example-card item">
-         <mat-card *ngIf="m">
-             <mat-card-header>
-                 <mat-card-title>{{m.original_title}}</mat-card-title>
-                 <mat-card-subtitle><p>Average Rating : {{m.vote_average}}; Voter-Count: {{m.vote_count}}</p>
-                     <br> <p>Website: <a href="{{m.homepage}}">{{m.homepage}}</a></p>
-                 </mat-card-subtitle>
-             </mat-card-header>
-             <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}" width="100px" max-heigth="100px" alt="post of movie">
-             <mat-card-content>
-               <h4>Overview</h4>
+        <mat-card *ngIf="m">
+            <mat-card-header>
+                <mat-card-title>{{m.original_title}}</mat-card-title>
+                <mat-card-subtitle>
+                    <p>Average Rating : {{m.vote_average}}; Voter-Count: {{m.vote_count}}</p>
+                    <br>
+                    <p>Website: <a href="{{m.homepage}}">{{m.homepage}}</a></p>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}" width="100px" max-heigth="100px" alt="post of movie">
+            <mat-card-content>
+                <h4>Overview</h4>
                 <p>
                     {{m.overview}}
                 </p>
                 <h4>Box Office Facts</h4>
                 <p> Popularity Score: {{m.popularity}}</p>
-             </mat-card-content>
-             <mat-card-actions>
-                 <button mat-button>LIKE</button>
-                 <button mat-button>SHARE</button>
-             </mat-card-actions>
-         </mat-card>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
     </div>
     <div class="critic-review item">
-        <mat-card  class="Critic-background">
+        <mat-card class="Critic-background">
             <mat-card-header>
                 <div mat-card-avatar class="critic-header-image"></div>
-                 <mat-card-title>Critic</mat-card-title>
-                 <mat-card-subtitle>
+                <mat-card-title>Critic</mat-card-title>
+                <mat-card-subtitle>
                     <span>UserName: {{c[0].authorId.username}}</span> <br>
                     <span>Name: {{c[0].authorId.firstName}} {{c[0].authorId.lastName}}</span> </mat-card-subtitle>
             </mat-card-header>
-             <mat-card-content>
-                 <h4>Critic Background</h4>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis rhoncus urna neque viverra justo nec ultrices dui sapien. A iaculis at erat pellentesque adipiscing commodo elit.</p>
-             </mat-card-content>
+            <mat-card-content>
+                <h4>Critic Background</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis rhoncus urna neque viverra justo nec ultrices dui sapien. A iaculis at erat pellentesque adipiscing commodo
+                    elit.
+                </p>
+            </mat-card-content>
         </mat-card>
         <div class="critic-review-content-container">
             <div class="critic-content">
@@ -49,32 +53,34 @@
     </div>
     <div class="user-comments-posted-container item">
         <mat-card>
-                <mat-card-header>
-                    <mat-card-title><h5>Add a comment</h5></mat-card-title>
-                </mat-card-header>
-            <form class="edit-user-info example-form" [formGroup] ="editForm">
+            <mat-card-header>
+                <mat-card-title>
+                    <h5>Add a comment</h5>
+                </mat-card-title>
+            </mat-card-header>
+            <form class="edit-user-info example-form" [formGroup]="editForm">
                 <mat-form-field class="form-control">
-                        <mat-label for="content">Write Here</mat-label>
-                        <input type="text" formControlName="content" id="content"  matInput />
+                    <mat-label for="content">Write Here</mat-label>
+                    <input type="text" formControlName="content" id="content" matInput />
                 </mat-form-field>
-                <button  mat-raised-button color="warn" >Cancel</button>
-                <button (click)="onSubmit()"  mat-raised-button color="primary" >Save</button>
+                <button mat-raised-button color="warn">Cancel</button>
+                <button (click)="onSubmit()" mat-raised-button color="primary">Save</button>
             </form>
         </mat-card>
 
         <h4>Average Joes Comments</h4>
         <ul class="comments-posted">
             <li *ngFor="let comment of userComments">
-            <mat-card class="comment-entry">
-                <mat-card-header>
-                <div mat-card-avatar class="average-joe-header-image"></div>
-                <mat-card-title>Average Joe</mat-card-title>
-                <mat-card-subtitle>{{comment.userId.username}}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>{{comment.content}}</p>
-                </mat-card-content>
-            </mat-card>
+                <mat-card class="comment-entry">
+                    <mat-card-header>
+                        <div mat-card-avatar class="average-joe-header-image"></div>
+                        <mat-card-title>Average Joe</mat-card-title>
+                        <mat-card-subtitle>{{comment.userId.username}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{comment.content}}</p>
+                    </mat-card-content>
+                </mat-card>
             </li>
         </ul>
     </div>
