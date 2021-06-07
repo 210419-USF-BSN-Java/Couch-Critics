@@ -54,8 +54,28 @@ export class MovieDetailService {
 
   getMovies(y : number) : Observable<Movie>{
       let url = `https://${this.base}${y}${env.key}`
-      console.log(this.http.get<Movie>(url))
+     // console.log(this.http.get<Movie>(url))
       return this.http.get<Movie>(url);
+  }
+
+  //rubens
+
+  getMovie() : any {
+    
+    for(let x = 0; x < this.movieId.length; x++){
+      this.getMovies(this.movieId[x]).subscribe(
+        response =>{this.arr.push(response)}
+      );
+    } 
+    console.log(this.arr)
+    return this.arr;    
+  }
+
+
+  getAllMovies(y : number) : any{
+      let url = `https://${this.base}${y}${env.key}`
+      console.log(this.http.get<any>(url))
+      return this.http.get<any>(url);
   }
 
 

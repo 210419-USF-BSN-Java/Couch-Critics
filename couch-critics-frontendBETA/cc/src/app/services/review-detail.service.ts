@@ -39,6 +39,16 @@ export class ReviewDetailService {
     return of(movieId); 
   }
 
+  //Ruben
+  /*
+   getMovieIdAny(id:number): any{
+    const movieId = this.ms.getMovie().find((m: { id: number; }) => m.id===id)!;
+    console.log("movie of specific page is " + of(movieId))
+    return of(movieId); 
+  }
+  */
+  //Ruben
+
   // //getting Observable of movies from our movie detail service(movie database feteched from API)
   // getMovies(): Observable<Movie[]>{
   //   const movie = of(this.ms.getM())
@@ -71,4 +81,15 @@ export class ReviewDetailService {
   getTest():Observable<Object>{
     return this.http.get('https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898');
   }
+  //this method will return us an array of all Critic reviews for a specific movie in our 
+  //database, caseSensitive, 
+  //need to redo for future because movie names are not unique and characters vary by language
+  //MovieName passed in needs to be movie name from our database
+
+  getReviewByMovieName(MovieName: any){
+    let url = `${this.reviewUrl}/review/viewByMovieName/${MovieName}`
+    //only getting first result from return array 
+    return this.http.get<any>(url); 
+  }
+
 }

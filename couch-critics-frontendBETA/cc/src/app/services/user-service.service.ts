@@ -49,4 +49,8 @@ export class UserServiceService {
     console.log("current userObject from session storage is " + userObject)
     return userObject
   }
+
+  createCommentToReview(){
+    console.log("create comment")
+  }
 }
