@@ -4,8 +4,8 @@ import { Location } from '@angular/common';
 
 import { review } from '../../models/review-interface';
 import { ReviewDetailService } from '../../services/review-detail.service';
-import { MovieDetailService } from 'src/app/services/movie-detail.service';
 import { Movie } from 'src/app/models/movie';
+
 
 @Component({
   selector: 'app-review-detail',
@@ -23,7 +23,8 @@ export class ReviewDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private detail: ReviewDetailService,
     private location: Location,
-    private ms: MovieDetailService
+   
+
   ) { }
 
 
@@ -71,6 +72,7 @@ export class ReviewDetailComponent implements OnInit {
     this.detail.addReview(r);
     console.log(r)
   }
+  
 
   goBack(): void {
     this.location.back();
