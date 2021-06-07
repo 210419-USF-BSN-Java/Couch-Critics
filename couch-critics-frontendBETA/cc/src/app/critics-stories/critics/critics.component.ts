@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { review } from '../../models/review-interface';
 import { ReviewDetailService } from '../../services/review-detail.service';
-import { MatSliderModule } from '@angular/material/slider';
 import { User } from 'src/app/models/user';
 import { UserServiceService } from 'src/app/services/user-service.service';
+
 
 @Component({
   selector: 'app-critics',

@@ -15,6 +15,7 @@ import { ViewAllUsersComponent } from './administrator/view-all-users/view-all-u
 import { ViewApprovedReviewsComponent } from './administrator/view-approved-reviews/view-approved-reviews.component';
 import { ViewPendingReviewsComponent } from './administrator/view-pending-reviews/view-pending-reviews.component';
 
+
 const routes: Routes = [
   {path: '', component:LoginComponent},
   {path: 'login', component:LoginComponent}, 
