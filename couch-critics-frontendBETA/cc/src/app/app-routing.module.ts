@@ -16,10 +16,11 @@ import { ViewApprovedReviewsComponent } from './administrator/view-approved-revi
 import { ViewPendingReviewsComponent } from './administrator/view-pending-reviews/view-pending-reviews.component';
 
 const routes: Routes = [
-  {path: '', component:DashboardComponent},
+  {path: '', component:LoginComponent},
   {path: 'login', component:LoginComponent}, 
   {path: 'usersetting', component:UserInfoComponent},
   {path: 'userhome', component: UserLoggedInHomeComponent}, 
+  {path: "CriticMovieReview/:id", component: UserViewAMovieComponent},
   {path: 'usercritics', component: UserViewCriticsPageComponent}, 
   {path: 'userMovie', component:UserViewAMovieComponent},
   { path: 'critics', component: CriticsComponent },
@@ -29,7 +30,10 @@ const routes: Routes = [
   { path: 'view-employees', component : ViewAllEmployeesComponent},
   { path: 'view-users', component : ViewAllUsersComponent},
   { path: 'view-approved-reviews', component : ViewApprovedReviewsComponent},
-  { path: 'view-pending-reviews', component : ViewPendingReviewsComponent}
+  { path: 'view-pending-reviews', component : ViewPendingReviewsComponent},
+  { path: '**', component: LoginComponent  }
+
+
 ];
 
 @NgModule({

@@ -1,49 +1,66 @@
+<app-critics-nav-bar>
+
+</app-critics-nav-bar>
 
 
-<app-critics-nav-bar></app-critics-nav-bar>
+<div class="styled-table">
 
 
+    <button (click)="getMyReview()"> My Reviews</button><button (click)="getMyPending()">View Pending Review</button><button (click)="getMyAccepted()">View Accepted</button>
 
-<!--
-<ul class="reviews">
-    <li *ngFor="let review of reviews">
-        <a routerLink="/detail/{{review.movieId}}">
-        <span class = "badge">{{review.movieId}}</span> {{review.movieName}}
-    </a>
-        
-    </li>
-    
-</ul>
--->
+    <table class="styled-table">
+        <thead>
+            <tr *ngIf="triggerR">
+                <th>Movie Name</th>
+                <th>Review </th>
+                <th>Status </th>
 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of reviews">
+                <td><a routerLink="/detail/{{r.movieId}}">{{r.movieName}}</a></td>
+                <td>{{r.review}}</td>
+                <td>{{r.reviewStatus}}</td>
+            </tr>
+        </tbody>
+    </table>
 
-<div class="critic-buttons">
-    <!--
-    <label for="id">Enter id:</label>
-    <input type="text" name = "id">
     <br>
-    -->
-<mat-card>
-    
-<button (click)="getMyReview()"> My Reviews</button><button (click)="getMyPending()">View Pending Review</button><button (click)="getMyAccepted()">View Accepted</button>
-<ul class="reviews">
-    <li *ngFor="let r of reviews">
-        {{r.movieId}} {{r.movieName}} ({{r.reviewStatus}})
-    </li>
-</ul>
-</mat-card>
 
-<ul class="pending">
-    <li *ngFor="let r of pendings">
-        {{r.reviewId}} {{r.review}} ({{r.reviewStatus}})
-    </li>
-</ul>
+    <table class="styled-table">
+        <thead>
+            <tr *ngIf="triggerP">
+                <th>Movie Name</th>
+                <th>Review</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of pendings">
+                <td><a routerLink="/detail/{{r.movieId}}">{{r.movieName}}</a></td>
+                <td>{{r.review}}</td>
+                <td>{{r.reviewStatus}}</td>
+            </tr>
+        </tbody>
+    </table>
 
+    <br>
 
-
-<ul class="accepted">
-    <li *ngFor="let r of accepted">
-        {{r.reviewId}} {{r.review}} ({{r.reviewStatus}})
-    </li>
-</ul>
+    <table class="styled-table">
+        <thead>
+            <tr *ngIf="triggerA">
+                <th>Movie Name</th>
+                <th>Review</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of accepted">
+                <td><a routerLink="/detail/{{r.movieId}}">{{r.movieName}}</a></td>
+                <td>{{r.review}}</td>
+                <td>{{r.reviewStatus}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
