@@ -1,7 +1,7 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { review } from '../../models/review-interface';
 import { ReviewDetailService } from '../../services/review-detail.service';
+import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-critics',
@@ -16,8 +16,8 @@ export class CriticsComponent implements OnInit {
   pendings: review[] = [];
   accepted: review[] = [];
   id: number = 50;
-  pending: string = "pending";
-  approved: string = "approved";
+  pending: string = "Pending";
+  approved: string = "Approved";
 
 
 
