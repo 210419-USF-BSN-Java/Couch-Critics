@@ -1,7 +1,7 @@
 
-export interface review{
-  discId: number;
-  userId: number; 
-  reviewId: number; 
+export interface discussion{
+  discId?: number;
+  userId: {userid: Number}; 
+  reviewId: {reviewId: Number} 
   content: string; 
 }

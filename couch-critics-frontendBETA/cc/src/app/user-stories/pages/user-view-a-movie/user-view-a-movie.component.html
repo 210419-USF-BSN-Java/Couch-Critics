@@ -1,13 +1,20 @@
 <div class="movie-review-container">
     <div class="movie-card example-card item">
-         <mat-card>
+         <mat-card *ngIf="m">
              <mat-card-header>
-                 <mat-card-title>Tenet</mat-card-title>
-                 <mat-card-subtitle>Average Rating : 9.9</mat-card-subtitle>
+                 <mat-card-title>{{m.original_title}}</mat-card-title>
+                 <mat-card-subtitle><p>Average Rating : {{m.vote_average}}; Voter-Count: {{m.vote_count}}</p>
+                     <br> <p>Website: <a href="{{m.homepage}}">{{m.homepage}}</a></p>
+                 </mat-card-subtitle>
              </mat-card-header>
-             <img mat-card-image src="../../../../assets/tenet.jpg" width="100px" max-heigth="100px" alt="post of movie">
+             <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}" width="100px" max-heigth="100px" alt="post of movie">
              <mat-card-content>
-                 <p>Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.</p>
+               <h4>Overview</h4>
+                <p>
+                    {{m.overview}}
+                </p>
+                <h4>Box Office Facts</h4>
+                <p> Popularity Score: {{m.popularity}}</p>
              </mat-card-content>
              <mat-card-actions>
                  <button mat-button>LIKE</button>
@@ -16,49 +23,59 @@
          </mat-card>
     </div>
     <div class="critic-review item">
-        <mat-card class="Critic-background">
+        <mat-card  class="Critic-background">
             <mat-card-header>
                 <div mat-card-avatar class="critic-header-image"></div>
                  <mat-card-title>Critic</mat-card-title>
-                 <mat-card-subtitle>Critic Name: Kristen Woods</mat-card-subtitle>
+                 <mat-card-subtitle>
+                    <span>UserName: {{c[0].authorId.username}}</span> <br>
+                    <span>Name: {{c[0].authorId.firstName}} {{c[0].authorId.lastName}}</span> </mat-card-subtitle>
             </mat-card-header>
              <mat-card-content>
-                 <p>is a critic and host of the video podcast Pop Culture Planet & The Fan Club. She's a member of HCA, LEJA & Television Academy. Find Kristen @kaymaldo</p>
+                 <h4>Critic Background</h4>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis rhoncus urna neque viverra justo nec ultrices dui sapien. A iaculis at erat pellentesque adipiscing commodo elit.</p>
              </mat-card-content>
         </mat-card>
         <div class="critic-review-content-container">
             <div class="critic-content">
                 <h4>What this Critic thinks</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis rhoncus urna neque viverra justo nec ultrices dui sapien. A iaculis at erat pellentesque adipiscing commodo elit. </p>
+                <p>{{c[0].review}}</p>
+                <span>Submitted : {{c[0].submit | date}}</span>
             </div>
             <div class="User Reply">
-                <span> LikeIcon, Dislike Icon, ReplyToCriticPostImage</span>
+                <span> Total Likes: {{c[0].likes}} LikeIcon</span><span> Total Dislikes: {{c[0].dislikes}} Dislike Icon,</span> <span> ReplyToCriticPostImage</span>
             </div>
         </div>
     </div>
     <div class="user-comments-posted-container item">
+        <mat-card>
+                <mat-card-header>
+                    <mat-card-title><h5>Add a comment</h5></mat-card-title>
+                </mat-card-header>
+            <form class="edit-user-info example-form" [formGroup] ="editForm">
+                <mat-form-field class="form-control">
+                        <mat-label for="content">Write Here</mat-label>
+                        <input type="text" formControlName="content" id="content"  matInput />
+                </mat-form-field>
+                <button  mat-raised-button color="warn" >Cancel</button>
+                <button (click)="onSubmit()"  mat-raised-button color="primary" >Save</button>
+            </form>
+        </mat-card>
+
         <h4>Average Joes Comments</h4>
-        <div class="comments-posted">
+        <ul class="comments-posted">
+            <li *ngFor="let comment of userComments">
             <mat-card class="comment-entry">
-            <mat-card-header>
+                <mat-card-header>
                 <div mat-card-avatar class="average-joe-header-image"></div>
-                 <mat-card-title>Average Joe</mat-card-title>
-                 <mat-card-subtitle>Rubles Doodle</mat-card-subtitle>
-            </mat-card-header>
-             <mat-card-content>
-                 <p>lol noob</p>
-             </mat-card-content>
+                <mat-card-title>Average Joe</mat-card-title>
+                <mat-card-subtitle>{{comment.userId.username}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{comment.content}}</p>
+                </mat-card-content>
             </mat-card>
-            <mat-card class="comment-entry">
-            <mat-card-header>
-                <div mat-card-avatar class="average-joe-header-image"></div>
-                 <mat-card-title>Average Joe</mat-card-title>
-                 <mat-card-subtitle>joe dirt</mat-card-subtitle>
-            </mat-card-header>
-             <mat-card-content>
-                 <p>I can write a better script in a day </p>
-             </mat-card-content>
-            </mat-card>
-        </div>
+            </li>
+        </ul>
     </div>
 </div>

@@ -6,7 +6,6 @@ import { catchError, filter, map, tap } from 'rxjs/operators';
 import { environment as env } from 'src/environments/environment';
 
 
-const userId = 1; 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -63,6 +62,10 @@ export class UserServiceService {
     let userObject = JSON.parse(window.sessionStorage.getItem('currentUserObject')!);
     console.log("current userObject from session storage is " + userObject)
     return userObject
+  }
+
+  banUser(userId: number) : Observable<void> {
+    return this.http.get<void>(`${this.apiServerUrl}/users/setUserAccountStatus/${userId}/Deactivate`)
   }
 
   //bans/deletes user
