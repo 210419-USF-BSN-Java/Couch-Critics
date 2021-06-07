@@ -32,8 +32,6 @@ const routes: Routes = [
   { path: 'view-approved-reviews', component : ViewApprovedReviewsComponent},
   { path: 'view-pending-reviews', component : ViewPendingReviewsComponent},
   { path: '**', component: LoginComponent  }
-
-
 ];
 
 @NgModule({
