@@ -29,7 +29,6 @@ import {MatInputModule} from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
-import { MatSlider, MatSliderModule } from '@angular/material/slider';
 import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critics-nav-bar.component';
 
 @NgModule({
@@ -68,6 +67,8 @@ import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critic
     ReactiveFormsModule,
     FontAwesomeModule,
     CommonModule,
+    
+
     
   ],
   providers: [],
