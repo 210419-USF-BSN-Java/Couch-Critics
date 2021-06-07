@@ -36,8 +36,12 @@ export class ManageComponent implements OnInit {
   constructor(private router : Router, private logoff : LogOutService, private location : Location) { }
 
   ngOnInit(): void {
+    document.body.className = "selector";
   }
 
+  ngOnDestroy() {
+    document.body.className="";
+  }
 
 
 }
