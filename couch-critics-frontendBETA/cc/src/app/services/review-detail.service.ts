@@ -22,76 +22,31 @@ export class ReviewDetailService {
               private ms : MovieDetailService,
               ) { }
               
- /// functions below are attempting to retrieve observables from our server
-
-  // //Get all reviews
-  // getR(id:number):Observable<review[]>{
-  //   let url = `${this.reviewUrl}/review/viewByCriticId/${id}`;
-  //   return this.http.get<review[]>(url);
-  // }
 
   //get Movie Id
-  getMovieId(id:number): Observable<Movie>{
+  getMovieId(id:number | undefined): Observable<Movie>{
     const movieId = this.ms.getM().find(m => m.id===id)!;
     return of(movieId); 
   }
 
-  // //get Pending Status
-  // getPendingStatus() : Observable<review[]>{
-  //   let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
-  //   return this.http.get<review[]>(url);
-  // }
-
-  // //get all accepted
-  // getAcceptedStatus(){
-  //   let url = `${this.reviewUrl}/review/viewByReviewStatus/accepted`;
-  //   return this.http.get<review[]>(url);
-  // }
-
   //get all reviews by critics Id
-  getMyReviews(id:number) : Observable<review[]>{
+  getMyReviews(id:number | undefined) : Observable<review[]>{
     let url=`${this.reviewUrl}/review/viewByCriticId/${id}`
     return this.http.post<review[]>(url, id);
   }
 
   //get all reviews by critics Id and review status
-  getByIdAndStatus(id:number, status:string) : Observable<review[]>{
+  getByIdAndStatus(id:number | undefined, status:string) : Observable<review[]>{
     let url=`${this.reviewUrl}/review/viewByIdAndStatus/${id}/${status}`
     return this.http.post<review[]>(url, [id,status]);
   }
 
   //Send newly created review to the database
-  addReview(newReview : Object) : void{
+  addReview(newReview : Object){
     let url = `${this.reviewUrl}/review/addReview`;
-    this.http.post<Object>(url, newReview);
+    this.http.post(url, newReview);
     // , {observe:'response'}
   }
-
-  
-   // MOCK DATA STUFF
-  // getReview(): Observable<review[]>{
-  //   const reviews = of(REVIEWS)
-  //   return reviews;
-  // }
-
-  // // how to return the observable of id for mock database
-  // getreview(id:number): Observable<review>{
-  //   const review = REVIEWS.find(h=>h.movieId===id)!;
-  
-  //   return of(review);
-  // }
-
-  // getting Observable of movie ids from our movie details service
-
-
-  // //getting Observable of movies from our movie detail service(movie database feteched from API)
-  // getMovies(): Observable<Movie[]>{
-  //   const movie = of(this.ms.getM())
-  //   return movie;
-  // }
-
-  
-  /// Error returning is skipped for now
 
   //Get all reviews
   getR(id:number):Observable<review[]>{
@@ -111,10 +66,6 @@ export class ReviewDetailService {
     return this.http.get<review[]>(url);
   }
 
-  //just testing
-  getTest():Observable<Object>{
-    return this.http.get('https://api.themoviedb.org/3/movie/550?api_key=dd454d7a4e6f0047a483673b42f31898');
-  }
 
   //denies review
   rejectReview(reviewId : number) : Observable<void> {

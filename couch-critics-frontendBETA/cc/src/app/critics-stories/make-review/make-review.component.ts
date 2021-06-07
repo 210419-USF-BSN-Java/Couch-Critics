@@ -4,6 +4,7 @@ import { Movie } from '../../models/movie';
 
 
 
+
 @Component({
   selector: 'app-make-review',
   templateUrl: './make-review.component.html',
@@ -14,11 +15,13 @@ export class MakeReviewComponent implements OnInit {
   title = "Create Movie Review";
   movies : Movie[] = [];
   movieId : Movie[] =[];
+  
 
-  constructor(private ms : MovieDetailService,) { }
+  constructor(private ms : MovieDetailService) { }
 
   ngOnInit()  {
     this.getMovies();
+    
   }
 
   //getting movie data from our movie services
