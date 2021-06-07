@@ -20,7 +20,7 @@ export class UserLoggedInHomeComponent implements OnInit {
 
   getMovies() {
     this.movies = this.ms.getM(); 
-    console.log("init page of movies" + this.movies)
+    //console.log("init page of movies" + this.movies)
   }
 
 }

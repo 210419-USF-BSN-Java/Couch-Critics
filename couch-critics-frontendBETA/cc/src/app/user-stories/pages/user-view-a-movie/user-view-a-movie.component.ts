@@ -8,6 +8,7 @@ import {User} from "../../../models/user"
 import {UserServiceService} from "../../../services/user-service.service"
 import {MovieDetailService} from '../../../services/movie-detail.service'
 import {ReviewDetailService} from "../../../services/review-detail.service"
+import {DiscussionService} from "../../../services/discussion.service"
 
 @Component({
   selector: 'app-user-view-a-movie',
@@ -21,13 +22,15 @@ export class UserViewAMovieComponent implements OnInit {
   currentPageMovieId: any; 
   currentPageMovieName: any | undefined; 
   c: any | undefined;
+  userComments: any | undefined;
+  currentReview: any | undefined; 
 
   constructor(
     private route: ActivatedRoute,
     private reviewDetail: ReviewDetailService,
     private location: Location, 
     private movieDetail: MovieDetailService, 
-    private user: UserServiceService
+    private disc: DiscussionService
   ) { }
 
   ngOnInit(): void {
@@ -43,18 +46,34 @@ export class UserViewAMovieComponent implements OnInit {
     this.currentPageMovieName = this.m.original_title;
     console.log(this.currentPageMovieName)
     this.getReviewDetails(this.currentPageMovieName); 
+    this.getReviewComments(5); 
   }
   
 
   getReviewDetails(MovieName: any){
    this.reviewDetail.getReviewByMovieName(MovieName).subscribe( r => {
-     console.log(r)
+     //console.log(r)
      let x : any  = r;
      this.c = x; 
-     console.log("current global var " + this.c)
-     console.log(x)
+     let reviewid = x[0].reviewId;
+     this.currentReview = reviewid; 
+     console.log("this is the current review id " + this.currentReview)
+     //console.log("current global var " + this.c)
+
+    // console.log(x)
      return this.r
    })
+  }
+
+  getReviewComments(reviewId: any){
+    this.disc.getCommentsForReview(reviewId).subscribe( (c: any) => {
+      console.log(c)
+      let comments: any = c; 
+      this.userComments = comments; 
+      console.log(comments)
+      console.log("array of comments" + this.userComments)
+      console.log("this is the returned array of comments for this review "+ comments)
+    })
   }
 
   goBack(){

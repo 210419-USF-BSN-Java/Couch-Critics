@@ -18,7 +18,7 @@ export class DiscussionService {
   
     private baseUrl = env.BACKEND_URL;
 
-  constructor(private http: HttpClient, private HttpClient: HttpHeaders) { }
+  constructor(private http: HttpClient) { }
 
   getCommentsForReview(reviewId: number): any{
     const url = `${this.baseUrl}/disc/reviews/${reviewId}`
