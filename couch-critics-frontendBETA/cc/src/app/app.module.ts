@@ -52,6 +52,7 @@ import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critic
     MakeReviewComponent,
     CriticsNavBarComponent
 
+
   ],
   imports: [
     MatInputModule,

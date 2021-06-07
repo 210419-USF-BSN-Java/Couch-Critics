@@ -15,7 +15,6 @@ public class MovieController {
 
 	//Gets the movie id from the path variable
 	//Returns a custom movie object
-	//Request may take up to a minute
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Movie> getMovieById(@PathVariable("id") Integer movieId){
 		RestTemplate rt = new RestTemplate();
