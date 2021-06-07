@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent}, 
   {path: 'usersetting', component:UserInfoComponent},
   {path: 'userhome', component: UserLoggedInHomeComponent}, 
+  {path: "CriticMovieReview/:id", component: UserViewAMovieComponent},
   {path: 'usercritics', component: UserViewCriticsPageComponent}, 
   {path: 'userMovie', component:UserViewAMovieComponent},
   { path: 'critics', component: CriticsComponent },

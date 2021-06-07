@@ -50,3 +50,7 @@
 .comment-entry{
     margin: 0 10px 10px 0;
 }
+
+ ul{
+    list-style: none;
+}
