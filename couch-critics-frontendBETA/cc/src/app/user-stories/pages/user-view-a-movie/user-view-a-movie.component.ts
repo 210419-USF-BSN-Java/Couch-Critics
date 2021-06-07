@@ -23,7 +23,7 @@ export class UserViewAMovieComponent implements OnInit {
   currentPageMovieName: any | undefined; 
   c: any | undefined;
   userComments: any | undefined;
-  currentReview: any | undefined; 
+  currentReview: any | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -46,7 +46,6 @@ export class UserViewAMovieComponent implements OnInit {
     this.currentPageMovieName = this.m.original_title;
     console.log(this.currentPageMovieName)
     this.getReviewDetails(this.currentPageMovieName); 
-    this.getReviewComments(5); 
   }
   
 
@@ -55,13 +54,14 @@ export class UserViewAMovieComponent implements OnInit {
      //console.log(r)
      let x : any  = r;
      this.c = x; 
-     let reviewid = x[0].reviewId;
+     let reviewid: any = x[0].reviewId;
      this.currentReview = reviewid; 
      console.log("this is the current review id " + this.currentReview)
      //console.log("current global var " + this.c)
 
     // console.log(x)
-     return this.r
+     this.getReviewComments(this.currentReview); 
+     return
    })
   }
 
