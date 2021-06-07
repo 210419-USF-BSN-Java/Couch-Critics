@@ -11,6 +11,8 @@
     </li>
 </ul>
 
+
+
 <!--Manually hard coding our returned array so we have something to present-->
 <p>User Id: {{users[0].userid}} | Username: {{users[0].username}} <button (click)="banUser(users[0].userid!)">Ban User</button> Status: "{{users[0]?.statusid?.accStatus}}"" <button (click)="activateUser(users[0].userid!)">Activate User</button></p> 
 <p>User Id: {{users[1].userid}} | Username: {{users[1].username}} <button (click)="banUser(users[1].userid!)">Ban User</button> Status: "{{users[1]?.statusid?.accStatus}}"" <button (click)="activateUser(users[1].userid!)">Activate User</button></p> 

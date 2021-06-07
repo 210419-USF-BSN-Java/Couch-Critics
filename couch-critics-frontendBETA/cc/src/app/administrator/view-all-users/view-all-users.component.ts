@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user';
 import { UserServiceService} from 'src/app/services/user-service.service';
 import { Location } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CriticsNavBarComponent } from 'src/app/critics-stories/critics-nav-bar/critics-nav-bar.component';
 
 @Component({
   selector: 'app-view-all-users',
