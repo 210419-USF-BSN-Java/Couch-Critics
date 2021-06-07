@@ -28,22 +28,23 @@
     <input type="text" name = "id">
     <br>
     -->
-
-<button (click)="getMyReview()"> My Reviews</button>
+<mat-card>
+    
+<button (click)="getMyReview()"> My Reviews</button><button (click)="getMyPending()">View Pending Review</button><button (click)="getMyAccepted()">View Accepted</button>
 <ul class="reviews">
     <li *ngFor="let r of reviews">
         {{r.movieId}} {{r.movieName}} ({{r.reviewStatus}})
     </li>
 </ul>
+</mat-card>
 
-<button (click)="getMyPending()">View Pending Review</button>
 <ul class="pending">
     <li *ngFor="let r of pendings">
         {{r.reviewId}} {{r.review}} ({{r.reviewStatus}})
     </li>
 </ul>
 
-<button (click)="getMyAccepted()">View Accepted</button>
+
 
 <ul class="accepted">
     <li *ngFor="let r of accepted">

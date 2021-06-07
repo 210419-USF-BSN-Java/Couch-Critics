@@ -61,10 +61,12 @@ export class ReviewDetailService {
   }
 
   //Send newly created review to the database
-  addReview(newReview : review){
+  addReview(newReview : Object) : void{
     let url = `${this.reviewUrl}/review/addReview`;
-    this.http.post(url, newReview), {observe:'response'};
+    this.http.post<Object>(url, newReview);
+    // , {observe:'response'}
   }
+
   
    // MOCK DATA STUFF
   // getReview(): Observable<review[]>{
