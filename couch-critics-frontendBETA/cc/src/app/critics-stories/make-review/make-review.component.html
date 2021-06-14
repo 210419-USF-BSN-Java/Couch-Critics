@@ -1,37 +1,37 @@
+<app-critics-nav-bar>
 
-
-<app-critics-nav-bar></app-critics-nav-bar>
+</app-critics-nav-bar>
 <br>
-<div class ="home-container"> 
+<div class="home-container">
     <div class="movies-container">
         <div class="movie-entry">
 
-                <h3>Movies</h3>
-                <ul class="movie-list-container">
-                    <li *ngFor="let m of movies">
-                        <mat-card class="movie-card">
-                            <mat-card-header>
-                                <mat-card-title>
-                                    <h3>Movie: {{m.original_title}}</h3>
-                                </mat-card-title>
-                            </mat-card-header>
-                            <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}" max-width="80px" max-heigth="100px" alt="post of movie">
-                            <mat-card-content>
-                                <h4>Overview</h4>
-                                <p>
-                                    {{m.overview}}
-                                </p>
-                                <span>Popularity rating: {{m.popularity}}</span>
-                                <br>
-                                <button routerLink="/detail/{{m.id}}">Critic It!</button>
-                                <br>
-                            </mat-card-content>
-                        </mat-card>
-                    </li>
-                </ul>
+
+            <ul class="movie-list-container">
+                <li *ngFor="let m of movies">
+                    <mat-card class="movie-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                <h3>{{m.original_title}}</h3>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="https://image.tmdb.org/t/p/w200/{{m.poster_path}}" max-width="80px" max-heigth="100px" alt="post of movie">
+                        <mat-card-content>
+                            <h4>Overview</h4>
+                            <p>
+                                {{m.overview}}
+                            </p>
+                            <span>Popularity rating: {{m.popularity}}</span>
+                            <br>
+                            <button routerLink="/detail/{{m.id}}">Critic It!</button>
+                            <br>
+                        </mat-card-content>
+                    </mat-card>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-<!--
+    <!--
 <h3>List of Movies</h3>
 <ul class="movies">
     <li >
@@ -49,6 +49,3 @@
     
 </ul>
 -->
-
-
-
