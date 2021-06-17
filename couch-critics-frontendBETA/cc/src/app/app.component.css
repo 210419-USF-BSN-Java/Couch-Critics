@@ -2,8 +2,8 @@ body, html {
     height: 100%;
   }
   .bg {
-    /* The image used */
-    background-image: url("C:\Users\Raymo\OneDrive\Pictures\FrontEnd Images\1.jpg");
+    /* The image used
+    background-image: url("C:\Users\Raymo\OneDrive\Pictures\FrontEnd Images\1.jpg"); */
   
     /* Half height */
     height: 50%;

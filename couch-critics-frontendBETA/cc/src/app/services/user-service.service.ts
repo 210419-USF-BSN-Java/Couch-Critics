@@ -35,16 +35,18 @@ export class UserServiceService {
     return this.http.get<User[]>(url);
   }
 
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.apiServerUrl}/users/register`, user);
+  }
+
+  deleteUser(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/users/delete/${userId}`);
+  }
+
   getUsers() : Observable<User[]>{
     let url = `${this.apiServerUrl}/users/getUsers/customer`;
     return this.http.get<User[]>(url);
   }
-
-  //   //get all pending
-  // getPendingStatus() : Observable<review[]>{
-  //   let url = `${this.reviewUrl}/review/viewByReviewStatus/Pending`;
-  //   return this.http.get<review[]>(url);
-  // }
 
   updateUser(user: User): Observable<User>{
     const url = `${this.apiServerUrl}/users/update`
@@ -72,8 +74,4 @@ export class UserServiceService {
     return this.http.get<void>(`${this.apiServerUrl}/users/setUserAccountStatus/${userId}/Activate`)
   }
 
-  //bans/deletes user
-  // banUser(userid : number) : Observable<void> {
-    // return this.delete<void>(`${this.apiServerUrl}/`)
-  //}
 }

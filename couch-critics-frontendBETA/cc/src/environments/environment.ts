@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  BACKEND_URL : 'http://ec2-13-52-242-49.us-west-1.compute.amazonaws.com:8080/', 
+  BACKEND_URL : 'http://localhost:8080', 
   TEST_H2_URL : 'http://localhost:8080/h2-console',
   key : "?api_key=dd454d7a4e6f0047a483673b42f31898"
   

@@ -1,30 +1,229 @@
-<h2>Couch Critic Employees</h2>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
+    <a class="navbar-brand" style="color:white;">Employee Manager</a>
 
-
-<!--Team has not figured out why this For loop is not iterating-->
-<!--Our theory is that the fields that are related to other tables in our RDBS have returned as objects, and each of those fields contain arrays within them 
-    containing all of the information from it's related tables. Our interface models aren't directly able to access these fields because we were not predicting those
-    fields to return as nested objects. In order to access those nested objects, we would have had to put for example authorId : {First Name : Number, username: string, password: string} 
-    this discovery wasn't made until a day before presentation, so we decided as a team to adapt to some of the properties our models that we do have access to. -->
-
-    <ul>
-        <li *ngFor="let user of users">
-            <span class="badge">{{user.userid}}</span> {{user.firstName}}
-        </li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     
-    <!--Manually hard coding our returned array so we have something to present-->
-    <p>User Id: {{users[0].userid}} | Username: {{users[0].username}} <button (click)="fire(users[0].userid!)">Fire</button> </p>
-    <p>User Id: {{users[1].userid}} | Username: {{users[1].username}} <button (click)="fire(users[1].userid!)">Fire</button> </p>
-    <p>User Id: {{users[2].userid}} | Username: {{users[2].username}} <button (click)="fire(users[2].userid!)">Fire</button> </p>
-    <p>User Id: {{users[3].userid}} | Username: {{users[3].username}} <button (click)="fire(users[3].userid!)">Fire</button> </p>
-    <p>User Id: {{users[4].userid}} | Username: {{users[4].username}} <button (click)="fire(users[4].userid!)">Fire</button> </p>
-    <p>User Id: {{users[5].userid}} | Username: {{users[5].username}} <button (click)="fire(users[5].userid!)">Fire</button> </p>
-    <p>User Id: {{users[6].userid}} | Username: {{users[6].username}} <button (click)="fire(users[6].userid!)">Fire</button> </p>
-    <p>User Id: {{users[7].userid}} | Username: {{users[7].username}} <button (click)="fire(users[7].userid!)">Fire</button> </p>
-    <p>User Id: {{users[8].userid}} | Username: {{users[8].username}} <button (click)="fire(users[8].userid!)">Fire</button> </p>
-    <p>User Id: {{users[9].userid}} | Username: {{users[9].username}} <button (click)="fire(users[9].userid!)">Fire</button> </p>
+        <span class="navbar-toggler-icon"></span>
 
-<!--Send user to previous page-->
-<button (click)="goBack()">Go Back</button>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+
+       <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+             <a class="nav-link" (click)="onOpenModal(null, 'add')">Add User <span class="sr-only">(current)</span></a>
+          </li>
+
+       </ul>
+
+       <form class="form-inline my-2 my-lg-0">
+
+          <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
+
+           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+
+       </form>
+
+    </div>
+    
+  </nav>
+
+  <!-- Show All Employees -->
+  <div class="container" id="main-container">
+
+  <div class="row">
+    <div *ngFor="let user of this.users" class="col-md-6 col-xl-3">
+
+       <div class="card m-b-30">
+
+          <div class="card-body row">
+
+             <div class="col-6">
+
+                <a href=""><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="img-fluid rounded-circle w-60"></a>
+             
+            </div>
+
+             <div class="col-6 card-title align-self-center mb-0">
+
+                <h5>{{user?.firstName + " " + user?.lastName}}</h5>
+
+                <p class="m-0">{{user?.roleId?.role}}</p>
+                <p class="m-0">User ID: {{user?.userid}}</p>
+
+             </div>
+
+          </div>
+
+          <ul class="list-group list-group-flush">
+
+             <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{user?.email}}</li>
+             <li class="list-group-item"><i class="fa fa-phone float-right"></i>Account Status : {{user?.statusid?.accStatus}}</li>
+          
+          </ul>
+          
+          <div class="card-body">
+
+            <div class="float-right btn-group btn-group-sm">
+
+                <a (click)="onOpenModal(user, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                <a (click)="onOpenModal(user, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+             
+            </div>
+
+          </div>
+
+       </div>
+
+    </div>
+
+  </div>
+  
+  <!-- Add Employee Modal -->
+  <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+
+         <div class="modal-header">
+            <h5 class="modal-title" id="addEmployeeModalLabel">Add Employee</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+
+         <div class="modal-body">
+            <form #addForm="ngForm"  (ngSubmit)="onAddEmloyee(addForm)">
+            <div class="form-group">
+               <label for="firstName">First Name</label>
+               <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="First Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Last Name" required>
+             </div>
+
+             <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" ngModel name="username" class="form-control" id="username" placeholder="Username" required>
+             </div>
+
+             <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" ngModel name="password" class="form-control" id="password" placeholder="Password" required>
+             </div>
+
+            <div class="form-group">
+               <label for="email">Email Address</label>
+               <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="roleId">RoleId</label>
+                <input type="text" ngModel name="roleId" class="form-control" id="roleId" placeholder="roleId" required>
+             </div>
+
+            <div class="modal-footer">
+               <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Confirm</button>
+            </div>
+
+            </form>
+
+         </div>
+
+      </div>
+
+    </div>
+</div>
+  
+  <!-- Edit Modal -->
+  <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+    
+       <div class="modal-content">
+
+          <div class="modal-header">
+
+             <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editUser?.firstName}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+
+          </div>
+
+          <div class="modal-body" >
+             <form #editForm="ngForm">
+                <div class="form-group">
+                   <label for="name">First Name</label>
+                   <input type="text" ngModel="{{editUser?.firstName}}" name="firstName" class="form-control" id="firstName" aria-describedby="emailHelp" placeholder="firstName">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" ngModel="{{editUser?.lastName}}" name="lastName" class="form-control" id="lastName" aria-describedby="emailHelp" placeholder="lastName">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" ngModel="{{editUser?.username}}" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" ngModel="{{editUser?.password}}" name="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="password">
+                </div>
+
+                <input type="hidden" ngModel="{{editUser?.userid}}" name="userid" class="form-control" id="userid" placeholder="userid">
+                <input type="hidden" ngModel="{{editUser?.statusid.accStatusId}}" name="statusid" class="form-control" id="statusid" placeholder="statusid">
+                <input type="hidden" ngModel="{{editUser?.roleId.roleId}}" name="roleId" class="form-control" id="roleId" placeholder="roleId">
+               
+                <div class="form-group">
+                   <label for="email">Email Address</label>
+                   <input type="email" ngModel="{{editUser?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+                </div>
+
+                <div class="modal-footer">
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                   <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+  </div>
+  
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteModelLabel">Delete Employee</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <p>Are you sure you want to delete employee {{deleteUser?.firstName}}?</p>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button (click)="onDeleteEmloyee(deleteUser?.userid)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  </div>
+  
+  <!-- Notification for no employees -->
+  <div *ngIf="users?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO EMPLOYEES!</h4>
+    <p>No Employees were found.</p>
+  </div>
+  </div>

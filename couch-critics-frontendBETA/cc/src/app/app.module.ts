@@ -11,6 +11,7 @@ import { DashboardComponent } from '../app/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './administrator/account/account.component';
 import { ManageComponent } from './administrator/manage/manage.component';
+import { ViewAllEmployeesComponent } from './administrator/view-all-employees/view-all-employees.component';
 import { UserAccountInfoComponent } from './user-stories/components/user-account-info/user-account-info.component';
 import { UpdateUserInfoComponent } from './user-stories/components/update-user-info/update-user-info.component';
 import { UserInfoComponent } from './user-stories/pages/user-info/user-info.component';
@@ -23,14 +24,15 @@ import { CriticsComponent } from './critics-stories/critics/critics.component';
 import { ReviewDetailComponent } from './critics-stories/review-detail/review-detail.component';
 import { MakeReviewComponent } from './critics-stories/make-review/make-review.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
+import { MatCardModule} from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
+import { MatInputModule} from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { CriticsNavBarComponent } from './critics-stories/critics-nav-bar/critics-nav-bar.component';
 import { UserStoriesNavComponent } from './user-stories/components/user-stories-nav/user-stories-nav.component'
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { UserStoriesNavComponent } from './user-stories/components/user-stories-
     DashboardComponent,
     AccountComponent,
     ManageComponent,
+    ViewAllEmployeesComponent,
     UserAccountInfoComponent,
     UpdateUserInfoComponent,
     UserInfoComponent,
