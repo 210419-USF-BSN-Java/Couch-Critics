@@ -12,7 +12,7 @@ import {DiscussionService} from "../../../services/discussion.service"
 import {FormBuilder, FormGroup} from "@angular/forms"
 import { Output } from '@angular/core';
 import { first } from 'rxjs/operators';
-import { discussion } from 'src/app/models/discussion';
+import { discussion } from '../../../models/discussion';
 
 
 @Component({
