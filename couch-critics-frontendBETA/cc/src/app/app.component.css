@@ -12,19 +12,11 @@ h1 {
 body,
 html {
     height: 100%;
-<<<<<<< HEAD
-  }
-  .bg {
-    /* The image used
-    background-image: url("C:\Users\Raymo\OneDrive\Pictures\FrontEnd Images\1.jpg"); */
-  
-=======
 }
 
 .bg {
     /* The image used */
     background-image: url("https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
->>>>>>> 74de86396a7da0468a77457b8824d6a262d037a0
     /* Half height */
     height: 50%;
     /* Center and scale the image nicely */
